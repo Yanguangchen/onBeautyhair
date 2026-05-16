@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="faveicon.png" />
+  <link rel="apple-touch-icon" href="faveicon.png" />
+  <title>On Hair Salon &amp; Beauty &mdash; Full-Service Hair, Skin, Nails &amp; Bridal</title>
+  <meta name="description" content="On Hair Salon & Beauty is a luxury salon offering expert hair styling, color, skincare, nails, makeup and bridal services. Book your appointment today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">On</span>
+        <span class="logo-text">Hair Salon &amp; Beauty</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/6582755130?text=Hi%20On%20Hair%20Salon%20%26%20Beauty%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn btn-primary nav-cta">Reserve Your Chair</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="gradient-mesh" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+      <div class="blob blob-5"></div>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <div class="container hero-content" data-parallax-content>
+      <div class="hero-layout">
+        <div class="hero-text">
+          <p class="eyebrow reveal">Your Local Beauty Sanctuary</p>
+          <h1 class="hero-title reveal">
+            Hair and beauty care, tailored <br />
+            to your <em class="hero-keyphrase" data-shimmer>everyday confidence.</em>
+          </h1>
+          <p class="hero-subtitle reveal">
+            Your neighbourhood hair and beauty studio for color, styling, treatments, makeup and more.
+            We combine technical mastery with a personal touch to reveal your most authentic self.
+          </p>
+          
+          <div class="hero-pills reveal">
+            <span class="pill">Hair Color</span>
+            <span class="pill">Hair Treatment</span>
+            <span class="pill">Makeup</span>
+            <span class="pill">Facial</span>
+            <span class="pill">Beauty Services</span>
+          </div>
+
+          <div class="hero-actions reveal">
+            <button class="btn btn-primary btn-large btn-magnetic" data-open-booking>
+              <span class="btn-inner"><i class="fa-regular fa-calendar"></i> Book Appointment</span>
+              <span class="btn-glow"></span>
+            </button>
+            <a href="services.html" class="btn btn-ghost btn-large btn-magnetic">
+              <span class="btn-inner">View Services &amp; Prices <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+          </div>
+          
+          <div class="hero-stats reveal">
+            <div>
+              <strong data-counter="6" data-suffix="+">0</strong>
+              <span>Years in Beauty</span>
+            </div>
+            <div>
+              <strong data-counter="8000" data-suffix="+">0</strong>
+              <span>Appointments Completed</span>
+            </div>
+            <div>
+              <strong>4.9 <i class="fa-solid fa-star" aria-hidden="true"></i></strong>
+              <span>Google Rating</span>
+            </div>
+            <div class="cdc-badge">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>CDC Vouchers<br/>Accepted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media reveal">
+          <div class="hero-image-wrap">
+            <div class="hero-image" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80')"></div>
+            <div class="hero-image-accent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#services" class="scroll-cue" aria-label="Scroll to services">
+      <span class="scroll-line"></span>
+      <span class="scroll-text">Scroll</span>
+    </a>
+
+  </section>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Trust strip -->
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div><i class="fa-solid fa-award"></i><p>Mastery in Motion: Award-winning artistry</p></div>
+      <div><i class="fa-solid fa-leaf"></i><p>Sustainably Chic: 100% Vegan &amp; Cruelty-Free</p></div>
+      <div><i class="fa-solid fa-hand-holding-heart"></i><p>The 'On' Consultation: We listen first</p></div>
+      <div><i class="fa-solid fa-spa"></i><p>A Calm Retreat: The luxury of care</p></div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="section services-preview" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Curated Services</p>
+        <h2>The Art of the <em>Transformation</em></h2>
+        <p class="section-sub">
+          Browse our curated menu, then reserve your time. Every service begins with a signature consultation to align our craft with your personal rhythm.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <div class="service-img menu-placeholder ph-1"><span><i class="fa-regular fa-image"></i></span></div>
+          <div class="service-body">
+            <h3>[ Service Title 01 ]</h3>
+            <p>[ Short description of this service goes here. ]</p>
+            <span class="price-from">From $ &mdash;</span>
+            <a href="services.html#cat-1" class="link-arrow">View menu <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service-card featured reveal">
+          <div class="service-img menu-placeholder ph-2"><span><i class="fa-regular fa-image"></i></span></div>
+          <div class="service-body">
+            <span class="badge">[ Tag ]</span>
+            <h3>[ Service Title 02 ]</h3>
+            <p>[ Short description of this service goes here. ]</p>
+            <span class="price-from">From $ &mdash;</span>
+            <a href="services.html#cat-2" class="link-arrow">View menu <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-img menu-placeholder ph-3"><span><i class="fa-regular fa-image"></i></span></div>
+          <div class="service-body">
+            <h3>[ Service Title 03 ]</h3>
+            <p>[ Short description of this service goes here. ]</p>
+            <span class="price-from">From $ &mdash;</span>
+            <a href="services.html#cat-3" class="link-arrow">View menu <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-img menu-placeholder ph-4"><span><i class="fa-regular fa-image"></i></span></div>
+          <div class="service-body">
+            <h3>[ Service Title 04 ]</h3>
+            <p>[ Short description of this service goes here. ]</p>
+            <span class="price-from">From $ &mdash;</span>
+            <a href="services.html#cat-4" class="link-arrow">View menu <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-img menu-placeholder ph-1"><span><i class="fa-regular fa-image"></i></span></div>
+          <div class="service-body">
+            <h3>[ Service Title 05 ]</h3>
+            <p>[ Short description of this service goes here. ]</p>
+            <span class="price-from">From $ &mdash;</span>
+            <a href="services.html" class="link-arrow">View menu <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-img menu-placeholder ph-2"><span><i class="fa-regular fa-image"></i></span></div>
+          <div class="service-body">
+            <span class="badge">[ Tag ]</span>
+            <h3>[ Service Title 06 ]</h3>
+            <p>[ Short description of this service goes here. ]</p>
+            <span class="price-from">From $ &mdash;</span>
+            <a href="services.html" class="link-arrow">View menu <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Story -->
+  <section class="section about-section">
+    <div class="container about-grid">
+      <div class="about-media reveal">
+        <div class="about-image-main" style="background-image:url('https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="about-badge">
+          <strong>6</strong>
+          <span>Years<br/>of craft</span>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <p class="eyebrow">The On Philosophy</p>
+        <h2>A Studio Where <em>You Are the Muse</em></h2>
+        <p>
+          We founded On with a quiet conviction: that the best beauty isn’t something applied &mdash; it’s something revealed. You aren’t just another appointment; you’re the inspiration behind our technical mastery.
+        </p>
+        <p>
+          From your initial signature consultation to the final reveal, every step is intentional. We combine the world's finest techniques with a soft, personal touch to ensure you walk out feeling like the most authentic version of yourself.
+        </p>
+        <ul class="about-list">
+          <li><i class="fa-solid fa-check"></i> Certified master stylists &amp; colorists</li>
+          <li><i class="fa-solid fa-check"></i> Cruelty-free, sulfate-free product lines</li>
+          <li><i class="fa-solid fa-check"></i> Calm, boutique studio atmosphere</li>
+          <li><i class="fa-solid fa-check"></i> Complimentary consultations</li>
+        </ul>
+        <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Kind Words</p>
+        <h2>Loved by Our <em>Clients</em></h2>
+      </div>
+      <div class="testimonial-track reveal">
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;Hands down the best balayage I&rsquo;ve ever had. Naomi truly listens &mdash; I left feeling like the best version of myself.&rdquo;</p>
+          <footer>&mdash; Jessica P.</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;On did my entire bridal party. The day was seamless, every look was perfect and the photos are unreal. Forever grateful.&rdquo;</p>
+          <footer>&mdash; Amelia &amp; Mark</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;My skin has never looked better. Hannah&rsquo;s facials are pure magic and the studio feels like a tiny vacation each visit.&rdquo;</p>
+          <footer>&mdash; Priya K.</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;The team fixed a color job I was nervous about and made my hair look soft, healthy and expensive. I felt completely taken care of.&rdquo;</p>
+          <footer>&mdash; Cheryl T.</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;Clean space, gentle service and no hard selling. My manicure lasted beautifully and the shape was exactly what I asked for.&rdquo;</p>
+          <footer>&mdash; Nur A.</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;I booked a wash and blow before an event and walked out feeling polished in under an hour. The finish held all night.&rdquo;</p>
+          <footer>&mdash; Rachel L.</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;They explained every step before my treatment and gave practical aftercare tips. My hair still feels smooth weeks later.&rdquo;</p>
+          <footer>&mdash; Mei Xuan</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;The Bukit Merah Central outlet is convenient and the staff are warm without being pushy. I have already booked my next visit.&rdquo;</p>
+          <footer>&mdash; Sabrina G.</footer>
+        </article>
+        <article class="testimonial">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>&ldquo;My bridal trial was calm, detailed and really collaborative. They understood the natural look I wanted and made it camera-ready.&rdquo;</p>
+          <footer>&mdash; Elaine C.</footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <div class="reveal">
+        <p class="eyebrow light">Your Transformation Awaits</p>
+        <h2>Experience the Art of <em>Being Cared For.</em></h2>
+      </div>
+      <div class="cta-actions reveal">
+        <button class="btn btn-primary btn-large" data-open-booking>
+          <i class="fa-regular fa-calendar"></i> Reserve Your Chair
+        </button>
+        <a href="tel:+6569805784" class="btn btn-ghost-light btn-large">
+          <i class="fa-solid fa-phone"></i> +65 6980 5784
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo light">
+          <span class="logo-mark">On</span>
+          <span class="logo-text">Hair Salon &amp; Beauty</span>
+        </a>
+        <p>Where your beauty becomes art. A boutique studio for hair, skin and bridal beauty.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p class="footer-outlet">
+          <strong>Outlet 1 &mdash; Jalan Bukit Merah</strong><br />
+          Blk 2, Jalan Bukit Merah<br />
+          #01-5156, Singapore 150002
+        </p>
+        <p class="footer-outlet">
+          <strong>Outlet 2 &mdash; Bukit Merah Central</strong><br />
+          Blk 163, Bukit Merah Central<br />
+          #02-3601, Singapore 150163
+        </p>
+        <p class="footer-outlet">
+          <strong>Outlet 3 &mdash; Bedok North</strong><br />
+          Bedok North Street 3<br />
+          Singapore 460539
+        </p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>
+          Jalan Bukit Merah: <a href="tel:+6569805784">+65 6980 5784</a><br />
+          WhatsApp: <a href="https://wa.me/6582755130" target="_blank" rel="noopener">+65 8275 5130</a><br />
+          Bukit Merah Central: <a href="tel:+6569803033">+65 6980 3033</a><br />
+          WhatsApp: <a href="https://wa.me/6583099832" target="_blank" rel="noopener">+65 8309 9832</a>
+        </p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> On Hair Salon &amp; Beauty. All rights reserved.</p>
+      <p class="made-with">Crafted with care by <a href="https://webwizardsg.com" target="_blank" rel="noopener">Web Wizards SG</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-booking></div>
+    <div class="modal-card" role="dialog" aria-labelledby="bookingTitle">
+      <button class="modal-close" data-close-booking aria-label="Close booking"><i class="fa-solid fa-xmark"></i></button>
+      <p class="eyebrow">Reserve Your Visit</p>
+      <h3 id="bookingTitle">Book an Appointment</h3>
+      <p class="modal-sub">Fill in your details and we'll confirm your appointment within 24 hours.</p>
+      <form class="booking-form" id="bookingForm">
+        <div class="row">
+          <label>
+            <span>Full Name</span>
+            <input type="text" name="name" required placeholder="Jane Doe" />
+          </label>
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" required placeholder="+65 8275 5130" />
+          </label>
+        </div>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </label>
+        <div class="row">
+          <label>
+            <span>Service</span>
+            <select name="service" required>
+              <option value="">Choose a service</option>
+              <option>Haircut &amp; Style</option>
+              <option>Color / Balayage</option>
+              <option>Facial / Skincare</option>
+              <option>Nails / Manicure</option>
+              <option>Makeup Artistry</option>
+              <option>Bridal Package</option>
+            </select>
+          </label>
+          <label>
+            <span>Preferred Stylist</span>
+            <select name="stylist">
+              <option value="">Any available</option>
+              <option>Olivia North</option>
+              <option>Naomi Reyes</option>
+              <option>Hannah Lin</option>
+              <option>Maya Ellis</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            <span>Date</span>
+            <input type="date" name="date" required />
+          </label>
+          <label>
+            <span>Time</span>
+            <input type="time" name="time" required />
+          </label>
+        </div>
+        <label>
+          <span>Notes (optional)</span>
+          <textarea name="notes" rows="3" placeholder="Anything we should know?"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-large btn-block">
+          <i class="fa-regular fa-calendar-check"></i> Request Appointment
+        </button>
+        <p class="form-status" id="formStatus" hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp button -->
+  <a href="https://wa.me/6582755130?text=Hi%20On%20Hair%20Salon%20%26%20Beauty%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="wa-label">Consult with an Expert</span>
+    <span class="wa-pulse" aria-hidden="true"></span>
+  </a>
+
+  <!-- Elfsight Website Translator | Untitled Website Translator 2 -->
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <div class="elfsight-app-1bb5ca3a-7ba8-4998-a7df-a4e1eaecb7b7 elfsight-translator"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
