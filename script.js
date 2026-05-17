@@ -102,7 +102,7 @@ function initMobileNav() {
       foot.className = 'nav-mobile-foot';
       foot.innerHTML = `
         <p class="nav-foot-eyebrow">Reach us</p>
-        <p class="nav-foot-locations">Jalan Bukit Merah, Bukit Merah Central &amp; Bedok North</p>
+        <p class="nav-foot-locations"><span translate="no">Jalan Bukit Merah</span>, <span translate="no">Bukit Merah Central</span> &amp; <span translate="no">Bedok North</span></p>
         <div class="nav-foot-actions">
           <a href="tel:+6582755130" class="nav-foot-btn">
             <i class="fa-solid fa-phone"></i> +65 8275 5130

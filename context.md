@@ -57,7 +57,6 @@
 - Font Awesome 6 CDN for icons.
 - Google Fonts CDN.
 - WhatsApp deep links for booking/contact.
-- Elfsight translator embed script in `index.html`.
 
 ## Content Notes
 - Several service cards still use placeholder copy and pricing markers (`[ Service Title .. ]`, `From $ -`).
