@@ -75,9 +75,9 @@ function initMobileNav() {
     if (!links.querySelector('.nav-mobile-foot')) {
       const foot = document.createElement('div');
       foot.className = 'nav-mobile-foot';
-      foot.setAttribute('aria-hidden', 'true');
       foot.innerHTML = `
         <p class="nav-foot-eyebrow">Reach us</p>
+        <p class="nav-foot-locations">Jalan Bukit Merah, Bukit Merah Central &amp; Bedok North</p>
         <div class="nav-foot-actions">
           <a href="tel:+6582755130" class="nav-foot-btn">
             <i class="fa-solid fa-phone"></i> +65 8275 5130
@@ -93,6 +93,18 @@ function initMobileNav() {
   // Accessibility attributes
   toggle.setAttribute('aria-controls', 'navLinks');
   toggle.setAttribute('aria-expanded', 'false');
+  
+  const updateAria = () => {
+    const isMobile = window.matchMedia('(max-width: 720px)').matches;
+    if (isMobile) {
+      links.setAttribute('aria-hidden', String(!links.classList.contains('open')));
+    } else {
+      links.removeAttribute('aria-hidden');
+    }
+  };
+  
+  updateAria();
+  window.addEventListener('resize', updateAria);
 
   let lockedScrollY = 0;
 
@@ -132,6 +144,7 @@ function initMobileNav() {
     }
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    updateAria();
   };
 
   toggle.addEventListener('click', () => setOpen(!toggle.classList.contains('open')));

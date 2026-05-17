@@ -216,7 +216,8 @@ GREP_OUTLET outlet-3
 - Name: Bedok North
 - Footer label: Outlet 3 - Bedok North
 - Address: Bedok North Street 3, Singapore 460539
-- Shop phone: not listed
+- Phone: +65 8015 1136
+- Shop phone: +65 8015 1136
 - WhatsApp: currently uses `https://wa.me/6582755130` in the outlet card
 
 ## Placeholder Directory
@@ -542,7 +543,7 @@ GREP_NOTE current-stale-risk
 - Several pages still include booking modals while primary booking now uses WhatsApp.
 - Services and gallery are still mostly placeholder templates.
 - Contact page still needs real operating hours.
-- Bedok North needs confirmed shop phone and WhatsApp if it should differ from the general WhatsApp number.
+- Bedok North needs confirmed WhatsApp if it should differ from the general WhatsApp number. (Phone updated to 8015 1136)
 
 GREP_NOTE production-before-launch
 - Replace all bracketed placeholders.

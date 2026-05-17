@@ -97,7 +97,7 @@ ON Hair Salon & Beauty currently lists three outlets:
 | --- | --- | --- | --- |
 | Outlet 1 - Jalan Bukit Merah | Blk 2, Jalan Bukit Merah, #01-5156, Singapore 150002 | +65 6980 5784 | +65 8275 5130 |
 | Outlet 2 - Bukit Merah Central | Blk 163, Bukit Merah Central, #02-3601, Singapore 150163 | +65 6980 3033 | +65 8309 9832 |
-| Outlet 3 - Bedok North | Bedok North Street 3, Singapore 460539 | Not yet listed | Uses the general WhatsApp link currently |
+| Outlet 3 - Bedok North | Bedok North Street 3, Singapore 460539 | +65 8015 1136 | Uses the general WhatsApp link currently |
 
 ## Current Placeholder Areas
 
