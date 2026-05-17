@@ -2,12 +2,12 @@
 
 Purpose: a grep-friendly project map for quickly locating pages, sections, selectors, JavaScript modules, placeholders, contact details and maintenance hotspots.
 
-Generated from the current workspace files in `C:\Users\Yangu\Desktop\ON Beauty`.
+Generated from the current workspace files in `C:\Users\Yangu\Documents\GitHub\onBeautyhair`.
 
 ## Root Inventory
 
 ```text
-ON Beauty/
+onBeautyhair/
 |-- index.html
 |-- about.html
 |-- services.html
@@ -21,7 +21,10 @@ ON Beauty/
 |-- design.md
 |-- faveicon.png
 `-- Assets/
-    `-- faveicon.png
+    |-- faveicon.png
+    |-- bedok/
+    |-- bukitMerahCentral/
+    `-- JalanBukitMerah/
 ```
 
 ## Runtime Files
@@ -30,8 +33,9 @@ GREP_FILE index.html
 - Type: HTML page
 - Role: Homepage
 - Depends on: `styles.css`, `script.js`, `faveicon.png`, Google Fonts, Font Awesome
-- Key IDs: `hero`, `services`, `scrollProgress`, `bookingModal`, `bookingForm`, `formStatus`, `navbar`, `navLinks`, `navToggle`
-- Key sections: navbar, hero, trust-strip, services-preview, about-preview, testimonials, CTA banner, footer, booking modal, floating WhatsApp
+- Key IDs: `hero`, `services`, `scrollProgress`, `bookingModal`, `bookingForm`, `formStatus`, `navbar`, `navLinks`, `navToggle`, `cdcEligibilityModal`, `cdcEligibilityTitle`
+- Key classes: `.nav-badge-cdc`, `.cdc-badge`, `.cdc-modal-card`, `.cdc-modal-list`
+- Key sections: navbar, hero, trust-strip, services-preview, about-preview, testimonials, CTA banner, footer, booking modal, CDC eligibility modal, floating WhatsApp
 - Primary booking behavior: navbar and hero CTA link to WhatsApp; lower CTA still opens `bookingModal`
 - Placeholder areas: service preview titles, service preview copy, service tags, starting prices
 
@@ -40,6 +44,7 @@ GREP_FILE about.html
 - Role: About / positioning page
 - Depends on: `styles.css`, `script.js`, `faveicon.png`, Google Fonts, Font Awesome
 - Key IDs: `navbar`, `navLinks`, `navToggle`
+- Key classes: `.nav-badge-cdc`
 - Key sections: page-header, about-section story, values grid, CTA banner, footer, floating WhatsApp
 - Current narrative: consultation-first, comfortable service, practical recommendations, no hard selling
 - Booking behavior: navbar and CTA link to WhatsApp
@@ -50,6 +55,7 @@ GREP_FILE services.html
 - Role: Service menu template
 - Depends on: `styles.css`, `script.js`, `faveicon.png`, Google Fonts, Font Awesome
 - Key IDs: `cat-1`, `cat-2`, `cat-3`, `cat-4`, `bookingModal`, `bookingForm`, `formStatus`, `navbar`, `navLinks`, `navToggle`
+- Key classes: `.nav-badge-cdc`
 - Key sections: page-header, placeholder-banner, service-menu, four menu-block categories, CTA banner, footer, booking modal, floating WhatsApp
 - Placeholder areas: category eyebrows, category titles, category descriptions, service names, service descriptions, prices
 - Booking behavior: navbar links to WhatsApp; CTA opens `bookingModal`
@@ -59,6 +65,7 @@ GREP_FILE gallery.html
 - Role: Gallery template
 - Depends on: `styles.css`, `script.js`, `faveicon.png`, Google Fonts, Font Awesome
 - Key IDs: `lightbox`, `bookingModal`, `bookingForm`, `formStatus`, `navbar`, `navLinks`, `navToggle`
+- Key classes: `.nav-badge-cdc`
 - Key selectors: `.filter-btn`, `.gallery-grid`, `.gallery-item`, `.lightbox`, `.lightbox-close`, `.lightbox-prev`, `.lightbox-next`
 - Key sections: page-header, placeholder-banner, filter buttons, gallery grid, lightbox, CTA banner, footer, booking modal, floating WhatsApp
 - Placeholder areas: gallery intro, filter names, photo labels, tile backgrounds
@@ -69,6 +76,7 @@ GREP_FILE faq.html
 - Role: FAQ page
 - Depends on: `styles.css`, `script.js`, `faveicon.png`, Google Fonts, Font Awesome
 - Key IDs: `bookingModal`, `bookingForm`, `formStatus`, `navbar`, `navLinks`, `navToggle`
+- Key classes: `.nav-badge-cdc`
 - Key selectors: `.faq-section`, `.faq-layout`, `.faq-aside`, `.faq-contact-list`, `.faq-list`, `.faq-item`
 - Key sections: page-header, FAQ sidebar, animated accordion list, CTA banner, footer, booking modal, floating WhatsApp
 - FAQ count: 9 `details.faq-item` rows
@@ -79,6 +87,7 @@ GREP_FILE contact.html
 - Role: Contact and outlet page
 - Depends on: `styles.css`, `script.js`, `faveicon.png`, Google Fonts, Font Awesome
 - Key IDs: `bookingModal`, `bookingForm`, `formStatus`, `navbar`, `navLinks`, `navToggle`
+- Key classes: `.nav-badge-cdc`
 - Key selectors: `.outlets-grid`, `.outlet-card`, `.outlet-actions`, `.contact-grid-single`, `.hours-placeholder`, `.maps-grid`, `.map-card`, `.map-card-wide`
 - Key sections: page-header, outlet cards, contact info card, maps section, CTA banner, footer, booking modal, floating WhatsApp
 - Placeholder areas: outlet hours, studio hours lorem ipsum
@@ -87,13 +96,13 @@ GREP_FILE contact.html
 GREP_FILE styles.css
 - Type: global stylesheet
 - Role: design tokens, responsive layout, page components, animations, interaction states
-- Key groups: tokens, buttons, navbar, hero, services, about, testimonials, CTA, footer, modal, page headers, services page, values, gallery, contact, FAQ, placeholders, outlet cards, maps, WhatsApp widget, responsive rules
-- Important selectors: `:root`, `.btn`, `.nav-links`, `.nav-cta`, `.hero`, `.gradient-mesh`, `.blob-*`, `.service-card`, `.testimonial`, `.modal`, `.booking-form`, `.gallery-item`, `.faq-item`, `.outlet-card`, `.wa-float`
+- Key groups: tokens, buttons, navbar, hero, services, about, testimonials, CTA, footer, modal, CDC modal, page headers, services page, values, gallery, contact, FAQ, placeholders, outlet cards, maps, WhatsApp widget, responsive rules
+- Important selectors: `:root`, `.btn`, `.nav-links`, `.nav-cta`, `.nav-badge-cdc`, `.cdc-badge`, `.cdc-modal-card`, `.hero`, `.gradient-mesh`, `.blob-*`, `.service-card`, `.testimonial`, `.modal`, `.booking-form`, `.gallery-item`, `.faq-item`, `.outlet-card`, `.wa-float`
 
 GREP_FILE script.js
 - Type: global JavaScript
 - Role: site interactions
-- Key modules: WhatsApp bubble, footer year, sticky navbar, mobile menu scroll lock, FAQ animation, reveal animation, booking modal, simulated booking form, gallery filters, lightbox, min date, scroll progress, hero parallax, mouse parallax, magnetic buttons, ripple, tilt cards, counters
+- Key modules: WhatsApp bubble, footer year, sticky navbar, mobile menu scroll lock, CDC eligibility modal, FAQ animation, reveal animation, booking modal, simulated booking form, gallery filters, lightbox, min date, scroll progress, hero parallax, mouse parallax, magnetic buttons, ripple, tilt cards, counters
 
 GREP_FILE README.md
 - Type: project documentation
@@ -160,6 +169,7 @@ GREP_NAV shared
 - Navbar ID: `navbar`
 - Mobile nav container ID: `navLinks`
 - Mobile toggle ID: `navToggle`
+- CDC badge class: `.nav-badge-cdc`
 - Links: Home, Services, About, Gallery, FAQ, Contact
 - CTA class: `.btn.btn-primary.nav-cta`
 - Navbar CTA behavior: WhatsApp link on all pages
@@ -192,6 +202,12 @@ GREP_BOOKING modal-secondary
 - Pages with modal: `index.html`, `services.html`, `gallery.html`, `faq.html`, `contact.html`
 - Page without modal: `about.html`
 
+GREP_BOOKING cdc-vouchers
+- CDC badge in navbar (all pages): `.nav-badge-cdc`
+- CDC badge in hero (index): `.cdc-badge`
+- CDC eligibility modal (index): `#cdcEligibilityModal`
+- Close attribute: `data-close-cdc`
+
 ## Outlet Directory
 
 GREP_OUTLET outlet-1
@@ -216,8 +232,8 @@ GREP_OUTLET outlet-3
 - Name: Bedok North
 - Footer label: Outlet 3 - Bedok North
 - Address: Bedok North Street 3, Singapore 460539
-- Phone: +65 8015 1136
-- Shop phone: +65 8015 1136
+- Shop phone: `+65 8015 1136`
+- Shop tel href: `tel:+6580151136`
 - WhatsApp: currently uses `https://wa.me/6582755130` in the outlet card
 
 ## Placeholder Directory
@@ -275,11 +291,13 @@ GREP_CSS navigation
 - `.navbar`, `.navbar.scrolled`, `.nav-container`, `.logo`, `.logo-mark`, `.logo-text`
 - `.nav-links`, `.nav-links a`, `.nav-links .nav-cta`
 - `.nav-toggle`, `.nav-toggle.open`
+- `.nav-badge-cdc`
 - Mobile menu: `@media (max-width: 720px)`, `.nav-links.open`, `.nav-mobile-foot`
 
 GREP_CSS hero
 - `.hero`, `.gradient-mesh`, `.blob`, `.blob-1`, `.blob-2`, `.blob-3`, `.blob-4`, `.blob-5`, `.grain`
-- `.hero-content`, `.hero-title`, `.hero-subtitle`, `.hero-actions`, `.hero-stats`
+- `.hero-content`, `.hero-title`, `.hero-subtitle`, `.hero-actions`, `.hero-stats`, `.hero-pills`
+- `.cdc-badge`
 - `.scroll-cue`, `.scroll-line`, `.scroll-text`, `.scroll-progress`
 - Keyframes: `meshShift`, `floatBlob`, `scrollLine`
 
@@ -299,6 +317,7 @@ GREP_CSS testimonials
 GREP_CSS modal-form
 - `.modal`, `.modal.open`, `.modal-backdrop`, `.modal-card`, `.modal-close`
 - `.booking-form`, `.booking-form .row`, `.form-status`
+- `.cdc-modal-card`, `.cdc-modal-list`
 
 GREP_CSS page-header
 - `.page-header`, `.page-header::before`, `.page-header::after`, `.breadcrumb`
@@ -343,6 +362,7 @@ GREP_JS init order
 - `initNavbar()`
 - `initMobileNav()`
 - `initReveal()`
+- `initCdcEligibilityModal()`
 - `initBookingModal()`
 - `initBookingForm()`
 - `initFaqAccordion()`
@@ -357,6 +377,11 @@ GREP_JS init order
 - `initTiltCards()`
 - `initCounters()`
 - `initWhatsAppEnhancements()`
+
+GREP_JS initCdcEligibilityModal
+- Selector: `#cdcEligibilityModal`
+- Delay: 350ms
+- Behavior: automatically opens modal if present on page
 
 GREP_JS initWhatsAppEnhancements
 - Selector: `.wa-float`
@@ -478,6 +503,14 @@ GREP_PATTERN booking-modal
 <form class="booking-form" id="bookingForm">
 ```
 
+GREP_PATTERN cdc-modal
+```html
+<div class="modal" id="cdcEligibilityModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-cdc></div>
+  <div class="modal-card cdc-modal-card" role="dialog">
+    <button class="modal-close" data-close-cdc><i class="fa-solid fa-xmark"></i></button>
+```
+
 GREP_PATTERN faq
 ```html
 <details class="faq-item">
@@ -511,6 +544,11 @@ GREP_CMD find booking modal triggers
 Select-String -Path *.html -Pattern 'data-open-booking','bookingModal','bookingForm'
 ```
 
+GREP_CMD find CDC voucher elements
+```powershell
+Select-String -Path *.html,styles.css,script.js -Pattern 'cdc','CDC'
+```
+
 GREP_CMD find WhatsApp links
 ```powershell
 Select-String -Path *.html -Pattern 'wa.me','fa-whatsapp'
@@ -518,12 +556,12 @@ Select-String -Path *.html -Pattern 'wa.me','fa-whatsapp'
 
 GREP_CMD find outlet contact data
 ```powershell
-Select-String -Path *.html,README.md,GREPP_DIRECTORY.md -Pattern '6980 5784','6980 3033','8275 5130','8309 9832','Bedok North'
+Select-String -Path *.html,README.md,GREPP_DIRECTORY.md -Pattern '6980 5784','6980 3033','8275 5130','8309 9832','8015 1136','Bedok North'
 ```
 
 GREP_CMD find CSS component rules
 ```powershell
-Select-String -Path styles.css -Pattern 'faq-item','wa-float','outlet-actions','nav-cta','gradient-mesh'
+Select-String -Path styles.css -Pattern 'faq-item','wa-float','outlet-actions','nav-cta','gradient-mesh','cdc-badge'
 ```
 
 GREP_CMD find JS modules
@@ -543,7 +581,8 @@ GREP_NOTE current-stale-risk
 - Several pages still include booking modals while primary booking now uses WhatsApp.
 - Services and gallery are still mostly placeholder templates.
 - Contact page still needs real operating hours.
-- Bedok North needs confirmed WhatsApp if it should differ from the general WhatsApp number. (Phone updated to 8015 1136)
+- Bedok North uses general WhatsApp number `+65 8275 5130` in the outlet card.
+- Empty `Assets/` subdirectories created for outlet-specific imagery.
 
 GREP_NOTE production-before-launch
 - Replace all bracketed placeholders.
@@ -553,3 +592,4 @@ GREP_NOTE production-before-launch
 - Confirm all phone and WhatsApp routing.
 - Decide whether to keep or remove booking modals.
 - Compress large favicon if performance is important.
+- Populate `Assets/` subdirectories with real imagery.

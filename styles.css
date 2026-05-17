@@ -296,6 +296,8 @@ p { margin: 0 0 1rem; color: var(--charcoal); }
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  max-width: 1360px;
+  width: 100%;
 }
 .logo {
   display: inline-flex;
@@ -336,6 +338,7 @@ p { margin: 0 0 1rem; color: var(--charcoal); }
   display: flex;
   align-items: center;
   gap: 2.2rem;
+  min-width: 0;
 }
 .nav-links a {
   font-size: 0.88rem;
@@ -381,6 +384,39 @@ p { margin: 0 0 1rem; color: var(--charcoal); }
 }
 .nav-links .nav-cta::after { display: none; }
 
+/* CDC Voucher label in navbar */
+.nav-badge-cdc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(18, 140, 126, 0.08);
+  color: #128c7e;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(18, 140, 126, 0.15);
+  transition: all var(--transition);
+  cursor: default;
+}
+.nav-badge-cdc i {
+  font-size: 0.9rem;
+}
+.nav-badge-cdc:hover {
+  background: rgba(18, 140, 126, 0.14);
+  transform: translateY(-2px);
+}
+
+/* Fix for mobile menu being offset when body is position:fixed */
+body.menu-open .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -398,6 +434,37 @@ p { margin: 0 0 1rem; color: var(--charcoal); }
 .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 1180px) {
+  .nav-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .nav-links {
+    gap: 1.2rem;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+  .nav-links .nav-cta {
+    padding: 0.72rem 1rem;
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 1060px) {
+  .navbar .logo-text {
+    display: none;
+  }
+  .nav-links {
+    gap: 0.85rem;
+  }
+  .nav-links .nav-cta {
+    padding: 0.68rem 0.85rem;
+    font-size: 0.72rem;
+  }
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -1217,6 +1284,27 @@ p { margin: 0 0 1rem; color: var(--charcoal); }
 }
 .modal-close:hover { background: var(--rose); color: var(--cream); transform: rotate(90deg); }
 .modal-sub { color: var(--muted); margin-bottom: 1.6rem; }
+
+.cdc-modal-card {
+  max-width: 520px;
+}
+.cdc-modal-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1.6rem;
+  padding: 0;
+}
+.cdc-modal-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--charcoal);
+}
+.cdc-modal-list i {
+  color: var(--rose);
+  margin-top: 0.15rem;
+}
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp {
@@ -2242,6 +2330,7 @@ p { margin: 0 0 1rem; color: var(--charcoal); }
     pointer-events: none;
     z-index: 150;
     overflow-y: auto;
+    overflow-x: hidden;
     overscroll-behavior: contain;
     transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0.45s;
   }
@@ -2462,6 +2551,4 @@ p { margin: 0 0 1rem; color: var(--charcoal); }
   .nav-foot-actions { gap: 0.4rem; padding: 0.1rem 1rem; }
   .nav-foot-btn { padding: 0.4rem 0.55rem; font-size: 0.72rem; }
   .nav-foot-socials a { width: 28px; height: 28px; font-size: 0.8rem; }
-}
- }
 }

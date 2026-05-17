@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileNav();
   initReveal();
+  initCdcEligibilityModal();
   initBookingModal();
   initBookingForm();
   initFaqAccordion();
@@ -22,6 +23,30 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initWhatsAppEnhancements();
 });
+
+/* ----- CDC eligibility modal ----- */
+function initCdcEligibilityModal() {
+  const modal = document.getElementById('cdcEligibilityModal');
+  if (!modal) return;
+
+  const open = () => {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('[data-close-cdc]').forEach(btn => btn.addEventListener('click', close));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) close();
+  });
+
+  window.setTimeout(open, 350);
+}
 
 /* ----- WhatsApp Greeting Bubble ----- */
 function initWhatsAppEnhancements() {
@@ -120,6 +145,10 @@ function initMobileNav() {
   };
 
   const unlockPageScroll = () => {
+    // Disable smooth scroll temporarily to prevent disorienting "fly-back" animation
+    const scrollBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+
     document.documentElement.style.overflow = '';
     document.body.style.position = '';
     document.body.style.top = '';
@@ -128,6 +157,9 @@ function initMobileNav() {
     document.body.style.width = '';
     document.body.style.overflow = '';
     window.scrollTo(0, lockedScrollY);
+
+    // Restore original scroll behavior
+    document.documentElement.style.scrollBehavior = scrollBehavior;
   };
 
   const setOpen = (isOpen) => {

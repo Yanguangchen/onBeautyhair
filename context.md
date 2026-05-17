@@ -1,77 +1,71 @@
-# Project Context: On Hair Salon & Beauty
+# Project Context: On Hair Salon and Beauty
 
-A premium, editorial-style multi-page website for **On Hair Salon & Beauty**, a boutique beauty studio based in Singapore.
+## Snapshot
+- Project type: Static multi-page marketing site for a Singapore beauty salon.
+- Stack: HTML5, CSS3, vanilla JavaScript.
+- Build system: None (no framework, no bundler).
+- Primary entry page: `index.html`.
 
----
+## Visual System
+- Tone: Premium editorial beauty branding.
+- Core colors (CSS variables in `styles.css`):
+  - `--cream` `#faf6f1`
+  - `--blush` `#f5e1d8`
+  - `--rose` `#b76e79`
+  - `--rose-deep` `#8e4a55`
+  - `--gold` `#c9a961`
+  - `--espresso` `#2e1f1a`
+  - `--charcoal` `#3a2820`
+- Typography:
+  - Google Fonts loaded in `index.html`: `Outfit`, `Google Sans`.
+  - Active CSS font tokens currently resolve to `Outfit` for display/body/UI.
 
-## 🎨 Design System
+## Site Structure
+- `index.html`: Home page (hero, trust strip, services preview, testimonials, FAQ preview, footer, modals).
+- `services.html`: Services and pricing categories.
+- `about.html`: Brand story and studio positioning.
+- `gallery.html`: Filterable gallery with lightbox.
+- `faq.html`: Accordion-style frequently asked questions.
+- `contact.html`: Multi-outlet contact information.
+- `styles.css`: Global design tokens, layout, components, responsive rules, animations.
+- `script.js`: All interaction logic and progressive enhancements.
 
-### Visual Identity
-- **Aesthetic:** High-end, feminine, "magazine-style" editorial layout.
-- **Palette:** 
-  - `Cream` (#faf6f1) & `Blush` (#f5e1d8) base.
-  - `Rose` (#b76e79) & `Rose-Deep` (#8e4a55) accents.
-  - `Gold` (#c9a961) for highlights.
-  - `Charcoal` (#3a2820) & `Espresso` (#2e1f1a) for typography.
-- **Typography:**
-  - **Display:** *Italiana* (Sophisticated headers).
-  - **Serif:** *Cormorant Garamond* (Elegant body/italics).
-  - **Sans:** *Inter* (Modern utility/UI).
+## Key Frontend Behaviors (`script.js`)
+- Navbar scroll state and mobile nav overlay.
+- Reveal-on-scroll animations via `IntersectionObserver`.
+- CDC eligibility modal auto-open on page load (home page only).
+- Booking modal open/close controls.
+- Booking form simulated submit state and success status UI.
+- Gallery category filtering and lightbox controls.
+- Date input minimum set to current date.
+- Scroll progress bar.
+- Hero and mouse parallax effects.
+- Magnetic button hover, ripple click effects, card tilt, animated counters.
+- WhatsApp floating CTA enhancement with delayed helper bubble.
 
----
+## Modals
+- CDC eligibility modal:
+  - Markup: `index.html` (`#cdcEligibilityModal`).
+  - Styles: `styles.css` (`.cdc-modal-card`, `.cdc-modal-list`).
+  - Behavior: `script.js` (`initCdcEligibilityModal()`).
+  - UX: Opens shortly after page load; closes via close button, backdrop click, "Got It" button, or `Escape`.
+- Booking modal:
+  - Markup: `index.html` (`#bookingModal`).
+  - Behavior: `script.js` (`initBookingModal()`).
 
-## 🛠 Technical Architecture
+## Third-Party Integrations
+- Font Awesome 6 CDN for icons.
+- Google Fonts CDN.
+- WhatsApp deep links for booking/contact.
+- Elfsight translator embed script in `index.html`.
 
-- **Stack:** Pure HTML5, CSS3, and Vanilla JavaScript (No frameworks or build steps).
-- **Icons:** Font Awesome 6 (via CDN).
-- **Fonts:** Google Fonts (Italiana, Cormorant Garamond, Inter).
-- **Animation:** 
-  - CSS Keyframes for shimmer and pulse effects.
-  - IntersectionObserver for scroll-reveal animations.
-  - JavaScript-driven parallax and mouse-following effects.
+## Content Notes
+- Several service cards still use placeholder copy and pricing markers (`[ Service Title .. ]`, `From $ -`).
+- Home page hero includes CDC voucher acceptance badge and now also a dedicated CDC eligibility popup.
 
----
-
-## 📄 Page Structure
-
-1. **Home (`index.html`)**
-   - Refined Hero section with sophisticated narrative.
-   - Trust strip highlighting service standards (Mastery, Sustainability, Consultation).
-   - Services preview leading to detailed menu.
-   - "Muse-centric" About section focusing on the client experience.
-   - Dynamic testimonials track.
-2. **About Us (`about.html`)**
-   - Detailed brand story and "On Standard" values.
-   - Core focus on craftsmanship and unhurried service.
-3. **Services (`services.html`)**
-   - Categorized service menu (Hair, Color, Skin, Nails, etc.).
-   - Utilizes placeholder system for easy content updates.
-4. **Gallery (`gallery.html`)**
-   - Masonry-style filterable grid.
-   - Integrated lightbox for full-screen viewing.
-5. **FAQ (`faq.html`)**
-   - Accessibility-focused accordion for booking and service questions.
-6. **Contact (`contact.html`)**
-   - Multi-outlet grid with specific contact details for each Singapore location.
-   - Maps and directions integration.
-
----
-
-## ⚡ Key Features
-
-- **Booking Modal:** Integrated reservation system available from any "Reserve Your Chair" CTA.
-- **Mobile Menu:** Glassmorphic, full-screen overlay with reach-out actions.
-- **WhatsApp Integration:** Floating action button and inline contact points for direct consultation.
-- **Responsive Design:** Custom breakpoints for seamless experience from 4K to mobile.
-
----
-
-## 📝 Recent Refinements
-
-- **Narrative Overhaul:** Pivoted copy from functional to evocative/luxury positioning.
-- **UX Improvements:** Enhanced Navbar CTA contrast and padding for better visibility.
-- **Section Streamlining:** 
-  - Removed marquee/announcement sections for a cleaner look.
-  - Removed "Our Journey" timeline to maintain focus on current craft.
-  - Removed social media links from footers to keep visitors within the brand experience.
-- **Visual Cleanup:** Removed overlapping floating elements in the Hero and About sections to allow typography to breathe.
+## Recent Update (2026-05-17)
+- Added a closable CDC eligibility modal that appears automatically on home page load.
+- Files changed for this feature:
+  - `index.html`
+  - `styles.css`
+  - `script.js`

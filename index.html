@@ -28,6 +28,7 @@
         <a href="gallery.html">Gallery</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
+        <span class="nav-badge-cdc"><i class="fa-solid fa-circle-check"></i> CDC Vouchers</span>
         <a href="https://wa.me/6582755130?text=Hi%20On%20Hair%20Salon%20%26%20Beauty%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn btn-primary nav-cta">Reserve Your Chair</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -364,6 +365,25 @@
       <p class="made-with">Crafted with care by <a href="https://webwizardsg.com" target="_blank" rel="noopener">Web Wizards SG</a>.</p>
     </div>
   </footer>
+
+  <!-- CDC Eligibility Modal -->
+  <div class="modal" id="cdcEligibilityModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-cdc></div>
+    <div class="modal-card cdc-modal-card" role="dialog" aria-modal="true" aria-labelledby="cdcEligibilityTitle">
+      <button class="modal-close" data-close-cdc aria-label="Close CDC eligibility notice"><i class="fa-solid fa-xmark"></i></button>
+      <p class="eyebrow">CDC Voucher Update</p>
+      <h3 id="cdcEligibilityTitle">CDC Vouchers Are Accepted</h3>
+      <p class="modal-sub">On Hair Salon &amp; Beauty accepts CDC Vouchers for eligible services.</p>
+      <ul class="cdc-modal-list">
+        <li><i class="fa-solid fa-circle-check"></i> Use your CDC Voucher at payment for eligible items.</li>
+        <li><i class="fa-solid fa-circle-check"></i> Please present your voucher QR code at checkout.</li>
+        <li><i class="fa-solid fa-circle-check"></i> Terms and eligibility are subject to current CDC guidelines.</li>
+      </ul>
+      <button class="btn btn-primary btn-large btn-block" data-close-cdc>
+        <i class="fa-solid fa-check"></i> Got It
+      </button>
+    </div>
+  </div>
 
   <!-- Booking Modal -->
   <div class="modal" id="bookingModal" aria-hidden="true">

@@ -24,6 +24,7 @@ The About page now positions ON Hair Salon & Beauty as a local Singapore salon g
 - practical advice that suits a client's routine
 - no hard selling
 - convenient access across Bukit Merah, Bukit Merah Central and Bedok North
+- official acceptance of CDC Vouchers for all services
 
 This replaces the older generic luxury/founder narrative and avoids unverified claims.
 
@@ -32,6 +33,7 @@ This replaces the older generic luxury/founder narrative and avoids unverified c
 - Responsive desktop and mobile navigation
 - Mobile full-screen glass-style menu with background scroll lock
 - WhatsApp-first booking flow in the navbar and hero CTA
+- CDC Vouchers accepted label in the navbar and hero stats
 - Floating WhatsApp button on the lower-left of the page
 - Auto-opening WhatsApp helper bubble
 - Animated pastel hero background with mesh and floating blobs
