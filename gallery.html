@@ -7,6 +7,7 @@
   <link rel="apple-touch-icon" href="faveicon.png" />
   <title>Haircut, Colour &amp; Treatment Gallery &mdash; On Hair Salon</title>
   <meta name="description" content="Browse On Hair Salon & Beauty gallery highlights for haircuts, hair colour, styling, treatment results and salon moments from our Singapore outlets." />
+  <meta name="keywords" content="hair salon gallery, haircut gallery, hair colour gallery, hair treatment results, On Hair Salon photos, Bukit Merah salon gallery, Singapore hair salon work" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -42,41 +43,28 @@
       <div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-angle-right"></i><span>Gallery</span></div>
       <p class="eyebrow">Recent Work</p>
       <h1>Our <em>Gallery</em></h1>
-      <p>[ Add a short intro for your gallery here. The tiles below are placeholders &mdash; drop in your real photos to bring this page to life. ]</p>
+      <p>Browse through our latest transformations. From precision haircuts to vibrant hair colours and restorative treatments, see the artistry our stylists bring to every chair.</p>
     </div>
   </section>
-
-  <!-- Placeholder banner -->
-  <div class="placeholder-banner">
-    <div class="container">
-      <i class="fa-solid fa-image"></i>
-      <span>Gallery uses <strong>placeholder tiles</strong> &mdash; replace each <code>.gallery-item</code>&rsquo;s background with your photo URL in <code>gallery.html</code>.</span>
-    </div>
-  </div>
 
   <section class="section">
     <div class="container">
       <div class="gallery-filters reveal">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="cat-1">[ Filter 1 ]</button>
-        <button class="filter-btn" data-filter="cat-2">[ Filter 2 ]</button>
-        <button class="filter-btn" data-filter="cat-3">[ Filter 3 ]</button>
-        <button class="filter-btn" data-filter="cat-4">[ Filter 4 ]</button>
+        <button class="filter-btn" data-filter="cat-1">Haircut &amp; Styling</button>
+        <button class="filter-btn" data-filter="cat-2">Colour &amp; Perm</button>
+        <button class="filter-btn" data-filter="cat-3">Treatments</button>
+        <button class="filter-btn" data-filter="cat-4">Our Salon</button>
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item tall ph-1" data-category="cat-1"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 01 ]</span></div>
-        <div class="gallery-item ph-2" data-category="cat-2"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 02 ]</span></div>
-        <div class="gallery-item wide ph-3" data-category="cat-3"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 03 ]</span></div>
-        <div class="gallery-item ph-4" data-category="cat-4"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 04 ]</span></div>
-        <div class="gallery-item ph-1" data-category="cat-1"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 05 ]</span></div>
-        <div class="gallery-item tall ph-2" data-category="cat-2"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 06 ]</span></div>
-        <div class="gallery-item ph-3" data-category="cat-3"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 07 ]</span></div>
-        <div class="gallery-item ph-4" data-category="cat-4"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 08 ]</span></div>
-        <div class="gallery-item wide ph-1" data-category="cat-1"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 09 ]</span></div>
-        <div class="gallery-item ph-2" data-category="cat-2"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 10 ]</span></div>
-        <div class="gallery-item ph-3" data-category="cat-3"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 11 ]</span></div>
-        <div class="gallery-item tall ph-4" data-category="cat-4"><span class="ph-icon"><i class="fa-regular fa-image"></i></span><span class="label">[ Photo 12 ]</span></div>
+        <div class="gallery-item tall" data-category="cat-4" style="background-image: url('Assets/storeFront.jpeg')"><span class="label">Our Salon Outlets</span></div>
+        <div class="gallery-item" data-category="cat-1" style="background-image: url('Assets/hairCut.png')"><span class="label">Precision Haircut</span></div>
+        <div class="gallery-item wide" data-category="cat-2" style="background-image: url('Assets/hairColor.png')"><span class="label">Vibrant Hair Colour</span></div>
+        <div class="gallery-item" data-category="cat-2" style="background-image: url('Assets/hairPerm.png')"><span class="label">Professional Hair Perm</span></div>
+        <div class="gallery-item" data-category="cat-3" style="background-image: url('Assets/hairTreatment.png')"><span class="label">Nourishing Treatment</span></div>
+        <div class="gallery-item tall" data-category="cat-3" style="background-image: url('Assets/hairWash.png')"><span class="label">Refreshing Wash</span></div>
+        <div class="gallery-item wide" data-category="cat-4" style="background-image: url('Assets/Memberships.png')"><span class="label">Salon Memberships</span></div>
       </div>
     </div>
   </section>
@@ -170,10 +158,10 @@
       <p class="modal-sub">Fill in your details and we'll confirm your appointment within 24 hours.</p>
       <form class="booking-form" id="bookingForm">
         <div class="row">
-          <label><span>Full Name</span><input type="text" name="name" required placeholder="Jane Doe" /></label>
-          <label><span>Phone</span><input type="tel" name="phone" required placeholder="+65 8275 5130" /></label>
+          <label><span>Full Name</span><input type="text" name="name" required placeholder="Your Full Name" /></label>
+          <label><span>Phone</span><input type="tel" name="phone" required placeholder="e.g. +65 9123 4567" /></label>
         </div>
-        <label><span>Email</span><input type="email" name="email" required placeholder="you@example.com" /></label>
+        <label><span>Email</span><input type="email" name="email" required placeholder="name@example.com" /></label>
         <div class="row">
           <label>
             <span>Service</span>
