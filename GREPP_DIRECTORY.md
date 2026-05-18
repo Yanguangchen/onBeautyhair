@@ -223,8 +223,8 @@ GREP_OUTLET outlet-2
 - Name: Bukit Merah Central
 - Footer label: Outlet 2 - Bukit Merah Central
 - Address: Blk 163, Bukit Merah Central, #02-3601, Singapore 150163
-- Shop phone: `+65 6980 3033`
-- Shop tel href: `tel:+6569803033`
+- Shop phone: `+65 8395 0090`
+- Shop tel href: `tel:+6583950090`
 - WhatsApp: `+65 8309 9832`
 - WhatsApp href: `https://wa.me/6583099832`
 
@@ -556,7 +556,7 @@ Select-String -Path *.html -Pattern 'wa.me','fa-whatsapp'
 
 GREP_CMD find outlet contact data
 ```powershell
-Select-String -Path *.html,README.md,GREPP_DIRECTORY.md -Pattern '6980 5784','6980 3033','8275 5130','8309 9832','8015 1136','Bedok North'
+Select-String -Path *.html,README.md,GREPP_DIRECTORY.md -Pattern '6980 5784','8395 0090','8275 5130','8309 9832','8015 1136','Bedok North'
 ```
 
 GREP_CMD find CSS component rules

@@ -1548,9 +1548,9 @@ body.menu-open .navbar {
 }
 .menu-item .price {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   color: var(--rose);
-  white-space: nowrap;
+  text-align: right;
 }
 
 /* ---------- About Page ---------- */
