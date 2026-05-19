@@ -1,6 +1,6 @@
 # ON Hair Salon & Beauty Website
 
-A static, responsive multi-page website for ON Hair Salon & Beauty, a Singapore salon group with outlets at Toa Payoh, Simei (Eastpoint Mall and Simei Street 3), Jalan Bukit Merah, Bukit Merah Central, Yishun Ring Road and Ang Mo Kio Avenue 10.
+A static, responsive multi-page website for ON Hair Salon & Beauty, a Singapore salon group with outlets at Toa Payoh, Simei (Eastpoint Mall and Simei Street 3), Jalan Bukit Merah, Bukit Merah Central, Yishun Ring Road, Ang Mo Kio Avenue 10 and a Bedok North Street 3 partner branch (K Beauty Salon at https://www.kbeautysg.online/).
 
 The site is built with plain HTML, CSS and vanilla JavaScript. There is no build step, package manager or framework dependency.
 
@@ -23,7 +23,7 @@ The About page now positions ON Hair Salon & Beauty as a local Singapore salon g
 - comfortable, respectful service
 - practical advice that suits a client's routine
 - no hard selling
-- convenient access across Toa Payoh, Simei, Bukit Merah, Yishun and Ang Mo Kio
+- convenient access across Toa Payoh, Simei, Bukit Merah, Yishun, Ang Mo Kio and Bedok (K Beauty Salon partner)
 - official acceptance of CDC Vouchers for all services
 
 This replaces the older generic luxury/founder narrative and avoids unverified claims.
@@ -93,7 +93,7 @@ http://localhost:8080
 
 ## Contact Details
 
-ON Hair Salon & Beauty lists seven outlets:
+ON Hair Salon & Beauty lists eight locations (seven hair studios plus one partner beauty salon):
 
 | Outlet | Address | Shop Phone | WhatsApp |
 | --- | --- | --- | --- |
@@ -104,6 +104,7 @@ ON Hair Salon & Beauty lists seven outlets:
 | Outlet 5 - Bukit Merah Central | Blk 163 Bukit Merah Central, #02-3601, Singapore 150163 | +65 6980 3033 | +65 9897 4760 |
 | Outlet 6 - Yishun Ring Road | Blk 846 Yishun Ring Road, #01-3643, Singapore 760846 | +65 8466 6738 | +65 8466 6738 |
 | Outlet 7 - Ang Mo Kio Avenue 10 | Blk 449 Ang Mo Kio Avenue 10, #01-1721, Singapore 560449 | Xiao Yang +65 6019 0752; Zoey +65 8336 9693 | Same numbers on WhatsApp |
+| Outlet 8 - Bedok North Street 3 (K Beauty Salon partner) | Bedok North Street 3, Singapore — see https://www.kbeautysg.online/ | Antony +65 8015 1136; Vloon +65 8306 1333 | Same numbers on WhatsApp |
 
 ## Current Placeholder Areas
 

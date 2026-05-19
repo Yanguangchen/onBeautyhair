@@ -195,7 +195,7 @@ function initMobileNav() {
       foot.className = 'nav-mobile-foot';
       foot.innerHTML = `
         <p class="nav-foot-eyebrow">Reach us</p>
-        <p class="nav-foot-locations"><span translate="no">Toa Payoh</span>, <span translate="no">Simei</span>, <span translate="no">Bukit Merah</span>, <span translate="no">Yishun</span>, <span translate="no">Ang Mo Kio</span></p>
+        <p class="nav-foot-locations"><span translate="no">Toa Payoh</span>, <span translate="no">Simei</span>, <span translate="no">Bukit Merah</span>, <span translate="no">Yishun</span>, <span translate="no">Ang Mo Kio</span>, <span translate="no">Bedok</span></p>
         <div class="nav-foot-actions">
           <a href="tel:+6569805784" class="nav-foot-btn">
             <i class="fa-solid fa-phone"></i> +65 6980 5784
