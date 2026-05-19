@@ -195,10 +195,10 @@ function initMobileNav() {
       foot.className = 'nav-mobile-foot';
       foot.innerHTML = `
         <p class="nav-foot-eyebrow">Reach us</p>
-        <p class="nav-foot-locations"><span translate="no">Jalan Bukit Merah</span>, <span translate="no">Bukit Merah Central</span>, <span translate="no">Bedok North</span>, <span translate="no">Simei</span>, <span translate="no">Yishun</span> &amp; <span translate="no">Toa Payoh</span></p>
+        <p class="nav-foot-locations"><span translate="no">Toa Payoh</span>, <span translate="no">Simei</span>, <span translate="no">Jalan Bukit Merah</span> &amp; <span translate="no">Bukit Merah Central</span></p>
         <div class="nav-foot-actions">
-          <a href="tel:+6582755130" class="nav-foot-btn">
-            <i class="fa-solid fa-phone"></i> +65 8275 5130
+          <a href="tel:+6569805784" class="nav-foot-btn">
+            <i class="fa-solid fa-phone"></i> +65 6980 5784
           </a>
           <a href="https://wa.me/6582755130" target="_blank" rel="noopener" class="nav-foot-btn nav-foot-wa">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp

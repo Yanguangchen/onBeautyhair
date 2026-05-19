@@ -1,6 +1,6 @@
 # ON Hair Salon & Beauty Website
 
-A static, responsive multi-page website for ON Hair Salon & Beauty, a Singapore salon group with outlets at Jalan Bukit Merah, Bukit Merah Central and Bedok North.
+A static, responsive multi-page website for ON Hair Salon & Beauty, a Singapore salon group with outlets at Toa Payoh, Simei (Eastpoint Mall and Simei Street 3), Jalan Bukit Merah and Bukit Merah Central.
 
 The site is built with plain HTML, CSS and vanilla JavaScript. There is no build step, package manager or framework dependency.
 
@@ -23,7 +23,7 @@ The About page now positions ON Hair Salon & Beauty as a local Singapore salon g
 - comfortable, respectful service
 - practical advice that suits a client's routine
 - no hard selling
-- convenient access across Bukit Merah, Bukit Merah Central and Bedok North
+- convenient access across Toa Payoh, Simei and Bukit Merah
 - official acceptance of CDC Vouchers for all services
 
 This replaces the older generic luxury/founder narrative and avoids unverified claims.
@@ -93,13 +93,15 @@ http://localhost:8080
 
 ## Contact Details
 
-ON Hair Salon & Beauty currently lists three outlets:
+ON Hair Salon & Beauty lists five outlets:
 
 | Outlet | Address | Shop Phone | WhatsApp |
 | --- | --- | --- | --- |
-| Outlet 1 - Jalan Bukit Merah | Blk 2, Jalan Bukit Merah, #01-5156, Singapore 150002 | +65 6980 5784 | +65 8275 5130 |
-| Outlet 2 - Bukit Merah Central | Blk 163, Bukit Merah Central, #02-3601, Singapore 150163 | +65 8395 0090 | +65 8309 9832 |
-| Outlet 3 - Bedok North | Bedok North Street 3, Singapore 460539 | +65 8015 1136 | Uses the general WhatsApp link currently |
+| Outlet 1 - Toa Payoh | 109 Lorong 1 Toa Payoh, #01-306 and #02-306, Singapore 310109 | +65 6980 5765 | +65 8192 0109 |
+| Outlet 2 - Simei Eastpoint Mall | Eastpoint Mall, #04-09.3, Simei Street 6, Singapore 528833 | +65 9348 0188 | +65 9348 0188 |
+| Outlet 3 - Simei Street 3 | Blk 248 Simei Street 3, #01-130, Singapore 520248 | +65 8412 4961 | +65 8412 4961 |
+| Outlet 4 - Jalan Bukit Merah | Blk 2 Jalan Bukit Merah, #01-5156, Singapore 150002 | +65 6980 5784 | +65 8275 5130 |
+| Outlet 5 - Bukit Merah Central | Blk 163 Bukit Merah Central, #02-3601, Singapore 150163 | +65 6980 3033 | +65 9897 4760 |
 
 ## Current Placeholder Areas
 
@@ -179,7 +181,7 @@ Before launch:
 - Replace all placeholder service content and prices
 - Replace gallery placeholders with real images and category labels
 - Confirm real operating hours for each outlet
-- Confirm Bedok North phone and WhatsApp details
+- Verify outlet phone and WhatsApp numbers remain current
 - Decide whether to remove the local booking modal entirely or connect it to a real submission flow
 - Replace any remote Unsplash imagery with owned salon images if available
 - Verify all WhatsApp links route to the preferred booking number
