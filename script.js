@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTiltCards();
   initCounters();
   initWhatsAppEnhancements();
+  initBotpressLiveAgentNudge();
 });
 
 /* ----- Custom copy for Chinese browser/page translation ----- */
@@ -166,6 +167,44 @@ function initWhatsAppEnhancements() {
       bubble.classList.remove('active');
     });
   }
+}
+
+/* ----- Botpress live agent nudge ----- */
+function initBotpressLiveAgentNudge() {
+  const nudge = document.getElementById('botpressLiveAgentNudge');
+  if (!nudge) return;
+
+  window.setTimeout(() => {
+    nudge.classList.add('is-visible');
+  }, 1800);
+
+  const openBotpress = () => {
+    nudge.classList.add('is-dismissed');
+
+    if (window.botpress && typeof window.botpress.open === 'function') {
+      window.botpress.open();
+      return;
+    }
+
+    if (window.botpress && typeof window.botpress.toggle === 'function') {
+      window.botpress.toggle();
+      return;
+    }
+
+    const botpressButton = Array.from(document.querySelectorAll('[class*="bpFab"], [aria-label*="Botpress"], [aria-label*="chat" i]'))
+      .find(el => el !== nudge && !nudge.contains(el));
+    if (botpressButton && typeof botpressButton.click === 'function') {
+      botpressButton.click();
+    }
+  };
+
+  nudge.addEventListener('click', openBotpress);
+
+  window.setTimeout(() => {
+    if (!nudge.matches(':hover, :focus-visible')) {
+      nudge.classList.add('is-resting');
+    }
+  }, 9000);
 }
 
 /* ----- Footer year ----- */
