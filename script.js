@@ -3,6 +3,8 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initCustomChineseCopy();
+  initProtectedCurrency();
   initYear();
   initNavbar();
   initMobileNav();
@@ -23,6 +25,97 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initWhatsAppEnhancements();
 });
+
+/* ----- Custom copy for Chinese browser/page translation ----- */
+function initCustomChineseCopy() {
+  const customTextNodes = document.querySelectorAll('[data-zh-text]');
+  if (!customTextNodes.length) return;
+
+  const translatedCopyPattern = /美容圣地|轻松无压力|独一无二的你|沙龙笔记日常自信/;
+
+  const shouldUseChinese = () => {
+    const lang = `${document.documentElement.lang || ''} ${document.body.className || ''}`.toLowerCase();
+    const hash = decodeURIComponent(window.location.hash || '').toLowerCase();
+    const cookie = decodeURIComponent(document.cookie || '').toLowerCase();
+    const pageText = document.body.textContent || '';
+
+    return (
+      lang.includes('zh') ||
+      hash.includes('zh-cn') ||
+      hash.includes('zh-tw') ||
+      cookie.includes('/zh-cn') ||
+      cookie.includes('/zh-tw') ||
+      translatedCopyPattern.test(pageText)
+    );
+  };
+
+  const applyCustomText = () => {
+    if (!shouldUseChinese()) return;
+    customTextNodes.forEach(el => {
+      if (el.textContent !== el.dataset.zhText) {
+        el.textContent = el.dataset.zhText;
+      }
+    });
+  };
+
+  applyCustomText();
+  window.setTimeout(applyCustomText, 500);
+  window.setTimeout(applyCustomText, 1500);
+
+  if (!('MutationObserver' in window)) return;
+
+  const observer = new MutationObserver(applyCustomText);
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    characterData: true
+  });
+}
+
+/* ----- Keep SGD prices from being browser-translated as USD ----- */
+function initProtectedCurrency() {
+  const currencyPattern = /S\$\d[\d,]*(?:\s*-\s*S\$\d[\d,]*)?\+?/g;
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (!currencyPattern.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+      currencyPattern.lastIndex = 0;
+
+      const parent = node.parentElement;
+      if (!parent || parent.closest('[translate="no"], script, style, noscript, textarea')) {
+        return NodeFilter.FILTER_REJECT;
+      }
+
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach(node => {
+    const fragment = document.createDocumentFragment();
+    let lastIndex = 0;
+
+    node.nodeValue.replace(currencyPattern, (match, offset) => {
+      if (offset > lastIndex) {
+        fragment.appendChild(document.createTextNode(node.nodeValue.slice(lastIndex, offset)));
+      }
+
+      const span = document.createElement('span');
+      span.setAttribute('translate', 'no');
+      span.textContent = match;
+      fragment.appendChild(span);
+      lastIndex = offset + match.length;
+      return match;
+    });
+
+    if (lastIndex < node.nodeValue.length) {
+      fragment.appendChild(document.createTextNode(node.nodeValue.slice(lastIndex)));
+    }
+
+    node.parentNode.replaceChild(fragment, node);
+  });
+}
 
 /* ----- CDC eligibility modal ----- */
 function initCdcEligibilityModal() {
