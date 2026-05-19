@@ -2452,6 +2452,13 @@ body.menu-open .navbar {
 }
 .outlet-hours span:first-child { color: var(--charcoal); font-weight: 500; }
 .outlet-hours span:last-child { color: var(--muted); }
+.outlet-contacts-note {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 400;
+}
 .outlet-actions {
   display: flex;
   gap: 0.7rem;
