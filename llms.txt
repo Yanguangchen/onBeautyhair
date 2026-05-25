@@ -1,6 +1,6 @@
 # ON Hair Salon & Beauty
 
-ON Hair Salon & Beauty is a Singapore hair salon group with outlets at Toa Payoh, Simei (Eastpoint Mall and Simei Street 3), Jalan Bukit Merah, Bukit Merah Central, Yishun Ring Road, Ang Mo Kio Avenue 10 and Bedok North Street 3. The website presents affordable haircuts from $8, hair colouring, perming, rebonding, hair treatments, scalp treatments, keratin smoothing, and haircut membership packages.
+ON Hair Salon & Beauty is a Singapore hair salon group with outlets at Toa Payoh, Simei (Eastpoint Mall and Simei Street 3), 164 bukit merah central, 163 bukit merah central, Yishun Ring Road, Ang Mo Kio Avenue 10 and Bedok North Street 3. The website presents haircuts, hair colouring, perming, rebonding, keratin treatments, brows, eyeliner, lashes, nails, face care and spa services.
 
 ## Key Pages
 
@@ -12,59 +12,71 @@ ON Hair Salon & Beauty is a Singapore hair salon group with outlets at Toa Payoh
 - FAQ: `faq.html`
 - Contact and outlet locations: `contact.html`
 
-## Main Services
+## Beauty Services
 
-- Hair cut: from $8; listed service prices include kids, men, and ladies haircuts.
-- Wash and cut: kids, men, and ladies options.
-- Wash and blow: from $20 to $30.
-- Hair colouring and colour retouch: from $88.
-- Highlight: from $138.
-- Colour remover: from $128.
-- Perming and cold perm: from $98.
-- Keratin perm, Korean perm, and rebonding: from $138.
-- Keratin smoothing: from $128.
+- Eyebrow Trimming: $10.
+- Express Gelish Manicure: $18.
+- Express Gelish Pedicure: $20.
+- Express Gelish Manicure and Pedicure: $33.
+- Classic Gelish Manicure: $38.
+- Classic Gelish Pedicure: $58.
+- Classic Gelish Manicure and Pedicure: $88.
+- Nail Extension: $108.
+- Eyelash Extension: $58.
+- Style Eyelash Extension: $88.
+- Eyelash Lift: $38.
+- Ear Spa: $38.
+- Eye Spa: $38++.
+- Face Treatment: $68++.
+- Face Spa: $68++.
+- Eyebrow Embroidery: $98++.
 
-## Hair Treatments
+## Eyebrow Services
 
-- Treatment with service: from $68.
-- Intense Mask, Italy: from $118.
-- Intense Hydration, France: from $148.
-- Intense Radiance, Shiseido: from $168.
-- K Gloss Smoothing Treatment: from $188.
-- Treatment membership: from $388.
+- Brow Colour Correction: $398. Trial Price: $298.
+- Eyebrow Removal: $298 per session. Trial Price: $388 for 5 sessions.
+- Mist Brow: $198. Trial Price: $88, normal single colour.
+- Fairy Mist Brow: $298. Trial Price: $188, imported two colours.
+- Luxury Makeup Brow: $498. Trial Price: $288, imported three colours.
+- 3D Shadow Brow: $598. Trial Price: $388, imported four colours.
+- 3D Hair Stroke Brow: $698. Trial Price: $468, exclusive customisation.
+- Natural Wild Brow: $798. Trial Price: $488, premium customisation.
+- Luxury Ink Brow: $888. Trial Price: $568, premium customisation.
+- Private Custom Fortune Brow: $999. Trial Price: $698, premium customisation.
 
-## Scalp Treatments
+## Eyeliner Services
 
-- Scalp Cleansing: $138.
-- Anti Sensitive: $228.
-- Scalp Detox: $388.
-- Oily Scalp Therapy: $468.
-- Anti Dandruff: $298.
-- Anti Hair Loss: $338.
-- Anti Aging: $398.
-- Regeneration Therapy: $598.
+- Eyelash Line: $198. Trial Price: $88, basic style.
+- Premium Eyeliner: $298. Trial Price: $188, AB line.
+- Bright Eyeliner: $468. Trial Price: $288, ABC line.
+- Starry Shadow Eyeliner: $598. Trial Price: $388, premium customisation.
+- High End Private Customisation: $888. Trial Price: $688, private set.
 
-## Hair Cut Membership 2026
+## Hair Services
 
-- $100 for 20 haircuts.
-- $70 for 12 haircuts.
-- $50 for 8 haircuts.
-- $30 for 4 haircuts.
+- Cut: men $10, women $12.
+- Shampoo and Cut: $20 to $38+.
+- Colour: $58 to $188+.
+- Highlight: $58 to $188+.
+- Perm, Cut and Treatment: $78 to $168+.
+- Digital Perm, Cut and Treatment: $98 to $298+.
+- Rebonding, Cut and Treatment: $98 to $298+.
+- Keratin Treatment: $98 to $298+.
 
 ## Outlets And Contact
 
 - Toa Payoh: 109 Lorong 1 Toa Payoh, #01-306 and #02-306, Singapore 310109. Shop phone: +65 6980 5765. WhatsApp: +65 8192 0109.
 - Simei Eastpoint Mall: Eastpoint Mall, #04-09.3, Simei Street 6, Singapore 528833. Phone and WhatsApp: +65 9348 0188.
 - Simei Street 3: Blk 248 Simei Street 3, #01-130, Singapore 520248. Phone and WhatsApp: +65 8412 4961.
-- Jalan Bukit Merah: Blk 2 Jalan Bukit Merah, #01-5156, Singapore 150002. Shop phone: +65 6980 5784. WhatsApp: +65 8275 5130.
-- Bukit Merah Central: Blk 163 Bukit Merah Central, #02-3601, Singapore 150163. Shop phone: +65 6980 3033. WhatsApp: +65 9897 4760.
+- 164 bukit merah central: Blk 2 164 bukit merah central, #01-5156, Singapore 150002. Shop phone: +65 6980 5784. WhatsApp: +65 8275 5130.
+- 163 bukit merah central: Blk 163 163 bukit merah central, #02-3601, Singapore 150163. Shop phone: +65 6980 3033. WhatsApp: +65 9897 4760.
 - Yishun Ring Road: Blk 846 Yishun Ring Road, #01-3643, Singapore 760846. Phone and WhatsApp: +65 8466 6738.
 - Ang Mo Kio Avenue 10: Blk 449 Ang Mo Kio Avenue 10, #01-1721, Singapore 560449. Xiao Yang +65 6019 0752 and Zoey +65 8336 9693 (each number on WhatsApp).
 - Bedok North Street 3: Bedok North Street 3, Singapore. Antony +65 8015 1136 and Vloon +65 8306 1333 (each number on WhatsApp).
 
 ## Booking
 
-Primary booking actions route to WhatsApp. Customers can ask about haircut pricing, hair colour, perming, rebonding, treatment, scalp care, membership packages, and outlet availability before visiting.
+Primary booking actions route to WhatsApp. Customers can ask about hair, brow, eyeliner, lash, nail, face care, spa service pricing, and outlet availability before visiting.
 
 ## Payment Notes
 

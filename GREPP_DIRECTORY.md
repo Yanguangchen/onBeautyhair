@@ -24,7 +24,7 @@ onBeautyhair/
     |-- faveicon.png
     |-- bedok/
     |-- bukitMerahCentral/
-    `-- JalanBukitMerah/
+    `-- 164BukitMerahCentral/
 ```
 
 ## Runtime Files
@@ -135,7 +135,7 @@ GREP_META index.html
 
 GREP_META about.html
 - Title: `About - On Hair Salon & Beauty`
-- Description: Singapore salon group serving Bukit Merah, Bukit Merah Central and Bedok North with thoughtful consultation and no-pressure beauty care
+- Description: Singapore salon group serving Bukit Merah, 163 bukit merah central and Bedok North with thoughtful consultation and no-pressure beauty care
 
 GREP_META services.html
 - Title: `Services & Pricing - On Hair Salon & Beauty`
@@ -211,18 +211,18 @@ GREP_BOOKING cdc-vouchers
 ## Outlet Directory
 
 GREP_OUTLET outlet-1
-- Name: Jalan Bukit Merah
-- Footer label: Outlet 1 - Jalan Bukit Merah
-- Address: Blk 2, Jalan Bukit Merah, #01-5156, Singapore 150002
+- Name: 164 bukit merah central
+- Footer label: Outlet 1 - 164 bukit merah central
+- Address: Blk 2, 164 bukit merah central, #01-5156, Singapore 150002
 - Shop phone: `+65 6980 5784`
 - Shop tel href: `tel:+6569805784`
 - WhatsApp: `+65 8275 5130`
 - WhatsApp href: `https://wa.me/6582755130`
 
 GREP_OUTLET outlet-2
-- Name: Bukit Merah Central
-- Footer label: Outlet 2 - Bukit Merah Central
-- Address: Blk 163, Bukit Merah Central, #02-3601, Singapore 150163
+- Name: 163 bukit merah central
+- Footer label: Outlet 2 - 163 bukit merah central
+- Address: Blk 163, 163 bukit merah central, #02-3601, Singapore 150163
 - Shop phone: `+65 8395 0090`
 - Shop tel href: `tel:+6583950090`
 - WhatsApp: `+65 8309 9832`

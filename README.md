@@ -1,6 +1,6 @@
 # ON Hair Salon & Beauty Website
 
-A static, responsive multi-page website for ON Hair Salon & Beauty, a Singapore salon group with outlets at Toa Payoh, Simei (Eastpoint Mall and Simei Street 3), Jalan Bukit Merah, Bukit Merah Central, Yishun Ring Road, Ang Mo Kio Avenue 10 and Bedok North Street 3.
+A static, responsive multi-page website for ON Hair Salon & Beauty, a Singapore salon group with outlets at Toa Payoh, Simei (Eastpoint Mall and Simei Street 3), 164 bukit merah central, 163 bukit merah central, Yishun Ring Road, Ang Mo Kio Avenue 10 and Bedok North Street 3.
 
 The site is built with plain HTML, CSS and vanilla JavaScript. There is no build step, package manager or framework dependency.
 
@@ -100,8 +100,8 @@ ON Hair Salon & Beauty lists eight outlets:
 | Outlet 1 - Toa Payoh | 109 Lorong 1 Toa Payoh, #01-306 and #02-306, Singapore 310109 | +65 6980 5765 | +65 8192 0109 |
 | Outlet 2 - Simei Eastpoint Mall | Eastpoint Mall, #04-09.3, Simei Street 6, Singapore 528833 | +65 9348 0188 | +65 9348 0188 |
 | Outlet 3 - Simei Street 3 | Blk 248 Simei Street 3, #01-130, Singapore 520248 | +65 8412 4961 | +65 8412 4961 |
-| Outlet 4 - Jalan Bukit Merah | Blk 2 Jalan Bukit Merah, #01-5156, Singapore 150002 | +65 6980 5784 | +65 8275 5130 |
-| Outlet 5 - Bukit Merah Central | Blk 163 Bukit Merah Central, #02-3601, Singapore 150163 | +65 6980 3033 | +65 9897 4760 |
+| Outlet 4 - 164 bukit merah central | Blk 2 164 bukit merah central, #01-5156, Singapore 150002 | +65 6980 5784 | +65 8275 5130 |
+| Outlet 5 - 163 bukit merah central | Blk 163 163 bukit merah central, #02-3601, Singapore 150163 | +65 6980 3033 | +65 9897 4760 |
 | Outlet 6 - Yishun Ring Road | Blk 846 Yishun Ring Road, #01-3643, Singapore 760846 | +65 8466 6738 | +65 8466 6738 |
 | Outlet 7 - Ang Mo Kio Avenue 10 | Blk 449 Ang Mo Kio Avenue 10, #01-1721, Singapore 560449 | Xiao Yang +65 6019 0752; Zoey +65 8336 9693 | Same numbers on WhatsApp |
 | Outlet 8 - Bedok North Street 3 | Bedok North Street 3, Singapore | Antony +65 8015 1136; Vloon +65 8306 1333 | Same numbers on WhatsApp |

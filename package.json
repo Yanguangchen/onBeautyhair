@@ -1,0 +1,9 @@
+{
+  "name": "onbeautyhair",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static website for ON Hair Salon & Beauty.",
+  "scripts": {
+    "dev": "node scripts/dev-server.js"
+  }
+}
