@@ -14,23 +14,58 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "HairSalon",
+        "@type": [
+          "Organization",
+          "HairSalon"
+        ],
         "@id": "https://onhairbeauty.online/#on-hair-salon-beauty",
         "name": "On Hair Salon & Beauty",
+        "alternateName": "On Hair Salon and Beauty",
         "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+        "logo": "https://onhairbeauty.online/faveicon.png",
         "description": "On Hair Salon & Beauty offers haircuts, colour, perms, rebonding, keratin treatments, brow services, eyeliner, lashes, nails, face care and spa services in Singapore.",
         "url": "https://onhairbeauty.online/",
-        "telephone": "+6583099832",
+        "telephone": "+6582755130",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+6582755130",
+          "contactType": "customer service",
+          "name": "Booking WhatsApp",
+          "areaServed": "SG",
+          "availableLanguage": [
+            "en",
+            "zh"
+          ]
+        },
         "priceRange": "S$10-S$999",
+        "currenciesAccepted": "SGD",
         "paymentAccepted": "Cash, CDC Vouchers",
-        "numberOfLocations": 9,
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
           "opens": "09:00",
           "closes": "22:00"
         },
-        "areaServed": ["Bukit Merah", "Redhill", "Tiong Bahru", "Simei", "Toa Payoh", "Yishun", "Ang Mo Kio", "Bedok", "Singapore"],
+        "areaServed": [
+          "Bukit Merah",
+          "Redhill",
+          "Tiong Bahru",
+          "Simei",
+          "Toa Payoh",
+          "Yishun",
+          "Ang Mo Kio",
+          "Bedok",
+          "Clementi",
+          "Singapore"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Blk 2 Bukit Merah Central #01-5156",
@@ -41,102 +76,369 @@
         "department": [
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#toa-payoh",
             "name": "On Hair Salon & Beauty - Toa Payoh",
             "telephone": "+6569805765",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+6569805765",
+                "contactType": "customer service",
+                "name": "Toa Payoh shop",
+                "areaServed": "SG",
+                "availableLanguage": [
+                  "en",
+                  "zh"
+                ]
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+6581920109",
+                "contactType": "customer service",
+                "name": "Toa Payoh WhatsApp",
+                "areaServed": "SG",
+                "availableLanguage": [
+                  "en",
+                  "zh"
+                ]
+              }
+            ],
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "109 Lorong 1 Toa Payoh #01-306 #02-306",
+              "streetAddress": "109 Lorong 1 Toa Payoh #01-306 and #02-306",
               "addressLocality": "Singapore",
               "postalCode": "310109",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=109+Lorong+1+Toa+Payoh+%2301-306+Singapore+310109"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#simei-eastpoint-mall",
             "name": "On Hair Salon & Beauty - Simei Eastpoint Mall",
             "telephone": "+6593480188",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+6593480188",
+              "contactType": "customer service",
+              "name": "Simei Eastpoint Mall",
+              "areaServed": "SG",
+              "availableLanguage": [
+                "en",
+                "zh"
+              ]
+            },
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Eastpoint Mall #04-09.3, Simei Street 6",
               "addressLocality": "Singapore",
               "postalCode": "528833",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Eastpoint+Mall+%2304-09.3+Simei+Street+6+Singapore+528833"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#simei-street-3",
             "name": "On Hair Salon & Beauty - Simei Street 3",
             "telephone": "+6584124961",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+6584124961",
+              "contactType": "customer service",
+              "name": "Simei Street 3",
+              "areaServed": "SG",
+              "availableLanguage": [
+                "en",
+                "zh"
+              ]
+            },
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Blk 248 Simei Street 3 #01-130",
               "addressLocality": "Singapore",
               "postalCode": "520248",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Blk+248+Simei+Street+3+%2301-130+Singapore+520248"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#bukit-merah-block-2",
             "name": "On Hair Salon & Beauty - Bukit Merah Block 2",
             "telephone": "+6583099832",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+6583099832",
+              "contactType": "customer service",
+              "name": "Allen",
+              "areaServed": "SG",
+              "availableLanguage": [
+                "en",
+                "zh"
+              ]
+            },
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Blk 2 Bukit Merah Central #01-5156",
               "addressLocality": "Singapore",
               "postalCode": "150002",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://maps.app.goo.gl/BMYvKp1EzFUfRLVL6"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#163-bukit-merah-central",
             "name": "On Hair Salon & Beauty - 163 bukit merah central",
             "telephone": "+6583099832",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+6583099832",
+              "contactType": "customer service",
+              "name": "Allen",
+              "areaServed": "SG",
+              "availableLanguage": [
+                "en",
+                "zh"
+              ]
+            },
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Blk 163 163 bukit merah central #02-3601",
+              "streetAddress": "Blk 163 bukit merah central #02-3601",
               "addressLocality": "Singapore",
               "postalCode": "150163",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Blk+163+163+bukit+merah+central+%2302-3601+Singapore+150163"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#clementi",
             "name": "On Hair Salon & Beauty - Clementi",
             "telephone": "+6583099832",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+6583099832",
+              "contactType": "customer service",
+              "name": "Allen",
+              "areaServed": "SG",
+              "availableLanguage": [
+                "en",
+                "zh"
+              ]
+            },
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Clementi",
               "addressLocality": "Singapore",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=On+Hair+Salon+Beauty+Clementi+Singapore"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#yishun-ring-road",
             "name": "On Hair Salon & Beauty - Yishun Ring Road",
             "telephone": "+6584666738",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+6584666738",
+              "contactType": "customer service",
+              "name": "Yishun Ring Road",
+              "areaServed": "SG",
+              "availableLanguage": [
+                "en",
+                "zh"
+              ]
+            },
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Blk 846 Yishun Ring Road #01-3643",
               "addressLocality": "Singapore",
               "postalCode": "760846",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Blk+846+Yishun+Ring+Road+%2301-3643+Singapore+760846"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#ang-mo-kio-avenue-10",
             "name": "On Hair Salon & Beauty - Ang Mo Kio Avenue 10",
             "contactPoint": [
               {
                 "@type": "ContactPoint",
                 "telephone": "+6560190752",
                 "contactType": "customer service",
-                "name": "Xiao Yang"
+                "name": "Xiao Yang",
+                "areaServed": "SG",
+                "availableLanguage": [
+                  "en",
+                  "zh"
+                ]
               },
               {
                 "@type": "ContactPoint",
                 "telephone": "+6583369693",
                 "contactType": "customer service",
-                "name": "Zoey"
+                "name": "Zoey",
+                "areaServed": "SG",
+                "availableLanguage": [
+                  "en",
+                  "zh"
+                ]
               }
             ],
             "address": {
@@ -145,23 +447,54 @@
               "addressLocality": "Singapore",
               "postalCode": "560449",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Blk+449+Ang+Mo+Kio+Avenue+10+%2301-1721+Singapore+560449"
           },
           {
             "@type": "HairSalon",
+            "image": "https://onhairbeauty.online/Assets/storeFront.jpeg",
+            "priceRange": "S$10-S$999",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "22:00"
+            },
+            "acceptsReservations": true,
+            "currenciesAccepted": "SGD",
+            "paymentAccepted": "Cash, CDC Vouchers",
+            "@id": "https://onhairbeauty.online/#bedok-north-street-3",
             "name": "On Hair Salon & Beauty - Bedok North Street 3",
             "contactPoint": [
               {
                 "@type": "ContactPoint",
                 "telephone": "+6580151136",
                 "contactType": "customer service",
-                "name": "Antony"
+                "name": "Antony",
+                "areaServed": "SG",
+                "availableLanguage": [
+                  "en",
+                  "zh"
+                ]
               },
               {
                 "@type": "ContactPoint",
                 "telephone": "+6583061333",
                 "contactType": "customer service",
-                "name": "Vloon"
+                "name": "Vloon",
+                "areaServed": "SG",
+                "availableLanguage": [
+                  "en",
+                  "zh"
+                ]
               }
             ],
             "address": {
@@ -169,53 +502,280 @@
               "streetAddress": "Bedok North Street 3",
               "addressLocality": "Singapore",
               "addressCountry": "SG"
-            }
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Bedok+North+Street+3+Singapore"
           }
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "On Hair Salon and Beauty Price List",
           "itemListElement": [
-            { "@type": "Offer", "name": "Eyebrow Trimming", "priceCurrency": "SGD", "price": "10" },
-            { "@type": "Offer", "name": "Express Gelish Manicure", "priceCurrency": "SGD", "price": "18" },
-            { "@type": "Offer", "name": "Express Gelish Pedicure", "priceCurrency": "SGD", "price": "20" },
-            { "@type": "Offer", "name": "Express Gelish Manicure and Pedicure", "priceCurrency": "SGD", "price": "33" },
-            { "@type": "Offer", "name": "Classic Gelish Manicure", "priceCurrency": "SGD", "price": "38" },
-            { "@type": "Offer", "name": "Classic Gelish Pedicure", "priceCurrency": "SGD", "price": "58" },
-            { "@type": "Offer", "name": "Classic Gelish Manicure and Pedicure", "priceCurrency": "SGD", "price": "88" },
-            { "@type": "Offer", "name": "Nail Extension", "priceCurrency": "SGD", "price": "108" },
-            { "@type": "Offer", "name": "Eyelash Extension", "priceCurrency": "SGD", "price": "58" },
-            { "@type": "Offer", "name": "Style Eyelash Extension", "priceCurrency": "SGD", "price": "88" },
-            { "@type": "Offer", "name": "Eyelash Lift", "priceCurrency": "SGD", "price": "38" },
-            { "@type": "Offer", "name": "Ear Spa", "priceCurrency": "SGD", "price": "38" },
-            { "@type": "Offer", "name": "Eye Spa", "priceCurrency": "SGD", "price": "38", "description": "From S$38++." },
-            { "@type": "Offer", "name": "Face Treatment", "priceCurrency": "SGD", "price": "68", "description": "From S$68++." },
-            { "@type": "Offer", "name": "Face Spa", "priceCurrency": "SGD", "price": "68", "description": "From S$68++." },
-            { "@type": "Offer", "name": "Eyebrow Embroidery", "priceCurrency": "SGD", "price": "98", "description": "From S$98++." },
-            { "@type": "Offer", "name": "Brow Colour Correction", "priceCurrency": "SGD", "price": "398", "description": "Trial price S$298." },
-            { "@type": "Offer", "name": "Eyebrow Removal", "priceCurrency": "SGD", "price": "298", "description": "S$298 per session. Trial price S$388 for 5 sessions." },
-            { "@type": "Offer", "name": "Mist Brow", "priceCurrency": "SGD", "price": "198", "description": "Trial price S$88, normal single colour." },
-            { "@type": "Offer", "name": "Fairy Mist Brow", "priceCurrency": "SGD", "price": "298", "description": "Trial price S$188, imported two colours." },
-            { "@type": "Offer", "name": "Luxury Makeup Brow", "priceCurrency": "SGD", "price": "498", "description": "Trial price S$288, imported three colours." },
-            { "@type": "Offer", "name": "3D Shadow Brow", "priceCurrency": "SGD", "price": "598", "description": "Trial price S$388, imported four colours." },
-            { "@type": "Offer", "name": "3D Hair Stroke Brow", "priceCurrency": "SGD", "price": "698", "description": "Trial price S$468, exclusive customisation." },
-            { "@type": "Offer", "name": "Natural Wild Brow", "priceCurrency": "SGD", "price": "798", "description": "Trial price S$488, premium customisation." },
-            { "@type": "Offer", "name": "Luxury Ink Brow", "priceCurrency": "SGD", "price": "888", "description": "Trial price S$568, premium customisation." },
-            { "@type": "Offer", "name": "Private Custom Fortune Brow", "priceCurrency": "SGD", "price": "999", "description": "Trial price S$698, premium customisation." },
-            { "@type": "Offer", "name": "Eyelash Line", "priceCurrency": "SGD", "price": "198", "description": "Trial price S$88, basic style." },
-            { "@type": "Offer", "name": "Premium Eyeliner", "priceCurrency": "SGD", "price": "298", "description": "Trial price S$188, AB line." },
-            { "@type": "Offer", "name": "Bright Eyeliner", "priceCurrency": "SGD", "price": "468", "description": "Trial price S$288, ABC line." },
-            { "@type": "Offer", "name": "Starry Shadow Eyeliner", "priceCurrency": "SGD", "price": "598", "description": "Trial price S$388, premium customisation." },
-            { "@type": "Offer", "name": "High End Private Customisation", "priceCurrency": "SGD", "price": "888", "description": "Trial price S$688, private set." },
-            { "@type": "Offer", "name": "Men's Cut", "priceCurrency": "SGD", "price": "10" },
-            { "@type": "Offer", "name": "Women's Cut", "priceCurrency": "SGD", "price": "12" },
-            { "@type": "Offer", "name": "Shampoo and Cut", "priceCurrency": "SGD", "price": "20", "description": "S$20 to S$38+." },
-            { "@type": "Offer", "name": "Colour", "priceCurrency": "SGD", "price": "58", "description": "S$58 to S$188+." },
-            { "@type": "Offer", "name": "Highlight", "priceCurrency": "SGD", "price": "58", "description": "S$58 to S$188+." },
-            { "@type": "Offer", "name": "Perm, Cut and Treatment", "priceCurrency": "SGD", "price": "78", "description": "S$78 to S$168+." },
-            { "@type": "Offer", "name": "Digital Perm, Cut and Treatment", "priceCurrency": "SGD", "price": "98", "description": "S$98 to S$298+." },
-            { "@type": "Offer", "name": "Rebonding, Cut and Treatment", "priceCurrency": "SGD", "price": "98", "description": "S$98 to S$298+." },
-            { "@type": "Offer", "name": "Keratin Treatment", "priceCurrency": "SGD", "price": "98", "description": "S$98 to S$298+." }
+            {
+              "@type": "Offer",
+              "name": "Eyebrow Trimming",
+              "priceCurrency": "SGD",
+              "price": "10"
+            },
+            {
+              "@type": "Offer",
+              "name": "Express Gelish Manicure",
+              "priceCurrency": "SGD",
+              "price": "18"
+            },
+            {
+              "@type": "Offer",
+              "name": "Express Gelish Pedicure",
+              "priceCurrency": "SGD",
+              "price": "20"
+            },
+            {
+              "@type": "Offer",
+              "name": "Express Gelish Manicure and Pedicure",
+              "priceCurrency": "SGD",
+              "price": "33"
+            },
+            {
+              "@type": "Offer",
+              "name": "Classic Gelish Manicure",
+              "priceCurrency": "SGD",
+              "price": "38"
+            },
+            {
+              "@type": "Offer",
+              "name": "Classic Gelish Pedicure",
+              "priceCurrency": "SGD",
+              "price": "58"
+            },
+            {
+              "@type": "Offer",
+              "name": "Classic Gelish Manicure and Pedicure",
+              "priceCurrency": "SGD",
+              "price": "88"
+            },
+            {
+              "@type": "Offer",
+              "name": "Nail Extension",
+              "priceCurrency": "SGD",
+              "price": "108"
+            },
+            {
+              "@type": "Offer",
+              "name": "Eyelash Extension",
+              "priceCurrency": "SGD",
+              "price": "58"
+            },
+            {
+              "@type": "Offer",
+              "name": "Style Eyelash Extension",
+              "priceCurrency": "SGD",
+              "price": "88"
+            },
+            {
+              "@type": "Offer",
+              "name": "Eyelash Lift",
+              "priceCurrency": "SGD",
+              "price": "38"
+            },
+            {
+              "@type": "Offer",
+              "name": "Ear Spa",
+              "priceCurrency": "SGD",
+              "price": "38"
+            },
+            {
+              "@type": "Offer",
+              "name": "Eye Spa",
+              "priceCurrency": "SGD",
+              "price": "38",
+              "description": "From S$38++."
+            },
+            {
+              "@type": "Offer",
+              "name": "Face Treatment",
+              "priceCurrency": "SGD",
+              "price": "68",
+              "description": "From S$68++."
+            },
+            {
+              "@type": "Offer",
+              "name": "Face Spa",
+              "priceCurrency": "SGD",
+              "price": "68",
+              "description": "From S$68++."
+            },
+            {
+              "@type": "Offer",
+              "name": "Eyebrow Embroidery",
+              "priceCurrency": "SGD",
+              "price": "98",
+              "description": "From S$98++."
+            },
+            {
+              "@type": "Offer",
+              "name": "Brow Colour Correction",
+              "priceCurrency": "SGD",
+              "price": "398",
+              "description": "Trial price S$298."
+            },
+            {
+              "@type": "Offer",
+              "name": "Eyebrow Removal",
+              "priceCurrency": "SGD",
+              "price": "298",
+              "description": "S$298 per session. Trial price S$388 for 5 sessions."
+            },
+            {
+              "@type": "Offer",
+              "name": "Mist Brow",
+              "priceCurrency": "SGD",
+              "price": "198",
+              "description": "Trial price S$88, normal single colour."
+            },
+            {
+              "@type": "Offer",
+              "name": "Fairy Mist Brow",
+              "priceCurrency": "SGD",
+              "price": "298",
+              "description": "Trial price S$188, imported two colours."
+            },
+            {
+              "@type": "Offer",
+              "name": "Luxury Makeup Brow",
+              "priceCurrency": "SGD",
+              "price": "498",
+              "description": "Trial price S$288, imported three colours."
+            },
+            {
+              "@type": "Offer",
+              "name": "3D Shadow Brow",
+              "priceCurrency": "SGD",
+              "price": "598",
+              "description": "Trial price S$388, imported four colours."
+            },
+            {
+              "@type": "Offer",
+              "name": "3D Hair Stroke Brow",
+              "priceCurrency": "SGD",
+              "price": "698",
+              "description": "Trial price S$468, exclusive customisation."
+            },
+            {
+              "@type": "Offer",
+              "name": "Natural Wild Brow",
+              "priceCurrency": "SGD",
+              "price": "798",
+              "description": "Trial price S$488, premium customisation."
+            },
+            {
+              "@type": "Offer",
+              "name": "Luxury Ink Brow",
+              "priceCurrency": "SGD",
+              "price": "888",
+              "description": "Trial price S$568, premium customisation."
+            },
+            {
+              "@type": "Offer",
+              "name": "Private Custom Fortune Brow",
+              "priceCurrency": "SGD",
+              "price": "999",
+              "description": "Trial price S$698, premium customisation."
+            },
+            {
+              "@type": "Offer",
+              "name": "Eyelash Line",
+              "priceCurrency": "SGD",
+              "price": "198",
+              "description": "Trial price S$88, basic style."
+            },
+            {
+              "@type": "Offer",
+              "name": "Premium Eyeliner",
+              "priceCurrency": "SGD",
+              "price": "298",
+              "description": "Trial price S$188, AB line."
+            },
+            {
+              "@type": "Offer",
+              "name": "Bright Eyeliner",
+              "priceCurrency": "SGD",
+              "price": "468",
+              "description": "Trial price S$288, ABC line."
+            },
+            {
+              "@type": "Offer",
+              "name": "Starry Shadow Eyeliner",
+              "priceCurrency": "SGD",
+              "price": "598",
+              "description": "Trial price S$388, premium customisation."
+            },
+            {
+              "@type": "Offer",
+              "name": "High End Private Customisation",
+              "priceCurrency": "SGD",
+              "price": "888",
+              "description": "Trial price S$688, private set."
+            },
+            {
+              "@type": "Offer",
+              "name": "Men's Cut",
+              "priceCurrency": "SGD",
+              "price": "10"
+            },
+            {
+              "@type": "Offer",
+              "name": "Women's Cut",
+              "priceCurrency": "SGD",
+              "price": "12"
+            },
+            {
+              "@type": "Offer",
+              "name": "Shampoo and Cut",
+              "priceCurrency": "SGD",
+              "price": "20",
+              "description": "S$20 to S$38+."
+            },
+            {
+              "@type": "Offer",
+              "name": "Colour",
+              "priceCurrency": "SGD",
+              "price": "58",
+              "description": "S$58 to S$188+."
+            },
+            {
+              "@type": "Offer",
+              "name": "Highlight",
+              "priceCurrency": "SGD",
+              "price": "58",
+              "description": "S$58 to S$188+."
+            },
+            {
+              "@type": "Offer",
+              "name": "Perm, Cut and Treatment",
+              "priceCurrency": "SGD",
+              "price": "78",
+              "description": "S$78 to S$168+."
+            },
+            {
+              "@type": "Offer",
+              "name": "Digital Perm, Cut and Treatment",
+              "priceCurrency": "SGD",
+              "price": "98",
+              "description": "S$98 to S$298+."
+            },
+            {
+              "@type": "Offer",
+              "name": "Rebonding, Cut and Treatment",
+              "priceCurrency": "SGD",
+              "price": "98",
+              "description": "S$98 to S$298+."
+            },
+            {
+              "@type": "Offer",
+              "name": "Keratin Treatment",
+              "priceCurrency": "SGD",
+              "price": "98",
+              "description": "S$98 to S$298+."
+            }
           ]
         }
       },
@@ -224,7 +784,24 @@
         "@id": "https://onhairbeauty.online/#website",
         "name": "On Hair Salon & Beauty",
         "url": "https://onhairbeauty.online/",
-        "publisher": { "@id": "https://onhairbeauty.online/#on-hair-salon-beauty" }
+        "publisher": {
+          "@id": "https://onhairbeauty.online/#on-hair-salon-beauty"
+        },
+        "inLanguage": "en-SG"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://onhairbeauty.online/#webpage",
+        "url": "https://onhairbeauty.online/",
+        "name": "Hair & Beauty Services Price List - On Hair Salon & Beauty",
+        "description": "Book hair and beauty services at On Hair Salon & Beauty, including haircuts from S$10, brow services, eyeliner, lashes, nails, face care and spa services.",
+        "isPartOf": {
+          "@id": "https://onhairbeauty.online/#website"
+        },
+        "about": {
+          "@id": "https://onhairbeauty.online/#on-hair-salon-beauty"
+        },
+        "inLanguage": "en-SG"
       }
     ]
   }
