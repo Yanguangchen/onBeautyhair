@@ -2375,6 +2375,13 @@ body.menu-open .navbar {
   transform: translateY(-10px);
   box-shadow: var(--shadow-lg);
 }
+.outlet-card-has-selector {
+  overflow: visible;
+  position: relative;
+}
+.outlet-card-has-selector:focus-within {
+  z-index: 20;
+}
 .outlet-media {
   position: relative;
   height: 240px;
@@ -2470,6 +2477,64 @@ body.menu-open .navbar {
   min-height: 44px;
   padding: 0.8rem 1.15rem;
   font-size: 0.85rem;
+}
+.contact-action-menu {
+  position: relative;
+  flex: 1 1 140px;
+  min-width: 0;
+}
+.contact-action-menu.is-open {
+  z-index: 30;
+}
+.contact-action-toggle {
+  width: 100%;
+}
+.contact-action-toggle .fa-chevron-down {
+  margin-left: auto;
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+.contact-action-menu.is-open .contact-action-toggle .fa-chevron-down {
+  transform: rotate(180deg);
+}
+.contact-action-list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 30;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0.45rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+.contact-action-menu.is-open .contact-action-list {
+  display: grid;
+}
+.contact-action-list a {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 6px;
+  color: var(--charcoal);
+  font-size: 0.86rem;
+  line-height: 1.2;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.contact-action-list a:hover,
+.contact-action-list a:focus-visible {
+  background: var(--cream);
+  color: var(--rose-deep);
+}
+.contact-action-list small {
+  color: var(--muted);
+  font-size: 0.76rem;
+  white-space: nowrap;
 }
 
 /* ---------- Maps section ---------- */

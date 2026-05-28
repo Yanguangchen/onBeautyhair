@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCdcEligibilityModal();
   initBookingModal();
   initBookingForm();
+  initContactActionMenus();
   initFaqAccordion();
   initGallery();
   initLightbox();
@@ -341,6 +342,52 @@ function initMobileNav() {
     if (window.matchMedia('(min-width: 721px)').matches && links.classList.contains('open')) {
       setOpen(false);
     }
+  });
+}
+
+/* ----- Outlet contact action dropdowns ----- */
+function initContactActionMenus() {
+  const menus = document.querySelectorAll('[data-contact-action-menu]');
+  if (!menus.length) return;
+
+  const closeMenu = (menu) => {
+    const toggle = menu.querySelector('[data-contact-action-toggle]');
+    menu.classList.remove('is-open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const closeOtherMenus = (currentMenu) => {
+    menus.forEach(menu => {
+      if (menu !== currentMenu) closeMenu(menu);
+    });
+  };
+
+  menus.forEach((menu, index) => {
+    const toggle = menu.querySelector('[data-contact-action-toggle]');
+    const list = menu.querySelector('[data-contact-action-list]');
+    if (!toggle || !list) return;
+
+    const listId = list.id || `contact-action-menu-${index + 1}`;
+    list.id = listId;
+    toggle.setAttribute('aria-controls', listId);
+    toggle.setAttribute('aria-expanded', 'false');
+
+    toggle.addEventListener('click', () => {
+      const willOpen = !menu.classList.contains('is-open');
+      closeOtherMenus(menu);
+      menu.classList.toggle('is-open', willOpen);
+      toggle.setAttribute('aria-expanded', String(willOpen));
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('[data-contact-action-menu]')) return;
+    menus.forEach(closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    menus.forEach(closeMenu);
   });
 }
 
