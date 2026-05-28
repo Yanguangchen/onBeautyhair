@@ -143,9 +143,47 @@ function initCdcEligibilityModal() {
 }
 
 /* ----- WhatsApp Greeting Bubble ----- */
+function getContactHref(root = document) {
+  const links = Array.from(root.querySelectorAll('a'));
+  const contactLink = links.find((link) => (
+    link.textContent.trim().toLowerCase() === 'contact'
+    && (link.getAttribute('href') || '').endsWith('contact.html')
+  ));
+
+  return contactLink ? contactLink.getAttribute('href') : 'contact.html';
+}
+
 function initWhatsAppEnhancements() {
   const wa = document.querySelector('.wa-float');
   if (!wa) return;
+
+  const contactHref = getContactHref();
+  const originalLink = {
+    href: wa.getAttribute('href'),
+    target: wa.getAttribute('target'),
+    rel: wa.getAttribute('rel'),
+    ariaLabel: wa.getAttribute('aria-label'),
+  };
+
+  const syncMobileHref = () => {
+    const isMobile = window.matchMedia('(max-width: 720px)').matches;
+
+    if (isMobile) {
+      wa.setAttribute('href', contactHref);
+      wa.removeAttribute('target');
+      wa.removeAttribute('rel');
+      wa.setAttribute('aria-label', 'View WhatsApp contacts');
+      return;
+    }
+
+    if (originalLink.href) wa.setAttribute('href', originalLink.href);
+    if (originalLink.target) wa.setAttribute('target', originalLink.target);
+    if (originalLink.rel) wa.setAttribute('rel', originalLink.rel);
+    if (originalLink.ariaLabel) wa.setAttribute('aria-label', originalLink.ariaLabel);
+  };
+
+  syncMobileHref();
+  window.addEventListener('resize', syncMobileHref);
 
   // Create the bubble if it doesn't exist
   if (!wa.querySelector('.wa-bubble')) {
@@ -230,6 +268,7 @@ function initMobileNav() {
 
     // Inject the mobile menu footer (contact) once
     if (!links.querySelector('.nav-mobile-foot')) {
+      const contactHref = getContactHref(links);
       const foot = document.createElement('div');
       foot.className = 'nav-mobile-foot';
       foot.innerHTML = `
@@ -239,7 +278,7 @@ function initMobileNav() {
           <a href="tel:+6569805784" class="nav-foot-btn">
             <i class="fa-solid fa-phone"></i> +65 6980 5784
           </a>
-          <a href="https://wa.me/6582755130" target="_blank" rel="noopener" class="nav-foot-btn nav-foot-wa">
+          <a href="${contactHref}" class="nav-foot-btn nav-foot-wa" aria-label="View WhatsApp contacts">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp
           </a>
         </div>

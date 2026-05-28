@@ -103,7 +103,7 @@ ON Hair Salon & Beauty lists eight outlets:
 | Outlet 4 - 164 bukit merah central | Blk 2 164 bukit merah central, #01-5156, Singapore 150002 | +65 6980 5784 | +65 8275 5130 |
 | Outlet 5 - 163 bukit merah central | Blk 163 163 bukit merah central, #02-3601, Singapore 150163 | +65 6980 3033 | +65 9897 4760 |
 | Outlet 6 - Yishun Ring Road | Blk 846 Yishun Ring Road, #01-3643, Singapore 760846 | +65 8466 6738 | +65 8466 6738 |
-| Outlet 7 - Ang Mo Kio Avenue 10 | Blk 449 Ang Mo Kio Avenue 10, #01-1721, Singapore 560449 | Xiao Yang +65 6019 0752; Zoey +65 8336 9693 | Same numbers on WhatsApp |
+| Outlet 7 - Ang Mo Kio Avenue 10 | Blk 449 Ang Mo Kio Avenue 10, #01-1721, Singapore 560449 | Xiao Yang +65 6019 0752; Zoey +65 8336 9693 | WhatsApp: Zoey only |
 | Outlet 8 - Bedok North Street 3 | Bedok North Street 3, Singapore | Antony +65 8015 1136; Vloon +65 8306 1333 | Same numbers on WhatsApp |
 
 ## Current Placeholder Areas
