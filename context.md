@@ -1,7 +1,7 @@
 # Project Context: On Hair Salon and Beauty
 
 ## Snapshot
-- Project type: Static multi-page marketing site for a Singapore beauty salon.
+- Project type: Static multi-page marketing site for a Singapore hair and beauty salon group with nine outlet listings.
 - Stack: HTML5, CSS3, vanilla JavaScript.
 - Build system: None (no framework, no bundler).
 - Primary entry page: `index.html`.
@@ -26,7 +26,7 @@
 - `about.html`: Brand story and studio positioning.
 - `gallery.html`: Filterable gallery with lightbox.
 - `faq.html`: Accordion-style frequently asked questions.
-- `contact.html`: Multi-outlet contact information.
+- `contact.html`: Multi-outlet contact information, opening hours, directions, review links and maps.
 - `styles.css`: Global design tokens, layout, components, responsive rules, animations.
 - `script.js`: All interaction logic and progressive enhancements.
 
@@ -57,10 +57,28 @@
 - Font Awesome 6 CDN for icons.
 - Google Fonts CDN.
 - WhatsApp deep links for booking/contact.
+- Google Maps links and iframe embeds for directions.
+
+## Outlet Locations and Contacts
+- Canonical current locations: Toa Payoh, Simei Eastpoint Mall, Simei Street 3, Bukit Merah Block 2, 163 bukit merah central, Clementi, Yishun Ring Road, Ang Mo Kio Avenue 10 and Bedok North Street 3.
+- Toa Payoh: 109 Lorong 1 Toa Payoh, #01-306 and #02-306, Singapore 310109. Shop +65 6980 5765; WhatsApp +65 8192 0109.
+- Simei Eastpoint Mall: Eastpoint Mall, #04-09.3, Simei Street 6, Singapore 528833. Phone/WhatsApp +65 9348 0188.
+- Simei Street 3: Blk 248 Simei Street 3, #01-130, Singapore 520248. Phone/WhatsApp +65 8412 4961.
+- Bukit Merah Block 2: Blk 2, Bukit Merah Central, #01-5156, Singapore 150002. Allen phone/WhatsApp +65 8309 9832.
+- 163 bukit merah central: Blk 163, 163 bukit merah central, #02-3601, Singapore 150163. Allen phone/WhatsApp +65 8309 9832.
+- Clementi: Clementi, Singapore. Allen phone/WhatsApp +65 8309 9832. Full street address is not currently listed.
+- Yishun Ring Road: Blk 846, Yishun Ring Road, #01-3643, Singapore 760846. Phone/WhatsApp +65 8466 6738.
+- Ang Mo Kio Avenue 10: Blk 449, Ang Mo Kio Avenue 10, #01-1721, Singapore 560449. Xiao Yang +65 6019 0752; Zoey +65 8336 9693. WhatsApp routes to Zoey.
+- Bedok North Street 3: Bedok North Street 3, Singapore. Antony +65 8015 1136 and Vloon +65 8306 1333. Both contacts have WhatsApp links.
+- Contact cards list daily hours as 9:00 AM - 10:00 PM, with a public-holiday caveat.
 
 ## Content Notes
 - Several service cards still use placeholder copy and pricing markers (`[ Service Title .. ]`, `From $ -`).
 - Home page hero includes CDC voucher acceptance badge and now also a dedicated CDC eligibility popup.
+- Clementi currently uses a broad `Clementi, Singapore` location; confirm the full address before treating it as an exact street address.
+
+## Recent Update (2026-05-28)
+- Refreshed project documentation and `llms.txt` with the current nine-outlet location set and updated contact routing.
 
 ## Recent Update (2026-05-17)
 - Added a closable CDC eligibility modal that appears automatically on home page load.
