@@ -158,32 +158,10 @@ function initWhatsAppEnhancements() {
   if (!wa) return;
 
   const contactHref = getContactHref();
-  const originalLink = {
-    href: wa.getAttribute('href'),
-    target: wa.getAttribute('target'),
-    rel: wa.getAttribute('rel'),
-    ariaLabel: wa.getAttribute('aria-label'),
-  };
-
-  const syncMobileHref = () => {
-    const isMobile = window.matchMedia('(max-width: 720px)').matches;
-
-    if (isMobile) {
-      wa.setAttribute('href', contactHref);
-      wa.removeAttribute('target');
-      wa.removeAttribute('rel');
-      wa.setAttribute('aria-label', 'View WhatsApp contacts');
-      return;
-    }
-
-    if (originalLink.href) wa.setAttribute('href', originalLink.href);
-    if (originalLink.target) wa.setAttribute('target', originalLink.target);
-    if (originalLink.rel) wa.setAttribute('rel', originalLink.rel);
-    if (originalLink.ariaLabel) wa.setAttribute('aria-label', originalLink.ariaLabel);
-  };
-
-  syncMobileHref();
-  window.addEventListener('resize', syncMobileHref);
+  wa.setAttribute('href', contactHref);
+  wa.removeAttribute('target');
+  wa.removeAttribute('rel');
+  wa.setAttribute('aria-label', 'View WhatsApp contacts');
 
   // Create the bubble if it doesn't exist
   if (!wa.querySelector('.wa-bubble')) {
