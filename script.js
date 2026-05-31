@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTiltCards();
   initCounters();
   initWhatsAppEnhancements();
+  initSocialLinks();
   initBotpressLiveAgentNudge();
 });
 
@@ -186,6 +187,16 @@ function initWhatsAppEnhancements() {
   }
 }
 
+function initSocialLinks() {
+  const instagramUrl = 'https://www.instagram.com/onhair_salon_beauty?igsh=bmYzbXJqaWU1ZjY%3D&utm_source=qr';
+  document.querySelectorAll('.footer-links').forEach((links) => {
+    if (links.querySelector('a[href*="instagram.com/onhair_salon_beauty"]')) return;
+    const item = document.createElement('li');
+    item.innerHTML = `<a href="${instagramUrl}" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>`;
+    links.appendChild(item);
+  });
+}
+
 /* ----- Botpress live agent nudge ----- */
 function initBotpressLiveAgentNudge() {
   const nudge = document.getElementById('botpressLiveAgentNudge');
@@ -252,13 +263,16 @@ function initMobileNav() {
       foot.className = 'nav-mobile-foot';
       foot.innerHTML = `
         <p class="nav-foot-eyebrow">Reach us</p>
-        <p class="nav-foot-locations"><span translate="no">Toa Payoh</span>, <span translate="no">Simei</span>, <span translate="no">Bukit Merah</span>, <span translate="no">Yishun</span>, <span translate="no">Ang Mo Kio</span>, <span translate="no">Bedok</span></p>
+        <p class="nav-foot-locations"><span translate="no">Toa Payoh</span>, <span translate="no">Simei</span>, <span translate="no">Bukit Merah</span>, <span translate="no">Yishun</span>, <span translate="no">Ang Mo Kio</span>, <span translate="no">Bedok</span>, <span translate="no">Serangoon</span></p>
         <div class="nav-foot-actions">
           <a href="tel:+6569805784" class="nav-foot-btn">
             <i class="fa-solid fa-phone"></i> +65 6980 5784
           </a>
           <a href="${contactHref}" class="nav-foot-btn nav-foot-wa" aria-label="View WhatsApp contacts">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="https://www.instagram.com/onhair_salon_beauty?igsh=bmYzbXJqaWU1ZjY%3D&utm_source=qr" target="_blank" rel="noopener" class="nav-foot-btn" aria-label="Follow On Hair Salon and Beauty on Instagram">
+            <i class="fa-brands fa-instagram"></i> Instagram
           </a>
         </div>
       `;
