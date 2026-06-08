@@ -859,6 +859,20 @@ body.menu-open .navbar {
 .hero-image.is-transitioning::after {
   opacity: 1;
 }
+.about-image-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-image-next);
+  background-size: cover;
+  background-position: center;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.about-image-main.is-transitioning::after {
+  opacity: 1;
+}
 .hero-image-wrap:hover .hero-image {
   transform: scale(1.05);
 }
@@ -940,6 +954,179 @@ body.menu-open .navbar {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--charcoal);
+}
+
+/* ---------- Promo Section ---------- */
+.promo-section {
+  background:
+    linear-gradient(135deg, rgba(46, 31, 26, 0.9), rgba(128, 62, 76, 0.88)),
+    url('Assets/media/5.jpg') center / cover;
+  color: var(--cream);
+  padding: clamp(3rem, 7vw, 5rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+.promo-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(46, 31, 26, 0.9), rgba(46, 31, 26, 0.42));
+  pointer-events: none;
+}
+.promo-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.9fr) minmax(360px, 1.4fr) auto;
+  gap: clamp(1.4rem, 4vw, 3rem);
+  align-items: center;
+}
+.promo-copy {
+  max-width: 420px;
+}
+.promo-copy .eyebrow {
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+.promo-copy h2 {
+  color: var(--cream);
+  margin-bottom: 0.9rem;
+}
+.promo-copy em {
+  display: inline-block;
+  color: var(--blush);
+}
+.promo-rate-loop {
+  position: relative;
+  background: linear-gradient(90deg, var(--blush), var(--gold), var(--cream), var(--blush));
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  animation: promoRateShimmer 2.2s linear infinite, promoRateLift 2.2s ease-in-out infinite;
+}
+.promo-rate-loop::after {
+  content: "";
+  position: absolute;
+  left: 0.05em;
+  right: 0.05em;
+  bottom: 0.03em;
+  height: 0.08em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform-origin: center;
+  animation: promoRateUnderline 2.2s ease-in-out infinite;
+}
+@keyframes promoRateShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 260% 50%; }
+}
+@keyframes promoRateLift {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-0.04em) scale(1.035); }
+}
+@keyframes promoRateUnderline {
+  0%, 100% { opacity: 0.45; transform: scaleX(0.55); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+.promo-copy p:not(.eyebrow) {
+  color: rgba(255, 248, 244, 0.78);
+  margin: 0;
+}
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+.promo-item {
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(255, 248, 244, 0.22);
+  background: rgba(255, 248, 244, 0.1);
+  backdrop-filter: blur(10px);
+}
+.promo-item span {
+  color: rgba(255, 248, 244, 0.76);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+.promo-item strong {
+  display: flex;
+  align-items: baseline;
+  gap: 0.04em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: 0;
+  min-width: 0;
+  white-space: nowrap;
+}
+.promo-item strong .price-prefix,
+.promo-item strong .price-suffix {
+  color: rgba(255, 248, 244, 0.82);
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1vw, 0.98rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.promo-item strong .price-number {
+  font-size: clamp(2.15rem, 3.1vw, 3.1rem);
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--cream), var(--gold), #ffd6de, var(--cream));
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  animation: promoPricePhase 2.8s ease-in-out infinite;
+}
+.promo-item-herbal strong .price-number {
+  background: linear-gradient(90deg, #f6ffe8, #b7e36b, #4fb477, #f6ffe8);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  animation-name: promoHerbalPricePhase;
+}
+.promo-item-herbal {
+  border-color: rgba(148, 203, 104, 0.42);
+  background: rgba(116, 171, 93, 0.16);
+}
+.promo-item-herbal strong .price-prefix,
+.promo-item-herbal strong .price-suffix {
+  color: rgba(231, 255, 214, 0.88);
+}
+.promo-item:nth-child(2) .price-number { animation-delay: 0.15s; }
+.promo-item:nth-child(3) .price-number { animation-delay: 0.3s; }
+.promo-item:nth-child(4) .price-number { animation-delay: 0.45s; }
+.promo-item:nth-child(5) .price-number { animation-delay: 0.6s; }
+.promo-item:nth-child(6) .price-number { animation-delay: 0.75s; }
+@keyframes promoPricePhase {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(201, 169, 97, 0));
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 12px rgba(201, 169, 97, 0.32));
+  }
+}
+@keyframes promoHerbalPricePhase {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(79, 180, 119, 0));
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 14px rgba(117, 205, 111, 0.38));
+  }
+}
+.promo-cta {
+  white-space: nowrap;
 }
 
 /* ---------- Services Preview ---------- */
@@ -1045,6 +1232,7 @@ body.menu-open .navbar {
   background-size: cover;
   background-position: center;
   border-radius: var(--radius-md);
+  overflow: hidden;
   box-shadow: var(--shadow-md);
 }
 .about-image-sub {
@@ -1158,6 +1346,15 @@ body.menu-open .navbar {
 .sister-brand-card .sister-brand-crosslink {
   color: var(--text);
   font-weight: 600;
+}
+.sister-brand-card .sister-brand-crosslink a {
+  color: var(--rose-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.sister-brand-card .sister-brand-crosslink a:hover,
+.sister-brand-card .sister-brand-crosslink a:focus-visible {
+  color: var(--charcoal);
 }
 .sister-brand-card .btn {
   justify-self: end;
@@ -2440,6 +2637,81 @@ body.menu-open .navbar {
   transform: translateY(-10px);
   box-shadow: var(--shadow-lg);
 }
+.outlet-card-kbeauty {
+  position: relative;
+  overflow: visible;
+}
+.outlet-card-kbeauty .outlet-body {
+  padding-top: 3.3rem;
+}
+.outlet-sticker {
+  position: absolute;
+  top: -0.95rem;
+  left: 1rem;
+  z-index: 4;
+  display: grid;
+  gap: 0.08rem;
+  max-width: min(72%, 260px);
+  padding: 0.8rem 1rem 0.72rem;
+  background: #fff5c7;
+  border: 1px solid rgba(191, 144, 54, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 12px 24px rgba(62, 52, 45, 0.16);
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.15;
+  transform: rotate(-3deg);
+  transform-origin: top left;
+  animation: sticker-peek 4.8s ease-in-out infinite;
+}
+.outlet-sticker:hover,
+.outlet-sticker:focus-visible {
+  color: var(--charcoal);
+  transform: rotate(-1deg) translateY(-3px);
+  box-shadow: 0 16px 30px rgba(62, 52, 45, 0.2);
+  animation: none;
+}
+.outlet-sticker:focus-visible {
+  outline: 3px solid rgba(183, 110, 121, 0.45);
+  outline-offset: 4px;
+}
+.outlet-sticker::before {
+  content: "";
+  position: absolute;
+  top: -0.54rem;
+  left: 1.05rem;
+  width: 4.2rem;
+  height: 1rem;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(210, 196, 170, 0.48);
+  box-shadow: 0 3px 8px rgba(62, 52, 45, 0.08);
+  transform: rotate(7deg);
+}
+.outlet-sticker::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(183, 110, 121, 0.24);
+  animation: sticker-glow 4.8s ease-in-out infinite;
+}
+.sticker-kicker {
+  color: var(--rose-deep);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+@keyframes sticker-peek {
+  0%, 78%, 100% { transform: rotate(-3deg) translateY(0); }
+  84% { transform: rotate(-1deg) translateY(-3px); }
+  90% { transform: rotate(-4deg) translateY(1px); }
+}
+@keyframes sticker-glow {
+  0%, 76%, 100% { box-shadow: 0 0 0 0 rgba(183, 110, 121, 0); }
+  86% { box-shadow: 0 0 0 8px rgba(183, 110, 121, 0.16); }
+}
 .outlet-card-has-selector {
   overflow: visible;
   position: relative;
@@ -2897,6 +3169,17 @@ body.menu-open .navbar {
   .hero-subtitle, .hero-actions, .hero-pills, .hero-stats { margin-left: auto; margin-right: auto; justify-content: center; }
   .hero-media { display: none; }
   .cdc-badge { border-left: none; padding-left: 0; padding-top: 1rem; border-top: 1px solid rgba(46, 31, 26, 0.1); width: 100%; justify-content: center; }
+  .promo-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .promo-copy {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .promo-cta {
+    justify-self: center;
+  }
 
   .about-grid, .contact-grid, .maps-grid { grid-template-columns: 1fr; gap: 3rem; }
   .sister-brand-card {
@@ -3133,6 +3416,8 @@ body.menu-open .navbar {
   .hero-stats { gap: 1.6rem; }
   .hero-stats strong { font-size: 1.8rem; }
   .scroll-cue { display: none; }
+  .promo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .promo-item { min-height: 96px; text-align: left; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .blog-grid { grid-template-columns: 1fr; }
@@ -3172,6 +3457,9 @@ body.menu-open .navbar {
   .hero-title em,
   .hero-title em.hero-keyphrase::after,
   [data-shimmer],
+  .promo-rate-loop,
+  .promo-rate-loop::after,
+  .promo-item strong,
   .about-listening-loop::after,
   .scroll-line { animation: none !important; }
 }
@@ -3189,6 +3477,19 @@ body.menu-open .navbar {
     box-shadow: 0 2px 8px rgba(46, 31, 26, 0.03);
   }
   .hero-content { padding: 4rem 1.2rem; }
+  .promo-grid { grid-template-columns: 1fr; }
+  .promo-item {
+    min-height: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+  .promo-item strong {
+    text-align: right;
+    justify-content: flex-end;
+  }
+  .promo-item strong .price-number {
+    font-size: clamp(2.05rem, 9vw, 2.7rem);
+  }
   .container { padding: 0 1.2rem; }
 }
 

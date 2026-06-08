@@ -598,7 +598,9 @@ function initLightbox() {
     document.body.style.overflow = '';
   };
 
-  items.forEach((item, i) => item.addEventListener('click', () => show(i)));
+  items.forEach(item => {
+    item.addEventListener('click', () => show(visibleItems().indexOf(item)));
+  });
   closeBtn?.addEventListener('click', close);
   prevBtn?.addEventListener('click', () => show(current - 1));
   nextBtn?.addEventListener('click', () => show(current + 1));
@@ -716,70 +718,72 @@ function initMouseParallax() {
 
 /* ----- Hero storefront image carousel ----- */
 function initHeroImageCarousel() {
-  const heroImage = document.querySelector('.hero-image[data-hero-images]');
-  if (!heroImage) return;
+  const carouselImages = document.querySelectorAll('.hero-image[data-hero-images], .about-image-main[data-hero-images]');
+  if (!carouselImages.length) return;
 
-  const images = heroImage.dataset.heroImages
-    .split(',')
-    .map(src => src.trim())
-    .filter(Boolean);
+  carouselImages.forEach(imageEl => {
+    const images = imageEl.dataset.heroImages
+      .split(',')
+      .map(src => src.trim())
+      .filter(Boolean);
 
-  if (images.length < 2) return;
+    if (images.length < 2) return;
 
-  const cssUrl = src => `url("${src.replace(/"/g, '\\"')}")`;
-  const transitionMs = 1000;
-  const intervalMs = 3200;
-  let currentIndex = 0;
-  let timerId = null;
-  let transitionId = null;
+    const cssUrl = src => `url("${src.replace(/"/g, '\\"')}")`;
+    const transitionMs = 650;
+    const intervalMs = 2200;
+    let currentIndex = 0;
+    let timerId = null;
+    let transitionId = null;
 
-  heroImage.style.backgroundImage = cssUrl(images[currentIndex]);
+    imageEl.style.backgroundImage = cssUrl(images[currentIndex]);
 
-  images.slice(1).forEach(src => {
-    const preload = new Image();
-    preload.src = src;
-  });
+    images.slice(1).forEach(src => {
+      const preload = new Image();
+      preload.src = src;
+    });
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const showNextImage = () => {
-    if (document.hidden || heroImage.classList.contains('is-transitioning')) return;
+    const showNextImage = () => {
+      if (document.hidden || imageEl.classList.contains('is-transitioning')) return;
 
-    const nextIndex = (currentIndex + 1) % images.length;
-    const nextImage = images[nextIndex];
+      const nextIndex = (currentIndex + 1) % images.length;
+      const nextImage = images[nextIndex];
 
-    heroImage.style.setProperty('--hero-image-next', cssUrl(nextImage));
-    heroImage.classList.add('is-transitioning');
+      imageEl.style.setProperty('--hero-image-next', cssUrl(nextImage));
+      imageEl.classList.add('is-transitioning');
 
-    window.clearTimeout(transitionId);
-    transitionId = window.setTimeout(() => {
-      currentIndex = nextIndex;
-      heroImage.style.backgroundImage = cssUrl(nextImage);
-      heroImage.classList.remove('is-transitioning');
-    }, transitionMs);
-  };
+      window.clearTimeout(transitionId);
+      transitionId = window.setTimeout(() => {
+        currentIndex = nextIndex;
+        imageEl.style.backgroundImage = cssUrl(nextImage);
+        imageEl.classList.remove('is-transitioning');
+      }, transitionMs);
+    };
 
-  const start = () => {
-    if (timerId) return;
-    timerId = window.setInterval(showNextImage, intervalMs);
-  };
+    const start = () => {
+      if (timerId) return;
+      timerId = window.setInterval(showNextImage, intervalMs);
+    };
 
-  const stop = () => {
-    if (!timerId) return;
-    window.clearInterval(timerId);
-    timerId = null;
-  };
+    const stop = () => {
+      if (!timerId) return;
+      window.clearInterval(timerId);
+      timerId = null;
+    };
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      stop();
-      return;
-    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stop();
+        return;
+      }
+      start();
+    });
+    window.addEventListener('pagehide', stop);
+
     start();
   });
-  window.addEventListener('pagehide', stop);
-
-  start();
 }
 
 /* ----- Magnetic buttons + glow tracking ----- */
