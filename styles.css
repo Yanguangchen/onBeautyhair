@@ -2517,6 +2517,55 @@ body.menu-open .navbar {
   color: var(--muted);
   font-weight: 400;
 }
+.co-location-callout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.2rem 0.7rem;
+  align-items: start;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(183, 110, 121, 0.28);
+  border-left: 4px solid var(--rose);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(183, 110, 121, 0.12), rgba(245, 225, 216, 0.5));
+  color: var(--charcoal);
+}
+.co-location-callout i {
+  grid-row: span 2;
+  margin-top: 0.15rem;
+  color: var(--rose);
+}
+.co-location-callout strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.co-location-callout span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.contact-co-location-callout {
+  margin-top: 0.85rem !important;
+}
+.co-location-pill,
+.footer-co-location-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(183, 110, 121, 0.14);
+  color: var(--rose);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.footer-co-location-note {
+  margin: 0.45rem 0 0.15rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
 .outlet-actions {
   display: flex;
   gap: 0.7rem;
