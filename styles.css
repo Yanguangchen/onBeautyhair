@@ -1138,6 +1138,13 @@ body.menu-open .navbar {
   color: var(--muted);
   max-width: 720px;
 }
+.sister-brand-card p + p {
+  margin-top: 0.75rem;
+}
+.sister-brand-card .sister-brand-crosslink {
+  color: var(--text);
+  font-weight: 600;
+}
 .sister-brand-card .btn {
   justify-self: end;
 }
