@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress();
   initHeroParallax();
   initMouseParallax();
+  initHeroImageCarousel();
   initMagneticButtons();
   initButtonRipple();
   initTiltCards();
@@ -711,6 +712,74 @@ function initMouseParallax() {
     active = false;
     if (!rafId) rafId = requestAnimationFrame(tick);
   });
+}
+
+/* ----- Hero storefront image carousel ----- */
+function initHeroImageCarousel() {
+  const heroImage = document.querySelector('.hero-image[data-hero-images]');
+  if (!heroImage) return;
+
+  const images = heroImage.dataset.heroImages
+    .split(',')
+    .map(src => src.trim())
+    .filter(Boolean);
+
+  if (images.length < 2) return;
+
+  const cssUrl = src => `url("${src.replace(/"/g, '\\"')}")`;
+  const transitionMs = 1000;
+  const intervalMs = 3200;
+  let currentIndex = 0;
+  let timerId = null;
+  let transitionId = null;
+
+  heroImage.style.backgroundImage = cssUrl(images[currentIndex]);
+
+  images.slice(1).forEach(src => {
+    const preload = new Image();
+    preload.src = src;
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const showNextImage = () => {
+    if (document.hidden || heroImage.classList.contains('is-transitioning')) return;
+
+    const nextIndex = (currentIndex + 1) % images.length;
+    const nextImage = images[nextIndex];
+
+    heroImage.style.setProperty('--hero-image-next', cssUrl(nextImage));
+    heroImage.classList.add('is-transitioning');
+
+    window.clearTimeout(transitionId);
+    transitionId = window.setTimeout(() => {
+      currentIndex = nextIndex;
+      heroImage.style.backgroundImage = cssUrl(nextImage);
+      heroImage.classList.remove('is-transitioning');
+    }, transitionMs);
+  };
+
+  const start = () => {
+    if (timerId) return;
+    timerId = window.setInterval(showNextImage, intervalMs);
+  };
+
+  const stop = () => {
+    if (!timerId) return;
+    window.clearInterval(timerId);
+    timerId = null;
+  };
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stop();
+      return;
+    }
+    start();
+  });
+  window.addEventListener('pagehide', stop);
+
+  start();
 }
 
 /* ----- Magnetic buttons + glow tracking ----- */
