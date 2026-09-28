@@ -1,18 +1,33 @@
 {
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog-bukit-merah-hair-salon.html",
+      "destination": "/articles/bukit-merah-hair-salon-guide.html",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/Assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
       ]
     },
     {
       "source": "/llms.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
       ]
     }
   ]
