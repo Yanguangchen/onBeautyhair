@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initWhatsAppEnhancements();
   initSocialLinks();
+  initBotpressLoader();
   initBotpressLiveAgentNudge();
 });
 
@@ -41,7 +42,6 @@ function initCustomChineseCopy() {
     const lang = `${document.documentElement.lang || ''} ${document.body.className || ''}`.toLowerCase();
     const hash = decodeURIComponent(window.location.hash || '').toLowerCase();
     const cookie = decodeURIComponent(document.cookie || '').toLowerCase();
-    const pageText = document.body.textContent || '';
 
     return (
       lang.includes('zh') ||
@@ -49,7 +49,8 @@ function initCustomChineseCopy() {
       hash.includes('zh-tw') ||
       cookie.includes('/zh-cn') ||
       cookie.includes('/zh-tw') ||
-      translatedCopyPattern.test(pageText)
+      // Reading the whole page text is expensive, so only do it as a last resort
+      translatedCopyPattern.test(document.body.textContent || '')
     );
   };
 
@@ -68,7 +69,16 @@ function initCustomChineseCopy() {
 
   if (!('MutationObserver' in window)) return;
 
-  const observer = new MutationObserver(applyCustomText);
+  // Batch mutations to one check per frame (counters and widgets mutate the DOM constantly)
+  let scheduled = false;
+  const observer = new MutationObserver(() => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => {
+      scheduled = false;
+      applyCustomText();
+    });
+  });
   observer.observe(document.body, {
     childList: true,
     subtree: true,
@@ -198,6 +208,46 @@ function initSocialLinks() {
   });
 }
 
+/* ----- Botpress webchat loader -----
+   The widget scripts are heavy, so they load after the page has finished
+   loading (or immediately if the visitor clicks the live agent nudge). */
+let botpressLoading = null;
+
+function loadBotpress() {
+  if (botpressLoading) return botpressLoading;
+
+  const holder = document.querySelector('[data-botpress-src]');
+  if (!holder) return Promise.resolve();
+
+  const loadScript = (src) => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
+
+  botpressLoading = loadScript(holder.dataset.botpressSrc)
+    .then(() => holder.dataset.botpressConfig && loadScript(holder.dataset.botpressConfig))
+    .catch(() => {});
+  return botpressLoading;
+}
+
+function initBotpressLoader() {
+  if (!document.querySelector('[data-botpress-src]')) return;
+
+  const schedule = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadBotpress, { timeout: 3000 });
+    } else {
+      window.setTimeout(loadBotpress, 1500);
+    }
+  };
+
+  if (document.readyState === 'complete') schedule();
+  else window.addEventListener('load', schedule, { once: true });
+}
+
 /* ----- Botpress live agent nudge ----- */
 function initBotpressLiveAgentNudge() {
   const nudge = document.getElementById('botpressLiveAgentNudge');
@@ -207,8 +257,9 @@ function initBotpressLiveAgentNudge() {
     nudge.classList.add('is-visible');
   }, 1800);
 
-  const openBotpress = () => {
+  const openBotpress = async () => {
     nudge.classList.add('is-dismissed');
+    await loadBotpress();
 
     if (window.botpress && typeof window.botpress.open === 'function') {
       window.botpress.open();
@@ -738,10 +789,17 @@ function initHeroImageCarousel() {
 
     imageEl.style.backgroundImage = cssUrl(images[currentIndex]);
 
-    images.slice(1).forEach(src => {
-      const preload = new Image();
-      preload.src = src;
-    });
+    // Warm the other slides only after the page has loaded, and never for a
+    // hidden carousel (the hero image is display:none on mobile).
+    const preloadRest = () => {
+      if (!imageEl.getClientRects().length) return;
+      images.slice(1).forEach(src => {
+        const preload = new Image();
+        preload.src = src;
+      });
+    };
+    if (document.readyState === 'complete') preloadRest();
+    else window.addEventListener('load', preloadRest, { once: true });
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 

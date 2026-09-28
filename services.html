@@ -1,37 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-SG">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="faveicon.png" />
-  <link rel="apple-touch-icon" href="faveicon.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="Assets/icons/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="Assets/icons/favicon-192.png" />
+  <link rel="apple-touch-icon" href="Assets/icons/apple-touch-icon.png" />
   <title>Services &amp; Price List &mdash; On Hair Salon &amp; Beauty</title>
   <meta name="description" content="View prices for On Hair Salon & Beauty services, including haircuts, colour, perms, keratin treatments, brows, eyeliner, lashes, nails, face care and spa services." />
   <link rel="canonical" href="https://onhairbeauty.online/services.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#faf6f1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="On Hair Salon &amp; Beauty" />
+  <meta property="og:locale" content="en_SG" />
+  <meta property="og:title" content="Services &amp; Price List — On Hair Salon &amp; Beauty" />
+  <meta property="og:description" content="View prices for On Hair Salon &amp; Beauty services, including haircuts, colour, perms, keratin treatments, brows, eyeliner, lashes, nails, face care and spa services." />
+  <meta property="og:url" content="https://onhairbeauty.online/services.html" />
+  <meta property="og:image" content="https://onhairbeauty.online/Assets/og/og-default.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Services &amp; Price List — On Hair Salon &amp; Beauty" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="keywords" content="On Hair Salon and Beauty price list, Singapore hair salon price, eyebrow embroidery price, eyeliner embroidery price, eyelash extension price, gelish manicure price, keratin treatment price, Bukit Merah hair salon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://onhairbeauty.online/services.html#webpage",
-        "url": "https://onhairbeauty.online/services.html",
-        "name": "Services & Price List - On Hair Salon & Beauty",
-        "description": "View prices for On Hair Salon & Beauty services, including haircuts, colour, perms, keratin treatments, brows, eyeliner, lashes, nails, face care and spa services.",
-        "isPartOf": {
-          "@id": "https://onhairbeauty.online/#website"
-        },
-        "about": {
-          "@id": "https://onhairbeauty.online/services.html#on-hair-salon-service-menu"
+        "@type": "Organization",
+        "@id": "https://onhairbeauty.online/#on-hair-salon-beauty",
+        "name": "On Hair Salon & Beauty",
+        "alternateName": [
+          "ON Hair Salon & Beauty",
+          "On Hair Salon and Beauty",
+          "ON Hair & Beauty"
+        ],
+        "url": "https://onhairbeauty.online/",
+        "logo": "https://onhairbeauty.online/faveicon.png",
+        "sameAs": [
+          "https://www.instagram.com/onhair_salon_beauty/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://onhairbeauty.online/#website",
+        "url": "https://onhairbeauty.online/",
+        "name": "On Hair Salon & Beauty",
+        "alternateName": [
+          "ON Hair Salon & Beauty",
+          "On Hair Salon and Beauty",
+          "ON Hair & Beauty"
+        ],
+        "publisher": {
+          "@id": "https://onhairbeauty.online/#on-hair-salon-beauty"
         },
         "inLanguage": "en-SG"
       },
       {
+        "@type": "WebPage",
+        "@id": "https://onhairbeauty.online/services.html#webpage",
+        "url": "https://onhairbeauty.online/services.html",
+        "name": "Services & Price List — On Hair Salon & Beauty",
+        "description": "View prices for On Hair Salon & Beauty services, including haircuts, colour, perms, keratin treatments, brows, eyeliner, lashes, nails, face care and spa services.",
+        "isPartOf": {
+          "@id": "https://onhairbeauty.online/#website"
+        },
+        "inLanguage": "en-SG",
+        "breadcrumb": {
+          "@id": "https://onhairbeauty.online/services.html#breadcrumb"
+        },
+        "about": {
+          "@id": "https://onhairbeauty.online/services.html#on-hair-salon-service-menu"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://onhairbeauty.online/Assets/og/og-default.jpg"
+        }
+      },
+      {
         "@type": "Service",
         "@id": "https://onhairbeauty.online/services.html#on-hair-salon-service-menu",
-        "name": "On Hair Salon & Beauty Services Price List",
-        "serviceType": "Hair, brow, lash, nail, face and spa services",
+        "name": "On Hair Salon & Beauty services and price list",
+        "serviceType": "Hair, brow, eyeliner, lash, nail, face and spa services",
         "url": "https://onhairbeauty.online/services.html",
         "areaServed": "Singapore",
         "provider": {
@@ -39,275 +95,540 @@
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "On Hair Salon and Beauty Price List",
+          "@id": "https://onhairbeauty.online/services.html#price-list",
+          "name": "On Hair Salon & Beauty price list",
+          "url": "https://onhairbeauty.online/services.html",
           "itemListElement": [
             {
-              "@type": "Offer",
-              "name": "Eyebrow Trimming",
-              "priceCurrency": "SGD",
-              "price": "10"
+              "@type": "OfferCatalog",
+              "name": "Beauty Services",
+              "url": "https://onhairbeauty.online/services.html#cat-1",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eyebrow Trimming",
+                    "description": "Quick brow tidy for a cleaner, neater shape."
+                  },
+                  "price": 10,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$10."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Express Gelish Manicure",
+                    "description": "Fast gelish colour application for hands."
+                  },
+                  "price": 18,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$18."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Express Gelish Pedicure",
+                    "description": "Fast gelish colour application for feet."
+                  },
+                  "price": 20,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$20."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Express Gelish Manicure and Pedicure",
+                    "description": "Express gelish colour service for hands and feet."
+                  },
+                  "price": 33,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$33."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Classic Gelish Manicure",
+                    "description": "Classic gelish manicure with more detailed nail care."
+                  },
+                  "price": 38,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$38."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Classic Gelish Pedicure",
+                    "description": "Classic gelish pedicure with more detailed foot and nail care."
+                  },
+                  "price": 58,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$58."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Classic Gelish Manicure and Pedicure",
+                    "description": "Classic gelish nail care package for hands and feet."
+                  },
+                  "price": 88,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$88."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Nail Extension",
+                    "description": "Extension service for added length and shape."
+                  },
+                  "price": 108,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$108."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eyelash Extension",
+                    "description": "Lash extension service for fuller-looking lashes."
+                  },
+                  "price": 58,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$58."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Style Eyelash Extension",
+                    "description": "Styled lash extension set for a more defined look."
+                  },
+                  "price": 88,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$88."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eyelash Lift",
+                    "description": "Lift service for a curled, opened-eye effect."
+                  },
+                  "price": 38,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$38."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Ear Spa",
+                    "description": "Relaxing ear care spa service."
+                  },
+                  "price": 38,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$38."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eye Spa",
+                    "description": "Eye-area spa care, priced from the listed starting rate."
+                  },
+                  "price": 38,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 38
+                  },
+                  "description": "Listed price: S$38++. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Face Treatment",
+                    "description": "Targeted facial treatment after consultation."
+                  },
+                  "price": 68,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 68
+                  },
+                  "description": "Listed price: S$68++. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Face Spa",
+                    "description": "Relaxing face spa service after consultation."
+                  },
+                  "price": 68,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 68
+                  },
+                  "description": "Listed price: S$68++. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eyebrow Embroidery",
+                    "description": "Semi-permanent brow enhancement, priced from the listed rate."
+                  },
+                  "price": 98,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 98
+                  },
+                  "description": "Listed price: S$98++. Final price is confirmed after consultation."
+                }
+              ]
             },
             {
-              "@type": "Offer",
-              "name": "Express Gelish Manicure",
-              "priceCurrency": "SGD",
-              "price": "18"
+              "@type": "OfferCatalog",
+              "name": "Eyebrow Services",
+              "url": "https://onhairbeauty.online/services.html#cat-2",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Brow Colour Correction",
+                    "description": "Trial price: S$298."
+                  },
+                  "price": 398,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$398."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eyebrow Removal",
+                    "description": "Per-session removal. Trial price: S$388 for 5 sessions."
+                  },
+                  "price": 298,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "priceCurrency": "SGD",
+                    "price": 298,
+                    "unitText": "per session"
+                  },
+                  "description": "Listed price: S$298/session."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Mist Brow",
+                    "description": "Trial price: S$88, normal single colour."
+                  },
+                  "price": 198,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$198."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Fairy Mist Brow",
+                    "description": "Trial price: S$188, imported two colours."
+                  },
+                  "price": 298,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$298."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Luxury Makeup Brow",
+                    "description": "Trial price: S$288, imported three colours."
+                  },
+                  "price": 498,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$498."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "3D Shadow Brow",
+                    "description": "Trial price: S$388, imported four colours."
+                  },
+                  "price": 598,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$598."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "3D Hair Stroke Brow",
+                    "description": "Trial price: S$468, exclusive customisation."
+                  },
+                  "price": 698,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$698."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Natural Wild Brow",
+                    "description": "Trial price: S$488, premium customisation."
+                  },
+                  "price": 798,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$798."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Luxury Ink Brow",
+                    "description": "Trial price: S$568, premium customisation."
+                  },
+                  "price": 888,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$888."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Private Custom Fortune Brow",
+                    "description": "Trial price: S$698, premium customisation."
+                  },
+                  "price": 999,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$999."
+                }
+              ]
             },
             {
-              "@type": "Offer",
-              "name": "Express Gelish Pedicure",
-              "priceCurrency": "SGD",
-              "price": "20"
+              "@type": "OfferCatalog",
+              "name": "Eyeliner Services",
+              "url": "https://onhairbeauty.online/services.html#cat-3",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eyelash Line",
+                    "description": "Trial price: S$88, basic style."
+                  },
+                  "price": 198,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$198."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Premium Eyeliner",
+                    "description": "Trial price: S$188, AB line."
+                  },
+                  "price": 298,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$298."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Bright Eyeliner",
+                    "description": "Trial price: S$288, ABC line."
+                  },
+                  "price": 468,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$468."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Starry Shadow Eyeliner",
+                    "description": "Trial price: S$388, premium customisation."
+                  },
+                  "price": 598,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$598."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "High End Private Customisation",
+                    "description": "Trial price: S$688, private set."
+                  },
+                  "price": 888,
+                  "priceCurrency": "SGD",
+                  "description": "Listed price: S$888."
+                }
+              ]
             },
             {
-              "@type": "Offer",
-              "name": "Express Gelish Manicure and Pedicure",
-              "priceCurrency": "SGD",
-              "price": "33"
-            },
-            {
-              "@type": "Offer",
-              "name": "Classic Gelish Manicure",
-              "priceCurrency": "SGD",
-              "price": "38"
-            },
-            {
-              "@type": "Offer",
-              "name": "Classic Gelish Pedicure",
-              "priceCurrency": "SGD",
-              "price": "58"
-            },
-            {
-              "@type": "Offer",
-              "name": "Classic Gelish Manicure and Pedicure",
-              "priceCurrency": "SGD",
-              "price": "88"
-            },
-            {
-              "@type": "Offer",
-              "name": "Nail Extension",
-              "priceCurrency": "SGD",
-              "price": "108"
-            },
-            {
-              "@type": "Offer",
-              "name": "Eyelash Extension",
-              "priceCurrency": "SGD",
-              "price": "58"
-            },
-            {
-              "@type": "Offer",
-              "name": "Style Eyelash Extension",
-              "priceCurrency": "SGD",
-              "price": "88"
-            },
-            {
-              "@type": "Offer",
-              "name": "Eyelash Lift",
-              "priceCurrency": "SGD",
-              "price": "38"
-            },
-            {
-              "@type": "Offer",
-              "name": "Ear Spa",
-              "priceCurrency": "SGD",
-              "price": "38"
-            },
-            {
-              "@type": "Offer",
-              "name": "Eye Spa",
-              "priceCurrency": "SGD",
-              "price": "38",
-              "description": "From S$38++."
-            },
-            {
-              "@type": "Offer",
-              "name": "Face Treatment",
-              "priceCurrency": "SGD",
-              "price": "68",
-              "description": "From S$68++."
-            },
-            {
-              "@type": "Offer",
-              "name": "Face Spa",
-              "priceCurrency": "SGD",
-              "price": "68",
-              "description": "From S$68++."
-            },
-            {
-              "@type": "Offer",
-              "name": "Eyebrow Embroidery",
-              "priceCurrency": "SGD",
-              "price": "98",
-              "description": "From S$98++."
-            },
-            {
-              "@type": "Offer",
-              "name": "Brow Colour Correction",
-              "priceCurrency": "SGD",
-              "price": "398",
-              "description": "Trial price S$298."
-            },
-            {
-              "@type": "Offer",
-              "name": "Eyebrow Removal",
-              "priceCurrency": "SGD",
-              "price": "298",
-              "description": "S$298 per session. Trial price S$388 for 5 sessions."
-            },
-            {
-              "@type": "Offer",
-              "name": "Mist Brow",
-              "priceCurrency": "SGD",
-              "price": "198",
-              "description": "Trial price S$88, normal single colour."
-            },
-            {
-              "@type": "Offer",
-              "name": "Fairy Mist Brow",
-              "priceCurrency": "SGD",
-              "price": "298",
-              "description": "Trial price S$188, imported two colours."
-            },
-            {
-              "@type": "Offer",
-              "name": "Luxury Makeup Brow",
-              "priceCurrency": "SGD",
-              "price": "498",
-              "description": "Trial price S$288, imported three colours."
-            },
-            {
-              "@type": "Offer",
-              "name": "3D Shadow Brow",
-              "priceCurrency": "SGD",
-              "price": "598",
-              "description": "Trial price S$388, imported four colours."
-            },
-            {
-              "@type": "Offer",
-              "name": "3D Hair Stroke Brow",
-              "priceCurrency": "SGD",
-              "price": "698",
-              "description": "Trial price S$468, exclusive customisation."
-            },
-            {
-              "@type": "Offer",
-              "name": "Natural Wild Brow",
-              "priceCurrency": "SGD",
-              "price": "798",
-              "description": "Trial price S$488, premium customisation."
-            },
-            {
-              "@type": "Offer",
-              "name": "Luxury Ink Brow",
-              "priceCurrency": "SGD",
-              "price": "888",
-              "description": "Trial price S$568, premium customisation."
-            },
-            {
-              "@type": "Offer",
-              "name": "Private Custom Fortune Brow",
-              "priceCurrency": "SGD",
-              "price": "999",
-              "description": "Trial price S$698, premium customisation."
-            },
-            {
-              "@type": "Offer",
-              "name": "Eyelash Line",
-              "priceCurrency": "SGD",
-              "price": "198",
-              "description": "Trial price S$88, basic style."
-            },
-            {
-              "@type": "Offer",
-              "name": "Premium Eyeliner",
-              "priceCurrency": "SGD",
-              "price": "298",
-              "description": "Trial price S$188, AB line."
-            },
-            {
-              "@type": "Offer",
-              "name": "Bright Eyeliner",
-              "priceCurrency": "SGD",
-              "price": "468",
-              "description": "Trial price S$288, ABC line."
-            },
-            {
-              "@type": "Offer",
-              "name": "Starry Shadow Eyeliner",
-              "priceCurrency": "SGD",
-              "price": "598",
-              "description": "Trial price S$388, premium customisation."
-            },
-            {
-              "@type": "Offer",
-              "name": "High End Private Customisation",
-              "priceCurrency": "SGD",
-              "price": "888",
-              "description": "Trial price S$688, private set."
-            },
-            {
-              "@type": "Offer",
-              "name": "Men's Cut",
-              "priceCurrency": "SGD",
-              "price": "6",
-              "description": "S$6 to S$8 depending on outlet. Rates reflect each branch's studio layout, chair count and daily service flow."
-            },
-            {
-              "@type": "Offer",
-              "name": "Women's Cut",
-              "priceCurrency": "SGD",
-              "price": "6",
-              "description": "S$6 to S$8 depending on outlet. Rates reflect each branch's studio layout, chair count and daily service flow."
-            },
-            {
-              "@type": "Offer",
-              "name": "Shampoo and Cut",
-              "priceCurrency": "SGD",
-              "price": "20",
-              "description": "S$20 to S$38+."
-            },
-            {
-              "@type": "Offer",
-              "name": "Colour",
-              "priceCurrency": "SGD",
-              "price": "58",
-              "description": "S$58 to S$188+."
-            },
-            {
-              "@type": "Offer",
-              "name": "Highlight",
-              "priceCurrency": "SGD",
-              "price": "58",
-              "description": "S$58 to S$188+."
-            },
-            {
-              "@type": "Offer",
-              "name": "Perm, Cut and Treatment",
-              "priceCurrency": "SGD",
-              "price": "78",
-              "description": "S$78 to S$168+."
-            },
-            {
-              "@type": "Offer",
-              "name": "Digital Perm, Cut and Treatment",
-              "priceCurrency": "SGD",
-              "price": "98",
-              "description": "S$98 to S$298+."
-            },
-            {
-              "@type": "Offer",
-              "name": "Rebonding, Cut and Treatment",
-              "priceCurrency": "SGD",
-              "price": "98",
-              "description": "S$98 to S$298+."
-            },
-            {
-              "@type": "Offer",
-              "name": "Keratin Treatment",
-              "priceCurrency": "SGD",
-              "price": "98",
-              "description": "S$98 to S$298+."
+              "@type": "OfferCatalog",
+              "name": "Hair Services",
+              "url": "https://onhairbeauty.online/services.html#cat-4",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Cut",
+                    "description": "Men's and women's haircuts from S$6 to S$8, depending on outlet. Each branch sets its rate to match studio size, chair count and how that location handles walk-ins and appointments — so service stays smooth and wait times stay fair."
+                  },
+                  "price": 6,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 6,
+                    "maxPrice": 8
+                  },
+                  "description": "Listed price: S$6-S$8."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Shampoo and Cut",
+                    "description": "Hair wash followed by a cut and basic finish."
+                  },
+                  "price": 20,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 20,
+                    "maxPrice": 38
+                  },
+                  "description": "Listed price: S$20-S$38+. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Colour",
+                    "description": "Colour service priced by length, product use and consultation."
+                  },
+                  "price": 58,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 58,
+                    "maxPrice": 188
+                  },
+                  "description": "Listed price: S$58-S$188+. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Highlight",
+                    "description": "Dimensional colour placement for brightness, contrast or softness."
+                  },
+                  "price": 58,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 58,
+                    "maxPrice": 188
+                  },
+                  "description": "Listed price: S$58-S$188+. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Perm, Cut and Treatment",
+                    "description": "Perm service package with haircut and treatment support."
+                  },
+                  "price": 78,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 78,
+                    "maxPrice": 168
+                  },
+                  "description": "Listed price: S$78-S$168+. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Digital Perm, Cut and Treatment",
+                    "description": "Digital perm package with haircut and treatment support."
+                  },
+                  "price": 98,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 98,
+                    "maxPrice": 298
+                  },
+                  "description": "Listed price: S$98-S$298+. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Rebonding, Cut and Treatment",
+                    "description": "Straightening package with haircut and treatment support."
+                  },
+                  "price": 98,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 98,
+                    "maxPrice": 298
+                  },
+                  "description": "Listed price: S$98-S$298+. Final price is confirmed after consultation."
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Keratin Treatment",
+                    "description": "Smoothing care to reduce frizz and improve manageability."
+                  },
+                  "price": 98,
+                  "priceCurrency": "SGD",
+                  "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "SGD",
+                    "minPrice": 98,
+                    "maxPrice": 298
+                  },
+                  "description": "Listed price: S$98-S$298+. Final price is confirmed after consultation."
+                }
+              ]
             }
           ]
         }
@@ -333,21 +654,16 @@
     ]
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <span class="logo-mark"><img src="faveicon.png" alt="On Hair Salon &amp; Beauty logo" /></span>
+      <a href="./" class="logo">
+        <span class="logo-mark"><img src="Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" /></span>
         <span class="logo-text" translate="no">Hair Salon &amp; Beauty</span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
+        <a href="./">Home</a>
         <a href="services.html" class="active">Services</a>
         <a href="about.html">About</a>
         <a href="gallery.html">Gallery</a>
@@ -365,7 +681,7 @@
 
   <section class="page-header">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-angle-right"></i><span>Services</span></div>
+      <div class="breadcrumb"><a href="./">Home</a><i class="fa-solid fa-angle-right"></i><span>Services</span></div>
       <p class="eyebrow">Current Price List</p>
       <h1>Services &amp; <em>Pricing</em></h1>
       <p>Browse the current On Hair Salon and Beauty price list for hair, brows, eyeliner, lashes, nails, face care and spa services. Final pricing for services marked + or ++ may vary after consultation.</p>
@@ -376,7 +692,7 @@
     <div class="container service-menu">
 
       <div class="menu-block reveal" id="cat-1">
-        <div class="menu-visual" style="background-image:url('Assets/storeFront/storeFront.jpeg')" role="img" aria-label="Beauty services"></div>
+        <div class="menu-visual" style="background-image:url('Assets/storeFront/storeFront.webp')" role="img" aria-label="Beauty services"></div>
         <div class="menu-items">
           <p class="eyebrow">Brows, Nails, Lashes &amp; Spa</p>
           <h2>Beauty <em>Services</em></h2>
@@ -498,7 +814,7 @@
       </div>
 
       <div class="menu-block reverse reveal" id="cat-2">
-        <div class="menu-visual" style="background-image:url('Assets/hairTreatment.png')" role="img" aria-label="Eyebrow services"></div>
+        <div class="menu-visual" style="background-image:url('Assets/browsEyeliner.webp')" role="img" aria-label="Eyebrow services"></div>
         <div class="menu-items">
           <p class="eyebrow">Semi-Permanent Brow Work</p>
           <h2>Eyebrow <em>Services</em></h2>
@@ -578,7 +894,7 @@
       </div>
 
       <div class="menu-block reveal" id="cat-3">
-        <div class="menu-visual" style="background-image:url('Assets/hairColor.png')" role="img" aria-label="Eyeliner services"></div>
+        <div class="menu-visual" style="background-image:url('Assets/hairColor.webp')" role="img" aria-label="Eyeliner services"></div>
         <div class="menu-items">
           <p class="eyebrow">Liner Definition</p>
           <h2>Eyeliner <em>Services</em></h2>
@@ -623,7 +939,7 @@
       </div>
 
       <div class="menu-block reverse reveal" id="cat-4">
-        <div class="menu-visual" style="background-image:url('Assets/media/5.jpg')" role="img" aria-label="Hair colour and treatment services"></div>
+        <div class="menu-visual" style="background-image:url('Assets/media/5.webp')" role="img" aria-label="Hair colour and treatment services"></div>
         <div class="menu-items">
           <p class="eyebrow">Cuts, Colour &amp; Texture</p>
           <h2>Hair <em>Services</em></h2>
@@ -691,6 +1007,33 @@
     </div>
   </section>
 
+  <section class="section blog-topics-section related-guides-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Before You Book</p>
+          <h2>Helpful <em>Salon Guides</em></h2>
+        </div>
+        <div class="blog-topic-grid">
+          <a href="articles/how-to-prepare-for-color-appointment.html" class="blog-topic reveal">
+            <i class="fa-solid fa-palette" aria-hidden="true"></i>
+            <span>Colour Appointment Prep</span>
+          </a>
+          <a href="articles/when-hair-needs-treatment.html" class="blog-topic reveal">
+            <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+            <span>Treatment vs. Trim</span>
+          </a>
+          <a href="articles/how-our-consultation-works.html" class="blog-topic reveal">
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            <span>How Consultation Works</span>
+          </a>
+          <a href="articles/using-cdc-vouchers-at-the-salon.html" class="blog-topic reveal">
+            <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+            <span>Using CDC Vouchers</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container cta-inner">
@@ -709,7 +1052,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo light">
+        <a href="./" class="logo light">
           <span class="logo-mark">On</span>
           <span class="logo-text" translate="no">Hair Salon &amp; Beauty</span>
         </a>
@@ -879,10 +1222,7 @@
       <span class="botpress-live-agent-status" aria-hidden="true"></span>
       <span class="botpress-live-agent-copy"><strong>Live agent</strong><span>Need help choosing a service?</span></span>
     </button>
-    <div class="botpress-embed-scripts" aria-hidden="true">
-      <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-      <script src="https://files.bpcontent.cloud/2026/05/19/13/20260519130759-GAY3HRW0.js" defer></script>
-    </div>
+    <div class="botpress-embed-scripts" aria-hidden="true" data-botpress-src="https://cdn.botpress.cloud/webchat/v3.6/inject.js" data-botpress-config="https://files.bpcontent.cloud/2026/05/19/13/20260519130759-GAY3HRW0.js"></div>
   </div>
 </body>
 </html>

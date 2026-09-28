@@ -77,11 +77,11 @@ ON Beauty/
 
 ## Quick Start
 
-Open `index.html` directly in a browser.
-
-For a local server preview:
+Run a local server (internal "Home" links use `./`, which needs a server to resolve to `index.html`):
 
 ```bash
+npm run dev
+# or
 python -m http.server 8080
 ```
 
@@ -168,14 +168,26 @@ The main visual system lives in `styles.css`:
 
 ## Favicon
 
-All HTML pages use:
+All HTML pages use small, purpose-sized icons generated from the logo:
 
 ```html
-<link rel="icon" type="image/png" href="faveicon.png" />
-<link rel="apple-touch-icon" href="faveicon.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="Assets/icons/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="Assets/icons/favicon-192.png" />
+<link rel="apple-touch-icon" href="Assets/icons/apple-touch-icon.png" />
 ```
 
-There is also a duplicate at `Assets/faveicon.png`.
+The navbar logo uses `Assets/icons/logo-112.png`. `faveicon.png` (512x512) is kept as the logo referenced in the JSON-LD structured data, with a duplicate at `Assets/faveicon.png`.
+
+## SEO and AEO Files
+
+When outlets, phone numbers, hours or prices change, update every place that repeats them so search engines and AI assistants see one consistent set of facts:
+
+- Visible pages: `contact.html`, `services.html`, `faq.html`, footers
+- JSON-LD in the `<head>` of `index.html` (full organisation, outlets and price list), `contact.html` (organisation and outlets) and `services.html` (price list)
+- `llms.txt` (plain-language summary for AI assistants)
+- `sitemap.xml` (`<lastmod>` of the pages you changed)
+
+`vercel.json` permanently redirects `/index.html` to `/` and sets cache headers for `Assets/`. Internal "Home" links point to `./` (or `../` from `articles/`), so preview the site through a local server rather than opening files directly.
 
 ## Production Checklist
 

@@ -960,7 +960,7 @@ body.menu-open .navbar {
 .promo-section {
   background:
     linear-gradient(135deg, rgba(46, 31, 26, 0.9), rgba(128, 62, 76, 0.88)),
-    url('Assets/media/5.jpg') center / cover;
+    url('Assets/media/5.webp') center / cover;
   color: var(--cream);
   padding: clamp(3rem, 7vw, 5rem) 0;
   position: relative;
@@ -1529,6 +1529,26 @@ body.menu-open .navbar {
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
 .reveal.visible { opacity: 1; transform: none; }
+
+/* Above-the-fold hero content animates in with CSS alone, so the headline and
+   hero image paint without waiting for script.js. The fade starts from a visible
+   opacity because browsers ignore elements first painted at opacity 0 for LCP. */
+.hero .reveal {
+  opacity: 1;
+  transform: none;
+  animation: heroReveal 0.9s ease both;
+}
+@keyframes heroReveal {
+  from { opacity: 0.35; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+/* The image only fades: sliding it would clip its first paint at the fold, and the
+   carousel's full-size frames would then register as later, larger LCP entries. */
+.hero .hero-media.reveal { animation-name: heroFade; }
+@keyframes heroFade {
+  from { opacity: 0.35; }
+  to   { opacity: 1; }
+}
 
 /* ---------- Modal ---------- */
 .modal {
