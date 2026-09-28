@@ -187,7 +187,14 @@ When outlets, phone numbers, hours or prices change, update every place that rep
 - `llms.txt` (plain-language summary for AI assistants)
 - `sitemap.xml` (`<lastmod>` of the pages you changed)
 
-`vercel.json` permanently redirects `/index.html` to `/` and sets cache headers for `Assets/`. Internal "Home" links point to `./` (or `../` from `articles/`), so preview the site through a local server rather than opening files directly.
+When publishing a new article in `articles/`:
+
+- Copy an existing article page and keep its structure: short-answer box, contents list, sections with `id`s, article FAQ, conclusion and "Related Guides"
+- Add images: `Assets/blog/<slug>.webp` (1400x788 hero), `Assets/blog/<slug>-card.webp` (800x450 blog card) and `Assets/og/<slug>.jpg` (1200x630 share image)
+- Update the `<title>`, description, canonical, Open Graph tags and `BlogPosting` JSON-LD (headline, dates, images) in its `<head>`
+- Add a card to `blog.html`, a `<url>` to `sitemap.xml` and a line under "Salon Guides" in `llms.txt`
+
+`vercel.json` permanently redirects `/index.html` to `/` and the retired `/blog-bukit-merah-hair-salon.html` to its merged guide, and sets cache headers for `Assets/`. Internal "Home" links point to `./` (or `../` from `articles/`), so preview the site through a local server rather than opening files directly.
 
 ## Production Checklist
 

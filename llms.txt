@@ -12,9 +12,9 @@ The salon's approach is consultation before recommendation, practical advice tha
 - [Home](https://onhairbeauty.online/): Overview, current hair promotions, service highlights and outlet contacts.
 - [Services and price list](https://onhairbeauty.online/services.html): Full menu with prices for hair, beauty, eyebrow and eyeliner services.
 - [Contact and outlets](https://onhairbeauty.online/contact.html): Addresses, phone and WhatsApp numbers, opening hours and maps for every outlet.
-- [FAQ](https://onhairbeauty.online/faq.html): Appointments, haircut pricing by outlet, consultations, colour preparation, lateness and aftercare.
+- [FAQ](https://onhairbeauty.online/faq.html): 35 answers on booking, opening hours, prices and payment, CDC Vouchers, colour, rebonding, keratin, perms, brow embroidery, lashes, nails, facials and aftercare.
 - [About](https://onhairbeauty.online/about.html): The consultation-first, no-pressure approach and the K Beauty sister brand.
-- [Blog](https://onhairbeauty.online/blog.html): Salon guides on colour, hair treatment, consultations, facials, makeup trials and CDC Vouchers.
+- [Blog](https://onhairbeauty.online/blog.html): In-depth salon guides on rebonding vs keratin vs digital perm, eyebrow embroidery styles, colour, hair treatment, consultations, facials, makeup trials and CDC Vouchers.
 - [Gallery](https://onhairbeauty.online/gallery.html): Photos of haircut, colour, treatment work and salon outlets.
 
 ## Outlets
@@ -104,13 +104,15 @@ Full list: https://onhairbeauty.online/services.html#cat-3
 
 ## Salon Guides
 
-- [How to prepare for a hair colour appointment in Singapore](https://onhairbeauty.online/articles/how-to-prepare-for-color-appointment.html): Hair history, washing, product buildup, humidity and aftercare before a colour service.
-- [When hair needs treatment, not just a trim](https://onhairbeauty.online/articles/when-hair-needs-treatment.html): Signs that dry, tangled, frizzy or chemically stressed hair needs a salon treatment.
-- [How our consultation works](https://onhairbeauty.online/articles/how-our-consultation-works.html): The listening-first consultation before haircuts, colour, perming, rebonding and treatments.
-- [Using CDC Vouchers at the salon](https://onhairbeauty.online/articles/using-cdc-vouchers-at-the-salon.html): How to pay for eligible services with CDC Vouchers.
-- [Hair salon near me in Bukit Merah: what to look for](https://onhairbeauty.online/articles/bukit-merah-hair-salon-guide.html): Comparing location, pricing, services and consultation quality in Bukit Merah.
-- [Facial timing before events](https://onhairbeauty.online/articles/facial-timing-before-events.html): When to book facials before weddings, dinners and photoshoots.
-- [What to bring for a makeup trial](https://onhairbeauty.online/articles/what-to-bring-for-makeup-trial.html): References, outfit details, hair plans and skin notes for trial day.
+- [Rebonding vs keratin vs digital perm](https://onhairbeauty.online/articles/rebonding-vs-keratin-vs-digital-perm.html): Side-by-side comparison of results, how long each lasts, aftercare, humidity performance and prices (all listed from S$98 to S$298+).
+- [Eyebrow embroidery styles, explained](https://onhairbeauty.online/articles/eyebrow-embroidery-guide.html): Every brow style on the menu with regular and trial prices, how to choose by skin type, the healing timeline and aftercare.
+- [How to prepare for a hair colour appointment in Singapore](https://onhairbeauty.online/articles/how-to-prepare-for-color-appointment.html): References, hair history, wash timing, appointment length, humidity-proof aftercare and low-maintenance shades.
+- [When hair needs treatment, not just a trim](https://onhairbeauty.online/articles/when-hair-needs-treatment.html): At-home hair checks, a symptom-by-symptom trim vs treatment table and a home care routine.
+- [Hair salon near me in Bukit Merah: what to look for](https://onhairbeauty.online/articles/bukit-merah-hair-salon-guide.html): How to choose a salon, green and red flags, and the two outlets at Blk 2 and Blk 163 Bukit Merah Central.
+- [How our consultation works](https://onhairbeauty.online/articles/how-our-consultation-works.html): The six steps of the complimentary, no-obligation listening-first consultation.
+- [Using CDC Vouchers at the salon](https://onhairbeauty.online/articles/using-cdc-vouchers-at-the-salon.html): Checkout step by step, paying the balance in cash, common fixes and scam safety.
+- [Facial timing before events](https://onhairbeauty.online/articles/facial-timing-before-events.html): A countdown for facials, brows, lashes, nails and hair before weddings and photoshoots.
+- [What to bring for a makeup trial](https://onhairbeauty.online/articles/what-to-bring-for-makeup-trial.html): Trial-day checklist, lighting and heat tests, and questions to ask your artist.
 
 ## Booking and Payment
 
