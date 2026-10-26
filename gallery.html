@@ -22,11 +22,18 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Haircut, Colour &amp; Treatment Gallery — On Hair Salon" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://onhairbeauty.online/Assets/og/og-default.jpg" />
+  <meta name="twitter:image:alt" content="Haircut, Colour &amp; Treatment Gallery — On Hair Salon" />
+  <link rel="alternate" type="text/plain" href="https://onhairbeauty.online/llms.txt" title="LLM-readable site summary" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://onhairbeauty.online/sitemap.xml" />
   <meta name="keywords" content="hair salon gallery, haircut gallery, hair colour gallery, hair treatment results, On Hair Salon photos, Bukit Merah salon gallery, Singapore hair salon work" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" /></noscript>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
   {
@@ -42,7 +49,15 @@
           "ON Hair & Beauty"
         ],
         "url": "https://onhairbeauty.online/",
-        "logo": "https://onhairbeauty.online/faveicon.png",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://onhairbeauty.online/#logo",
+          "url": "https://onhairbeauty.online/faveicon.png",
+          "contentUrl": "https://onhairbeauty.online/faveicon.png",
+          "width": 512,
+          "height": 512,
+          "caption": "On Hair Salon & Beauty logo"
+        },
         "sameAs": [
           "https://www.instagram.com/onhair_salon_beauty/"
         ]
@@ -132,7 +147,9 @@
         ],
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://onhairbeauty.online/Assets/og/og-default.jpg"
+          "url": "https://onhairbeauty.online/Assets/og/og-default.jpg",
+          "width": 1200,
+          "height": 630
         }
       },
       {
@@ -161,7 +178,7 @@
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="./" class="logo">
-        <span class="logo-mark"><img src="Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" /></span>
+        <span class="logo-mark"><img src="Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" decoding="async" fetchpriority="low" /></span>
         <span class="logo-text" translate="no">Hair Salon &amp; Beauty</span>
       </a>
       <nav class="nav-links" id="navLinks">
@@ -228,10 +245,10 @@
     <div class="container cta-inner">
       <div class="reveal">
         <p class="eyebrow light">Follow Along</p>
-        <h2>See more on <em>@onhairandbeauty</em></h2>
+        <h2>See more on <em>@onhair_salon_beauty</em></h2>
       </div>
       <div class="cta-actions reveal">
-        <a href="#" class="btn btn-primary btn-large"><i class="fa-brands fa-instagram"></i> Follow on Instagram</a>
+        <a href="https://www.instagram.com/onhair_salon_beauty/" target="_blank" rel="noopener" class="btn btn-primary btn-large"><i class="fa-brands fa-instagram"></i> Follow on Instagram</a>
         <button class="btn btn-ghost-light btn-large" data-open-booking>Book a Look</button>
       </div>
     </div>
@@ -396,7 +413,7 @@
     <span class="wa-pulse" aria-hidden="true"></span>
   </a>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <div class="botpress-live-agent-shell" aria-live="polite">
     <button type="button" class="botpress-live-agent-nudge" id="botpressLiveAgentNudge" aria-label="Open live agent chat">
       <span class="botpress-live-agent-status" aria-hidden="true"></span>

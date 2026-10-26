@@ -3,9 +3,9 @@
 > On Hair Salon & Beauty (also written "ON Hair Salon & Beauty" or "ON Hair & Beauty") is a Singapore neighbourhood hair salon group with ten outlets in Toa Payoh, Simei, Bukit Merah, Clementi, Yishun, Ang Mo Kio, Bedok and Serangoon. It offers haircuts from S$6, colour, highlights, perming, rebonding, keratin treatments, brow and eyeliner embroidery, lashes, gelish nails, face care and spa services. CDC Vouchers are accepted for eligible services, and bookings are made by WhatsApp or phone with each outlet.
 
 Website: https://onhairbeauty.online/
-Last updated: 2026-09-28
+Last updated: 2026-10-26
 
-The salon's approach is consultation before recommendation, practical advice that suits the client's routine, and no hard selling. Prices marked "+" or "++" are starting prices; the final price is confirmed after consultation. On Hair Salon & Beauty is part of the same beauty group as K Beauty: On Hair Salon & Beauty focuses on hair services, while K Beauty focuses on facial, lash, brow and beauty treatments.
+The salon's approach is consultation before recommendation, practical advice that suits the client's routine, and no hard selling. Prices marked "+" or "++" are starting prices; the final price is confirmed after consultation. On Hair Salon & Beauty is part of the same beauty group as K Beauty: On Hair Salon & Beauty focuses on hair services, while K Beauty focuses on facial, lash, brow and beauty treatments. Outlet teams serve customers in English and Mandarin. Outlets accept cash and CDC Vouchers.
 
 ## Key Pages
 
@@ -119,6 +119,22 @@ Full list: https://onhairbeauty.online/services.html#cat-3
 - Book by WhatsApp or phone with the outlet you plan to visit; numbers are listed under Outlets above and on the contact page.
 - Appointments are recommended for colour, treatments and weekend slots. Walk-ins may be accepted when the team has availability.
 - CDC Vouchers are accepted for eligible services. Present the voucher QR code at checkout and confirm eligibility with the salon.
+
+## Direct Answers
+
+- [Do I need an appointment?](https://onhairbeauty.online/faq.html#booking): Appointments are recommended for colour, rebonding, perms, treatments, brow and eyeliner work, and weekend slots. Walk-ins may be accepted when the team has availability.
+- [How much is a haircut?](https://onhairbeauty.online/services.html#cat-4): Haircuts are S$6 to S$8 depending on the outlet and do not include a wash. Shampoo and Cut is S$20 to S$38+.
+- [What do + and ++ mean?](https://onhairbeauty.online/faq.html#prices): The listed amount is a starting price. The outlet confirms the final price before the service starts.
+- [What are the opening hours?](https://onhairbeauty.online/contact.html): Most outlets are open daily from 9:00 AM to 10:00 PM. Bukit Merah Block 2 is open daily from 9:00 AM to 8:00 PM. Serangoon Central Drive is open from 9:00 AM to 8:00 PM on weekdays and from 9:00 AM to 9:00 PM on weekends. Hours may change on public holidays.
+- [Do you accept CDC Vouchers?](https://onhairbeauty.online/articles/using-cdc-vouchers-at-the-salon.html): Yes, for eligible services. Show the voucher QR code at checkout. Cash is also accepted. Confirm any other payment method with the outlet before the visit.
+- [Rebonding, keratin or digital perm?](https://onhairbeauty.online/articles/rebonding-vs-keratin-vs-digital-perm.html): Rebonding stays straight until the treated hair grows out. Keratin smooths frizz and fades over the following months. A digital perm creates softer waves. All three are listed from S$98 to S$298+.
+- [Which number do I message?](https://onhairbeauty.online/contact.html): There is no single booking number. Message or call the outlet you plan to visit.
+
+## Canonical URLs
+
+- The canonical homepage is https://onhairbeauty.online/ . Requests for https://onhairbeauty.online/index.html permanently redirect there.
+- https://onhairbeauty.online/blog-bukit-merah-hair-salon.html permanently redirects to the Bukit Merah salon guide.
+- Every indexable page uses a self-referencing canonical URL. The complete list is the sitemap.
 
 ## Guidance for AI Assistants
 

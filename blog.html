@@ -22,11 +22,18 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Hair Care Tips &amp; Salon Guides — On Hair Salon" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://onhairbeauty.online/Assets/og/og-default.jpg" />
+  <meta name="twitter:image:alt" content="Hair Care Tips &amp; Salon Guides — On Hair Salon" />
+  <link rel="alternate" type="text/plain" href="https://onhairbeauty.online/llms.txt" title="LLM-readable site summary" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://onhairbeauty.online/sitemap.xml" />
   <meta name="keywords" content="hair care tips Singapore, salon guide, haircut tips, hair colour preparation, hair treatment guide, scalp care tips, Bukit Merah hair salon blog" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" /></noscript>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
   {
@@ -42,7 +49,15 @@
           "ON Hair & Beauty"
         ],
         "url": "https://onhairbeauty.online/",
-        "logo": "https://onhairbeauty.online/faveicon.png",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://onhairbeauty.online/#logo",
+          "url": "https://onhairbeauty.online/faveicon.png",
+          "contentUrl": "https://onhairbeauty.online/faveicon.png",
+          "width": 512,
+          "height": 512,
+          "caption": "On Hair Salon & Beauty logo"
+        },
         "sameAs": [
           "https://www.instagram.com/onhair_salon_beauty/"
         ]
@@ -80,7 +95,9 @@
         },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://onhairbeauty.online/Assets/og/og-default.jpg"
+          "url": "https://onhairbeauty.online/Assets/og/og-default.jpg",
+          "width": 1200,
+          "height": 630
         }
       },
       {
@@ -101,7 +118,19 @@
             "url": "https://onhairbeauty.online/articles/rebonding-vs-keratin-vs-digital-perm.html",
             "datePublished": "2026-09-28",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/rebonding-vs-keratin-vs-digital-perm.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/rebonding-vs-keratin-vs-digital-perm.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -110,7 +139,19 @@
             "url": "https://onhairbeauty.online/articles/eyebrow-embroidery-guide.html",
             "datePublished": "2026-09-28",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/eyebrow-embroidery-guide.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/eyebrow-embroidery-guide.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -119,7 +160,19 @@
             "url": "https://onhairbeauty.online/articles/how-to-prepare-for-color-appointment.html",
             "datePublished": "2026-05-17",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/how-to-prepare-for-color-appointment.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/how-to-prepare-for-color-appointment.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -128,7 +181,19 @@
             "url": "https://onhairbeauty.online/articles/bukit-merah-hair-salon-guide.html",
             "datePublished": "2026-05-17",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/bukit-merah-hair-salon-guide.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/bukit-merah-hair-salon-guide.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -137,7 +202,19 @@
             "url": "https://onhairbeauty.online/articles/when-hair-needs-treatment.html",
             "datePublished": "2026-05-12",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/when-hair-needs-treatment.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/when-hair-needs-treatment.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -146,7 +223,19 @@
             "url": "https://onhairbeauty.online/articles/facial-timing-before-events.html",
             "datePublished": "2026-05-08",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/facial-timing-before-events.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/facial-timing-before-events.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -155,7 +244,19 @@
             "url": "https://onhairbeauty.online/articles/what-to-bring-for-makeup-trial.html",
             "datePublished": "2026-05-02",
             "dateModified": "2026-09-28",
-            "image": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1200&h=675&q=80"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/what-to-bring-for-makeup-trial.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -164,7 +265,19 @@
             "url": "https://onhairbeauty.online/articles/how-our-consultation-works.html",
             "datePublished": "2026-04-28",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/how-our-consultation-works.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/how-our-consultation-works.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           },
           {
             "@type": "BlogPosting",
@@ -173,7 +286,19 @@
             "url": "https://onhairbeauty.online/articles/using-cdc-vouchers-at-the-salon.html",
             "datePublished": "2026-04-22",
             "dateModified": "2026-09-28",
-            "image": "https://onhairbeauty.online/Assets/blog/using-cdc-vouchers-at-the-salon.webp"
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://onhairbeauty.online/Assets/blog/using-cdc-vouchers-at-the-salon.webp",
+              "width": 1400,
+              "height": 788
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                ".post-answer",
+                "h1"
+              ]
+            }
           }
         ]
       },
@@ -203,7 +328,7 @@
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="./" class="logo">
-        <span class="logo-mark"><img src="Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" /></span>
+        <span class="logo-mark"><img src="Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" decoding="async" fetchpriority="low" /></span>
         <span class="logo-text" translate="no">Hair Salon &amp; Beauty</span>
       </a>
       <nav class="nav-links" id="navLinks">
@@ -318,7 +443,7 @@
             </div>
           </article>
           <article class="blog-card reveal">
-            <div class="blog-card-image" style="background-image:url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="blog-card-image" style="background-image:url('Assets/blog/what-to-bring-for-makeup-trial-card.webp')"></div>
             <div class="blog-card-body">
               <span class="blog-category">Makeup</span>
               <p class="blog-meta">May 2, 2026 <span></span> 5 min read</p>
@@ -386,7 +511,7 @@
         <h2>Tell us your goal and we will recommend the right first appointment.</h2>
       </div>
       <div class="cta-actions reveal">
-        <a href="https://wa.me/6582755130?text=Hi%20On%20Hair%20Salon%20%26%20Beauty%2C%20I%27d%20like%20to%20ask%20about%20the%20right%20service%20for%20me." target="_blank" rel="noopener" class="btn btn-primary btn-large"><i class="fa-brands fa-whatsapp"></i> Ask on WhatsApp</a>
+        <a href="contact.html" class="btn btn-primary btn-large"><i class="fa-brands fa-whatsapp"></i> Ask an outlet</a>
         <a href="services.html" class="btn btn-ghost-light btn-large">View Services</a>
       </div>
     </div>
@@ -499,7 +624,7 @@
     <span class="wa-pulse" aria-hidden="true"></span>
   </a>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <div class="botpress-live-agent-shell" aria-live="polite">
     <button type="button" class="botpress-live-agent-nudge" id="botpressLiveAgentNudge" aria-label="Open live agent chat">
       <span class="botpress-live-agent-status" aria-hidden="true"></span>

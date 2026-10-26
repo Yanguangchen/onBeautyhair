@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# LLM-readable site summary: https://onhairbeauty.online/llms.txt
+
 Sitemap: https://onhairbeauty.online/sitemap.xml

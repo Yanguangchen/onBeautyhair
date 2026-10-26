@@ -22,11 +22,18 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Salon FAQ: Prices, Booking, Colour &amp; Brows — On Hair Salon" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://onhairbeauty.online/Assets/og/og-default.jpg" />
+  <meta name="twitter:image:alt" content="Salon FAQ: Prices, Booking, Colour &amp; Brows — On Hair Salon" />
+  <link rel="alternate" type="text/plain" href="https://onhairbeauty.online/llms.txt" title="LLM-readable site summary" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://onhairbeauty.online/sitemap.xml" />
   <meta name="keywords" content="hair salon FAQ Singapore, haircut price, salon opening hours, CDC Vouchers hair salon, rebonding vs keratin, digital perm, eyebrow embroidery FAQ, eyelash lift vs extension, gelish manicure price, On Hair Salon FAQ" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" /></noscript>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
   {
@@ -42,7 +49,15 @@
           "ON Hair & Beauty"
         ],
         "url": "https://onhairbeauty.online/",
-        "logo": "https://onhairbeauty.online/faveicon.png",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://onhairbeauty.online/#logo",
+          "url": "https://onhairbeauty.online/faveicon.png",
+          "contentUrl": "https://onhairbeauty.online/faveicon.png",
+          "width": 512,
+          "height": 512,
+          "caption": "On Hair Salon & Beauty logo"
+        },
         "sameAs": [
           "https://www.instagram.com/onhair_salon_beauty/"
         ]
@@ -89,7 +104,7 @@
             "name": "How do I book an appointment?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Message or call the outlet you want to visit. Every outlet's phone and WhatsApp numbers are on our contact page . For the fastest reply, include the service you want, your preferred date and time, and a short note on your hair history, such as recent colour, bleaching or rebonding."
+              "text": "Message or call the outlet you want to visit. Every outlet's phone and WhatsApp numbers are on our contact page. For the fastest reply, include the service you want, your preferred date and time, and a short note on your hair history, such as recent colour, bleaching or rebonding."
             }
           },
           {
@@ -97,7 +112,7 @@
             "name": "Which outlet should I contact?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Contact the outlet you plan to visit, since each outlet manages its own bookings. You'll find the address, phone number, WhatsApp link, opening hours and map for every outlet on our contact page ."
+              "text": "Contact the outlet you plan to visit, since each outlet manages its own bookings. You'll find the address, phone number, WhatsApp link, opening hours and map for every outlet on our contact page."
             }
           },
           {
@@ -105,7 +120,7 @@
             "name": "Where are your outlets?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We have ten neighbourhood outlets: Toa Payoh (Lorong 1), Simei Eastpoint Mall, Simei Street 3, Bukit Merah Block 2, 163 Bukit Merah Central, Clementi, Yishun Ring Road, Ang Mo Kio Avenue 10, Bedok North Street 3 and Serangoon Central Drive. Full addresses and directions are on the contact page ."
+              "text": "We have ten neighbourhood outlets: Toa Payoh (Lorong 1), Simei Eastpoint Mall, Simei Street 3, Bukit Merah Block 2, 163 Bukit Merah Central, Clementi, Yishun Ring Road, Ang Mo Kio Avenue 10, Bedok North Street 3 and Serangoon Central Drive. Full addresses and directions are on the contact page."
             }
           },
           {
@@ -169,7 +184,7 @@
             "name": "Is a hair wash included in the haircut price?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The S$6 to S$8 cut is a haircut only. If you'd like your hair washed too, choose Shampoo and Cut (S$20 to S$38+), which includes a hair wash, a cut and a basic finish. See the full hair price list ."
+              "text": "The S$6 to S$8 cut is a haircut only. If you'd like your hair washed too, choose Shampoo and Cut (S$20 to S$38+), which includes a hair wash, a cut and a basic finish. See the full hair price list."
             }
           },
           {
@@ -281,7 +296,7 @@
             "name": "Do you offer hair and scalp treatments?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Hair treatments and scalp care are part of our services, our menu includes Keratin Treatment, and our perm and rebonding packages come with treatment support. If your hair feels dry, frizzy or weak, read when hair needs treatment, not just a trim , then ask your stylist to check your hair and scalp."
+              "text": "Yes. Hair treatments and scalp care are part of our services, our menu includes Keratin Treatment, and our perm and rebonding packages come with treatment support. If your hair feels dry, frizzy or weak, read when hair needs treatment, not just a trim, then ask your stylist to check your hair and scalp."
             }
           },
           {
@@ -289,7 +304,7 @@
             "name": "Which eyebrow embroidery styles do you offer?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Our brow menu runs from Mist Brow (S$198, trial S$88) and Fairy Mist Brow (S$298, trial S$188) through Luxury Makeup Brow, 3D Shadow Brow, 3D Hair Stroke Brow, Natural Wild Brow and Luxury Ink Brow, up to Private Custom Fortune Brow (S$999, trial S$698). We also offer brow colour correction and eyebrow removal. Compare the looks in our eyebrow embroidery guide ."
+              "text": "Our brow menu runs from Mist Brow (S$198, trial S$88) and Fairy Mist Brow (S$298, trial S$188) through Luxury Makeup Brow, 3D Shadow Brow, 3D Hair Stroke Brow, Natural Wild Brow and Luxury Ink Brow, up to Private Custom Fortune Brow (S$999, trial S$698). We also offer brow colour correction and eyebrow removal. Compare the looks in our eyebrow embroidery guide."
             }
           },
           {
@@ -362,7 +377,16 @@
         },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://onhairbeauty.online/Assets/og/og-default.jpg"
+          "url": "https://onhairbeauty.online/Assets/og/og-default.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            ".page-header h1",
+            "#booking"
+          ]
         }
       },
       {
@@ -391,7 +415,7 @@
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="./" class="logo">
-        <span class="logo-mark"><img src="Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" /></span>
+        <span class="logo-mark"><img src="Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" decoding="async" fetchpriority="low" /></span>
         <span class="logo-text" translate="no">Hair Salon &amp; Beauty</span>
       </a>
       <nav class="nav-links" id="navLinks">
@@ -430,13 +454,16 @@
           <a href="https://wa.me/6581920109" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Toa Payoh</a>
           <a href="https://wa.me/6593480188" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Simei Eastpoint Mall</a>
           <a href="https://wa.me/6584124961" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Simei Street 3</a>
-          <a href="https://wa.me/6582755130" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> 164 bukit merah central</a>
-          <a href="https://wa.me/6598974760" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> 163 bukit merah central</a>
+          <a href="https://wa.me/6583099832" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Bukit Merah Block 2</a>
+          <a href="https://wa.me/6583099832" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> 163 Bukit Merah Central</a>
+          <a href="https://wa.me/6583099832" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Clementi</a>
           <a href="https://wa.me/6584666738" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Yishun Ring Road</a>
           <a href="https://wa.me/6583369693" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Ang Mo Kio — Zoey</a>
           <a href="https://wa.me/6580151136" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Bedok — Antony</a>
           <a href="https://wa.me/6583061333" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Bedok — Vloon</a>
+          <a href="https://wa.me/6588582073" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Serangoon Central Drive</a>
         </div>
+        <p><a href="contact.html">Addresses, hours and maps</a></p>
       </aside>
 
       <div class="faq-list reveal">
@@ -778,7 +805,7 @@
     <span class="wa-pulse" aria-hidden="true"></span>
   </a>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <div class="botpress-live-agent-shell" aria-live="polite">
     <button type="button" class="botpress-live-agent-nudge" id="botpressLiveAgentNudge" aria-label="Open live agent chat">
       <span class="botpress-live-agent-status" aria-hidden="true"></span>
