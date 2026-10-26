@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://onhairbeauty.online/articles/when-hair-needs-treatment.html" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#faf6f1" />
+  <link rel="preload" as="image" href="../Assets/blog/when-hair-needs-treatment.webp" type="image/webp" fetchpriority="high" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="On Hair Salon &amp; Beauty" />
   <meta property="og:locale" content="en_SG" />
@@ -24,11 +25,18 @@
   <meta property="article:published_time" content="2026-05-12" />
   <meta property="article:modified_time" content="2026-09-28" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://onhairbeauty.online/Assets/og/when-hair-needs-treatment.jpg" />
+  <meta name="twitter:image:alt" content="When Hair Needs Treatment, Not Just A Trim — On Hair Salon" />
+  <link rel="alternate" type="text/plain" href="https://onhairbeauty.online/llms.txt" title="LLM-readable site summary" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://onhairbeauty.online/sitemap.xml" />
   <meta name="keywords" content="hair treatment signs, trim or treatment, dry hair treatment, frizzy hair Singapore, damaged hair treatment, split ends, keratin treatment, scalp care" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" /></noscript>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="../styles.css" />
   <script type="application/ld+json">
   {
@@ -44,7 +52,15 @@
           "ON Hair & Beauty"
         ],
         "url": "https://onhairbeauty.online/",
-        "logo": "https://onhairbeauty.online/faveicon.png",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://onhairbeauty.online/#logo",
+          "url": "https://onhairbeauty.online/faveicon.png",
+          "contentUrl": "https://onhairbeauty.online/faveicon.png",
+          "width": 512,
+          "height": 512,
+          "caption": "On Hair Salon & Beauty logo"
+        },
         "sameAs": [
           "https://www.instagram.com/onhair_salon_beauty/"
         ]
@@ -82,7 +98,12 @@
         },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://onhairbeauty.online/Assets/og/when-hair-needs-treatment.jpg"
+          "url": "https://onhairbeauty.online/Assets/og/when-hair-needs-treatment.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "hasPart": {
+          "@id": "https://onhairbeauty.online/articles/when-hair-needs-treatment.html#faq"
         }
       },
       {
@@ -95,8 +116,18 @@
           "@id": "https://onhairbeauty.online/articles/when-hair-needs-treatment.html#webpage"
         },
         "image": [
-          "https://onhairbeauty.online/Assets/blog/when-hair-needs-treatment.webp",
-          "https://onhairbeauty.online/Assets/og/when-hair-needs-treatment.jpg"
+          {
+            "@type": "ImageObject",
+            "url": "https://onhairbeauty.online/Assets/blog/when-hair-needs-treatment.webp",
+            "width": 1400,
+            "height": 788
+          },
+          {
+            "@type": "ImageObject",
+            "url": "https://onhairbeauty.online/Assets/og/when-hair-needs-treatment.jpg",
+            "width": 1200,
+            "height": 630
+          }
         ],
         "datePublished": "2026-05-12",
         "dateModified": "2026-09-28",
@@ -112,7 +143,57 @@
         "isPartOf": {
           "@id": "https://onhairbeauty.online/blog.html#blog"
         },
-        "inLanguage": "en-SG"
+        "inLanguage": "en-SG",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            ".post-answer",
+            "h1"
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://onhairbeauty.online/articles/when-hair-needs-treatment.html#faq",
+        "url": "https://onhairbeauty.online/articles/when-hair-needs-treatment.html#faq",
+        "isPartOf": {
+          "@id": "https://onhairbeauty.online/articles/when-hair-needs-treatment.html#webpage"
+        },
+        "inLanguage": "en-SG",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can a hair treatment repair split ends?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Treatments can smooth split ends so they look and feel better for a while, but only trimming removes them. A light trim plus a treatment is usually the best combination."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should I get a hair treatment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on your hair. Coloured, bleached or heat-styled hair usually benefits from more regular care. Rather than following a fixed calendar, book when tangling, dullness or frizz start creeping back."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is keratin treatment the same as a hair treatment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Keratin is one type of treatment, focused on smoothing frizz and making hair easier to style. Dry or weak hair may need moisture or strengthening care instead, which is why we check your hair before recommending one."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will a treatment help my hair colour look brighter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Often, yes. When dullness comes from a rough surface rather than faded pigment, smoothing the hair helps it reflect light again, so your colour looks fresher without recolouring."
+            }
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -143,7 +224,7 @@
   </script>
 </head>
 <body>
-  <header class="navbar" id="navbar"><div class="container nav-container"><a href="../" class="logo"><span class="logo-mark"><img src="../Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" /></span><span class="logo-text" translate="no">Hair Salon &amp; Beauty</span></a><nav class="nav-links" id="navLinks"><a href="../">Home</a><a href="../services.html">Services</a><a href="../about.html">About</a><a href="../gallery.html">Gallery</a><a href="../blog.html" class="active">Blog</a><a href="../faq.html">FAQ</a><a href="../contact.html">Contact</a><span class="nav-badge-cdc"><i class="fa-solid fa-circle-check"></i> <span translate="no">CDC Vouchers</span></span><a href="../contact.html" class="btn btn-primary nav-cta">Reserve Your Chair</a></nav><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button></div></header>
+  <header class="navbar" id="navbar"><div class="container nav-container"><a href="../" class="logo"><span class="logo-mark"><img src="../Assets/icons/logo-112.png" alt="On Hair Salon &amp; Beauty logo" width="112" height="112" decoding="async" fetchpriority="low" /></span><span class="logo-text" translate="no">Hair Salon &amp; Beauty</span></a><nav class="nav-links" id="navLinks"><a href="../">Home</a><a href="../services.html">Services</a><a href="../about.html">About</a><a href="../gallery.html">Gallery</a><a href="../blog.html" class="active">Blog</a><a href="../faq.html">FAQ</a><a href="../contact.html">Contact</a><span class="nav-badge-cdc"><i class="fa-solid fa-circle-check"></i> <span translate="no">CDC Vouchers</span></span><a href="../contact.html" class="btn btn-primary nav-cta">Reserve Your Chair</a></nav><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button></div></header>
   <section class="page-header blog-header blog-post-header">
     <div class="container">
       <div class="breadcrumb"><a href="../">Home</a><i class="fa-solid fa-angle-right"></i><a href="../blog.html">Blog</a><i class="fa-solid fa-angle-right"></i><span>Hair Treatment</span></div>
@@ -455,7 +536,7 @@
       <p class="made-with">Crafted with care by <a href="https://webwizardsg.com" target="_blank" rel="noopener">Web Wizards SG</a>.</p>
     </div>
   </footer>
-  <a href="../contact.html" class="wa-float" aria-label="View WhatsApp contacts"><i class="fa-brands fa-whatsapp"></i><span class="wa-label">Consult with an Expert</span><span class="wa-pulse" aria-hidden="true"></span></a><script src="../script.js"></script>
+  <a href="../contact.html" class="wa-float" aria-label="View WhatsApp contacts"><i class="fa-brands fa-whatsapp"></i><span class="wa-label">Consult with an Expert</span><span class="wa-pulse" aria-hidden="true"></span></a><script src="../script.js" defer></script>
   <div class="botpress-live-agent-shell" aria-live="polite">
     <button type="button" class="botpress-live-agent-nudge" id="botpressLiveAgentNudge" aria-label="Open live agent chat">
       <span class="botpress-live-agent-status" aria-hidden="true"></span>

@@ -525,9 +525,9 @@ body.menu-open .navbar {
   animation: meshShift 9s ease-in-out infinite alternate;
 }
 @keyframes meshShift {
-  0%   { filter: hue-rotate(0deg) saturate(0.98) contrast(1); transform: scale(1) translate3d(0, 0, 0); }
-  50%  { filter: hue-rotate(-8deg) saturate(1.08) contrast(1.02); transform: scale(1.045) translate3d(-1.5%, 1%, 0); }
-  100% { filter: hue-rotate(6deg) saturate(1.02) contrast(1.01); transform: scale(1.08) translate3d(1.5%, -1%, 0); }
+  0%   { transform: scale(1) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.045) translate3d(-1.5%, 1%, 0); }
+  100% { transform: scale(1.08) translate3d(1.5%, -1%, 0); }
 }
 
 /* Floating blurred blobs — `translate` property handles mouse parallax,
@@ -538,7 +538,6 @@ body.menu-open .navbar {
   filter: blur(70px);
   opacity: 0.7;
   mix-blend-mode: multiply;
-  will-change: transform, translate;
   --depth: 22px;
   translate:
     calc(var(--mouse-x, 0) * var(--depth))
@@ -2038,7 +2037,7 @@ body.menu-open .navbar {
 
 .blog-topic-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
 }
 
@@ -3816,6 +3815,37 @@ body.menu-open .navbar {
     padding: 0.75rem 0.85rem;
   }
   .botpress-live-agent-copy span { font-size: 0.8rem; }
+}
+
+/* Reserve icon space before the icon font stylesheet arrives. */
+i[class^="fa-"],
+i[class*=" fa-"] {
+  display: inline-block;
+  min-width: 1em;
+  text-align: center;
+}
+
+/* Skip layout and paint for below-the-fold blocks until they near the viewport. */
+.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+}
+.testimonial-track,
+.gallery-grid,
+.service-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+.maps-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 2200px;
+}
+
+body.hero-offscreen .gradient-mesh,
+body.hero-offscreen .blob,
+body.hero-offscreen .hero-keyphrase,
+body.hero-offscreen .scroll-line {
+  animation-play-state: paused;
 }
 
 /* Respect reduced-motion users */

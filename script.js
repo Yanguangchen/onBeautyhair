@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initMinDate();
   initScrollProgress();
+  initHeroMotion();
   initHeroParallax();
   initMouseParallax();
   initHeroImageCarousel();
@@ -63,27 +64,49 @@ function initCustomChineseCopy() {
     });
   };
 
-  applyCustomText();
-  window.setTimeout(applyCustomText, 500);
-  window.setTimeout(applyCustomText, 1500);
+  const watch = () => {
+    if (shouldUseChinese()) applyCustomText();
+  };
+
+  watch();
+  window.setTimeout(watch, 500);
+  window.setTimeout(watch, 1500);
 
   if (!('MutationObserver' in window)) return;
 
-  // Batch mutations to one check per frame (counters and widgets mutate the DOM constantly)
-  let scheduled = false;
-  const observer = new MutationObserver(() => {
-    if (scheduled) return;
-    scheduled = true;
-    requestAnimationFrame(() => {
-      scheduled = false;
-      applyCustomText();
+  // Google Translate changes the document language. Watching the whole body
+  // on every animation frame is expensive, so only do that after a translation signal.
+  let bodyWatchStarted = false;
+  const startBodyWatch = () => {
+    if (bodyWatchStarted) return;
+    bodyWatchStarted = true;
+    let scheduled = false;
+    const observer = new MutationObserver(() => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        if (shouldUseChinese()) applyCustomText();
+      });
     });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+  };
+
+  const langObserver = new MutationObserver(() => {
+    if (!shouldUseChinese()) return;
+    applyCustomText();
+    startBodyWatch();
   });
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    characterData: true
+  langObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['lang', 'class']
   });
+
+  if (shouldUseChinese()) startBodyWatch();
 }
 
 /* ----- Keep SGD prices from being browser-translated as USD ----- */
@@ -199,7 +222,7 @@ function initWhatsAppEnhancements() {
 }
 
 function initSocialLinks() {
-  const instagramUrl = 'https://www.instagram.com/onhair_salon_beauty?igsh=bmYzbXJqaWU1ZjY%3D&utm_source=qr';
+  const instagramUrl = 'https://www.instagram.com/onhair_salon_beauty/';
   document.querySelectorAll('.footer-links').forEach((links) => {
     if (links.querySelector('a[href*="instagram.com/onhair_salon_beauty"]')) return;
     const item = document.createElement('li');
@@ -237,10 +260,11 @@ function initBotpressLoader() {
   if (!document.querySelector('[data-botpress-src]')) return;
 
   const schedule = () => {
+    // Keep the chat widget off the critical path. A click on the nudge loads it immediately.
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadBotpress, { timeout: 3000 });
+      window.requestIdleCallback(loadBotpress, { timeout: 15000 });
     } else {
-      window.setTimeout(loadBotpress, 1500);
+      window.setTimeout(loadBotpress, 12000);
     }
   };
 
@@ -323,7 +347,7 @@ function initMobileNav() {
           <a href="${contactHref}" class="nav-foot-btn nav-foot-wa" aria-label="View WhatsApp contacts">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp
           </a>
-          <a href="https://www.instagram.com/onhair_salon_beauty?igsh=bmYzbXJqaWU1ZjY%3D&utm_source=qr" target="_blank" rel="noopener" class="nav-foot-btn" aria-label="Follow On Hair Salon and Beauty on Instagram">
+          <a href="https://www.instagram.com/onhair_salon_beauty/" target="_blank" rel="noopener" class="nav-foot-btn" aria-label="Follow On Hair Salon and Beauty on Instagram">
             <i class="fa-brands fa-instagram"></i> Instagram
           </a>
         </div>
@@ -831,17 +855,37 @@ function initHeroImageCarousel() {
       timerId = null;
     };
 
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        stop();
-        return;
-      }
-      start();
-    });
+    let inView = false;
+    const sync = () => {
+      if (inView && !document.hidden) start();
+      else stop();
+    };
+
+    document.addEventListener('visibilitychange', sync);
     window.addEventListener('pagehide', stop);
 
-    start();
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        inView = entries.some((entry) => entry.isIntersecting);
+        sync();
+      }, { rootMargin: '200px' });
+      observer.observe(imageEl);
+    } else {
+      inView = true;
+      sync();
+    }
   });
+}
+
+function initHeroMotion() {
+  const hero = document.querySelector('.hero');
+  if (!hero || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.some((entry) => entry.isIntersecting);
+    document.body.classList.toggle('hero-offscreen', !visible);
+  });
+  observer.observe(hero);
 }
 
 /* ----- Magnetic buttons + glow tracking ----- */
