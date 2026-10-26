@@ -1510,6 +1510,10 @@ body.menu-open .navbar {
   font-size: 0.95rem;
 }
 .footer a:hover { color: var(--rose); }
+.footer a[href^="tel:"],
+.footer a[href*="wa.me"] {
+  white-space: nowrap;
+}
 .footer-brand p { max-width: 320px; margin-bottom: 1.4rem; }
 .footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
 .footer-bottom {
