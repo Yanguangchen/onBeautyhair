@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileNav();
   initReveal();
+  initScrollStages();
   initCdcEligibilityModal();
   initBookingModal();
   initBookingForm();
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMinDate();
   initScrollProgress();
   initHeroMotion();
-  initHeroParallax();
   initMouseParallax();
   initHeroImageCarousel();
   initMagneticButtons();
@@ -716,39 +716,419 @@ function initScrollProgress() {
   update();
 }
 
-/* ----- Hero scroll + mouse parallax (unified via CSS variables) ----- */
-function initHeroParallax() {
-  const hero = document.getElementById('hero');
-  if (!hero) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+/* ----- Scroll stages: the home hero and the reviews -----
+   html.stage-motion is set in <head> when motion is allowed. CSS pins each
+   stage's layers under the navbar (position: sticky) and a runway sets how long
+   they stay pinned; here, scroll distance into a stage is mapped onto keyframed
+   poses. Layout is measured on resize; each frame reads only where its stage
+   sits on screen, then writes transform and opacity. */
+const clamp01 = (v) => Math.min(1, Math.max(0, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const progressBetween = (v, start, end) => (end > start ? clamp01((v - start) / (end - start)) : Number(v >= end));
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+// Frame-rate independent ease toward a target, for a little inertia on scroll.
+const follow = (current, target, dt, rate) => current + (target - current) * (1 - Math.exp(-rate * dt));
+// Card i of n starts its part of a transition slightly after card i - 1.
+const staggered = (t, i, n, spread) => clamp01((t - (n > 1 ? i / (n - 1) : 0) * spread) / (1 - spread));
 
-  const content = hero.querySelector('[data-parallax-content]');
+const mixPose = (a, b, t) => ({
+  x: lerp(a.x, b.x, t),
+  y: lerp(a.y, b.y, t),
+  r: lerp(a.r, b.r, t),
+  s: lerp(a.s, b.s, t),
+  o: lerp(a.o, b.o, t)
+});
+const poseTransform = (p) =>
+  `translate3d(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px, 0) rotate(${p.r.toFixed(2)}deg) scale(${p.s.toFixed(3)})`;
+const SETTLED_POSE = { x: 0, y: 0, r: 0, s: 1, o: 1 };
 
-  let scrollY = 0;
-  let ticking = false;
+// Fixed nudges so a stacked deck reads as a loose pile rather than one card.
+const STACK_JITTER = [
+  { x: 0, y: 0, r: -2 },
+  { x: 7, y: -6, r: 3.5 },
+  { x: -8, y: -11, r: -5 },
+  { x: 5, y: -16, r: 6 },
+  { x: -5, y: -20, r: -3.5 },
+  { x: 9, y: -24, r: 4.5 },
+  { x: -9, y: -27, r: -6 },
+  { x: 4, y: -30, r: 2.5 },
+  { x: -3, y: -33, r: -1.5 }
+];
 
-  const apply = () => {
-    const heroHeight = hero.offsetHeight;
-    const progress = Math.min(scrollY / heroHeight, 1);
+function offsetWithin(el, ancestor) {
+  let x = 0;
+  let y = 0;
+  for (let node = el; node && node !== ancestor; node = node.offsetParent) {
+    x += node.offsetLeft;
+    y += node.offsetTop;
+  }
+  return { x, y };
+}
 
-    hero.style.setProperty('--scroll-y', `${scrollY}px`);
-    hero.style.setProperty('--scroll-progress', String(progress));
+/* A deck's final layout is its CSS layout (no transform). From each card's place
+   in it, work out the offsets that pile every card on `anchor` (stack) and that
+   spread them along an arc around it (fan). */
+function deckPoses(cards, container, anchor, fan) {
+  const n = cards.length;
+  const lift = fan.radius * (1 - Math.cos(fan.spread * Math.PI / 180)) / 2;
+  return cards.map((card, i) => {
+    const { x, y } = offsetWithin(card, container);
+    const cx = x + card.offsetWidth / 2;
+    const cy = y + card.offsetHeight / 2;
+    const jitter = STACK_JITTER[i % STACK_JITTER.length];
+    const angle = n > 1 ? (i / (n - 1) - 0.5) * 2 * fan.spread : 0;
+    const rad = angle * Math.PI / 180;
+    return {
+      stack: { x: anchor.x + jitter.x - cx, y: anchor.y + jitter.y - cy, r: jitter.r, s: fan.stackScale, o: 1 },
+      fan: {
+        x: anchor.x + fan.radius * Math.sin(rad) - cx,
+        y: anchor.y + fan.radius * (1 - Math.cos(rad)) - lift - cy,
+        r: angle,
+        s: fan.scale,
+        o: 1
+      }
+    };
+  });
+}
 
-    if (content) {
-      content.style.transform = `translate3d(0, ${scrollY * 0.28}px, 0)`;
-      content.style.opacity = String(Math.max(0, 1 - progress * 1.2));
-    }
-    ticking = false;
+/* Calls frame(dt) on every animation frame while target is on screen. */
+function runWhileVisible(target, frame) {
+  let rafId = null;
+  let last = 0;
+  const tick = (now) => {
+    const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
+    last = now;
+    frame(dt);
+    rafId = requestAnimationFrame(tick);
+  };
+  const start = () => {
+    if (rafId) return;
+    last = 0;
+    rafId = requestAnimationFrame(tick);
+  };
+  const stop = () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null;
   };
 
-  window.addEventListener('scroll', () => {
-    scrollY = window.scrollY;
-    if (!ticking) {
-      requestAnimationFrame(apply);
-      ticking = true;
+  if (!('IntersectionObserver' in window)) {
+    start();
+    return;
+  }
+  new IntersectionObserver((entries) => {
+    if (entries.some(entry => entry.isIntersecting)) start();
+    else stop();
+  }).observe(target);
+}
+
+/* The storefront cards and glints circle the pole on a tilted ellipse. These
+   numbers match .orbit-ring and .pole-stripes in styles.css. */
+const POLE_ORBIT = { cx: 300, cy: 300, rx: 196, ry: 54, tilt: -8 * Math.PI / 180 };
+const POLE_STRIPE_PERIOD = 103.923;
+
+function createPoleOrbit(scene) {
+  const cards = [...scene.querySelectorAll('[data-orbit-card]')];
+  const glints = [...scene.querySelectorAll('[data-orbit-glint]')];
+  const items = [
+    ...cards.map((el, i) => ({ el, offset: (i / cards.length) * Math.PI * 2, bob: 7, fade: true })),
+    ...glints.map((el, i) => ({ el, offset: ((i + 0.5) / glints.length) * Math.PI * 2, bob: 3, fade: false }))
+  ];
+  const stripes = scene.querySelector('.pole-stripes');
+  const cosTilt = Math.cos(POLE_ORBIT.tilt);
+  const sinTilt = Math.sin(POLE_ORBIT.tilt);
+  scene.classList.add('is-orbiting');
+
+  return (angle, time, spin) => {
+    items.forEach((item, i) => {
+      if (!item.w) {
+        item.w = item.el.offsetWidth;
+        item.h = item.el.offsetHeight;
+      }
+      const a = angle + item.offset;
+      const depth = Math.cos(a); // 1 = nearest the viewer
+      const ex = POLE_ORBIT.rx * Math.sin(a);
+      const ey = POLE_ORBIT.ry * depth + Math.sin(time * 0.9 + i * 1.7) * item.bob;
+      const x = POLE_ORBIT.cx + ex * cosTilt - ey * sinTilt - item.w / 2;
+      const y = POLE_ORBIT.cy + ex * sinTilt + ey * cosTilt - item.h / 2;
+      const scale = 0.74 + 0.13 * (depth + 1);
+      item.el.style.transform =
+        `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotateY(${(Math.sin(a) * 32).toFixed(1)}deg) scale(${scale.toFixed(3)})`;
+      // The pole sits at z-index 10: the near half of the orbit passes in front of it.
+      item.el.style.zIndex = String(depth >= 0 ? 12 + Math.round(depth * 8) : 9 - Math.round(-depth * 8));
+      if (item.fade) item.el.style.opacity = (0.5 + 0.25 * (depth + 1)).toFixed(3);
+    });
+    if (stripes) stripes.style.translate = `0 ${(-(spin % POLE_STRIPE_PERIOD)).toFixed(1)}px`;
+  };
+}
+
+/* Hero: the copy scrolls away while the pole glides into centre stage; then the
+   promise cards rise as a stack, fan out and spread into a row beneath it. */
+function createHeroStage() {
+  const hero = document.getElementById('hero');
+  const scene = hero && hero.querySelector('[data-hero-scene]');
+  if (!scene) return null;
+
+  const renderOrbit = createPoleOrbit(scene);
+  if (!document.documentElement.classList.contains('stage-motion')) {
+    renderOrbit(-0.5, 0, 0);
+    return null;
+  }
+
+  const visual = hero.querySelector('.hero-visual');
+  const slot = hero.querySelector('[data-hero-slot]');
+  const strip = hero.querySelector('.trust-strip');
+  const deck = hero.querySelector('.trust-deck');
+  const cards = deck ? [...deck.querySelectorAll('.trust-card')] : [];
+  const runway = hero.querySelector('.hero-runway');
+  const cue = hero.querySelector('.scroll-cue');
+  const copy = [...hero.querySelectorAll('.hero-text > *')];
+  if (!visual || !slot || !strip || !cards.length || !runway) return null;
+
+  const SCENE = { w: 600, h: 660 };
+  let m = null;
+  let smooth = null;
+  let clock = 0;
+
+  const measure = () => {
+    const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0;
+    const pinH = visual.offsetHeight;
+    const vw = visual.offsetWidth;
+    const split = window.matchMedia('(min-width: 961px)').matches;
+    const visualBox = visual.getBoundingClientRect();
+    const slotBox = slot.getBoundingClientRect();
+    const natural = {
+      x: slotBox.left - visualBox.left + slotBox.width / 2,
+      y: slotBox.top - visualBox.top + slotBox.height / 2
+    };
+
+    // Scene poses: beside the copy (or below the fold on narrow screens), centre
+    // stage, then lifted and shrunk to make room for the cards.
+    const centre = Math.min(1.15, (pinH * 0.9) / SCENE.h, (vw * 0.94) / SCENE.w);
+    const home = split
+      ? { x: natural.x, y: natural.y, r: 0, s: Math.min(centre, (slotBox.width * 1.05) / SCENE.w, (pinH * 0.92) / SCENE.h), o: 1 }
+      : { x: vw / 2, y: pinH + SCENE.h * centre * 0.25, r: 0, s: centre * 0.85, o: 0 };
+    const stage = { x: vw / 2, y: pinH / 2, r: 0, s: centre, o: 1 };
+    const aside = {
+      x: vw / 2,
+      y: deck.offsetTop / 2 + 6,
+      r: 0,
+      s: Math.max(0.3, Math.min(centre, (deck.offsetTop - 16) / SCENE.h)),
+      o: 1
+    };
+
+    // Each line of copy fades out as its middle reaches the top of the stage.
+    const copyBoxes = copy.map((el) => {
+      const middle = offsetWithin(el, hero).y + el.offsetHeight / 2;
+      return { el, middle, zone: Math.max(1, Math.min(pinH * 0.28, middle)) };
+    });
+    const copyEnd = Math.max(pinH * 0.5, ...copy.map(el => offsetWithin(el, hero).y + el.offsetHeight));
+
+    const glideStart = Math.max(0, copyEnd - pinH * 0.8);
+    const glideEnd = Math.max(glideStart + pinH * 0.45, copyEnd - pinH * 0.08);
+    const dealStart = glideEnd + pinH * 0.2;
+    const dealEnd = dealStart + pinH * 0.45;
+    const fanEnd = dealEnd + pinH * 0.4;
+    const spreadEnd = fanEnd + pinH * 0.5;
+    runway.style.height = `${Math.round(spreadEnd + pinH * 0.2 + pinH)}px`;
+
+    const anchor = { x: vw / 2, y: deck.offsetTop + deck.offsetHeight / 2 };
+    const cardW = cards[0].offsetWidth;
+    const poses = deckPoses(cards, strip, anchor, split
+      ? { spread: 14, radius: Math.max(cardW * 3, 760), scale: 0.94, stackScale: 0.9 }
+      : { spread: 16, radius: cardW * 2.4, scale: 0.9, stackScale: 0.92 });
+    poses.forEach((pose, i) => {
+      pose.hidden = { ...pose.stack, y: pose.stack.y + pinH * 0.65 + i * 24, r: pose.stack.r * 3, o: 0 };
+    });
+    cards.forEach((card, i) => { card.style.zIndex = String(cards.length - i); });
+
+    m = { navH, natural, home, stage, aside, copy: copyBoxes, poses, glideStart, glideEnd, dealStart, dealEnd, fanEnd, spreadEnd };
+  };
+
+  const render = (scrolled, eased) => {
+    m.copy.forEach(({ el, middle, zone }) => {
+      const o = clamp01((middle - scrolled) / zone);
+      el.style.opacity = o < 1 ? o.toFixed(3) : '';
+    });
+    if (cue) cue.style.opacity = String(1 - progressBetween(scrolled, 0, 140));
+
+    const glide = easeInOut(progressBetween(eased, m.glideStart, m.glideEnd));
+    const deal = progressBetween(eased, m.dealStart, m.dealEnd);
+    const pose = mixPose(mixPose(m.home, m.stage, glide), m.aside, easeInOut(deal));
+    scene.style.transform =
+      `translate3d(${(pose.x - m.natural.x).toFixed(1)}px, ${(pose.y - m.natural.y).toFixed(1)}px, 0) scale(${pose.s.toFixed(4)})`;
+    scene.style.opacity = pose.o < 1 ? pose.o.toFixed(3) : '';
+
+    const fan = easeInOut(progressBetween(eased, m.dealEnd, m.fanEnd));
+    const spread = progressBetween(eased, m.fanEnd, m.spreadEnd);
+    const n = cards.length;
+    cards.forEach((card, i) => {
+      const p = m.poses[i];
+      let cardPose;
+      if (spread > 0) cardPose = mixPose(p.fan, SETTLED_POSE, easeInOut(staggered(spread, i, n, 0.3)));
+      else if (fan > 0) cardPose = mixPose(p.stack, p.fan, fan);
+      // The bottom card lands first, the top card last.
+      else cardPose = mixPose(p.hidden, p.stack, easeOut(staggered(deal, n - 1 - i, n, 0.45)));
+      card.style.transform = poseTransform(cardPose);
+      card.style.opacity = cardPose.o.toFixed(3);
+    });
+  };
+
+  runWhileVisible(hero, (dt) => {
+    if (!m) return;
+    const scrolled = Math.max(0, m.navH - hero.getBoundingClientRect().top);
+    smooth = smooth === null ? scrolled : follow(smooth, scrolled, dt, 9);
+    clock += dt;
+    render(scrolled, smooth);
+    // A slow idle turn, plus a full revolution for every ~1500px scrolled.
+    renderOrbit(clock * 0.22 + smooth * (Math.PI * 2 / 1500), clock, smooth * 0.45);
+  });
+
+  return { measure, resizeTarget: hero.querySelector('.hero-text') };
+}
+
+/* Reviews: a stacked deck when the section arrives, fanned out as it pins, then
+   dealt into a 3-column grid (or, where that cannot fit, a swipeable row). */
+function createReviewStage() {
+  const section = document.querySelector('[data-review-stage]');
+  if (!section || !document.documentElement.classList.contains('stage-motion')) return null;
+
+  const pin = section.querySelector('.review-pin');
+  const area = section.querySelector('.review-area');
+  const track = section.querySelector('.testimonial-track');
+  const runway = section.querySelector('.review-runway');
+  const cards = track ? [...track.querySelectorAll('.testimonial')] : [];
+  if (!pin || !area || !runway || !cards.length) return null;
+
+  let m = null;
+  let smooth = null;
+  let settled = false;
+  let heldScroll = 0;
+
+  const setLayout = (layout) => {
+    section.classList.toggle('is-grid', layout === 'grid');
+    section.classList.toggle('is-carousel', layout === 'carousel');
+  };
+
+  // Settled cards drop their transforms, so hover works and the row can scroll.
+  // Leaving that state keeps the row's scroll offset in the cards' poses.
+  const settle = (on) => {
+    if (on === settled) return;
+    settled = on;
+    if (on) {
+      cards.forEach((card) => { card.style.transform = ''; });
+      section.classList.add('is-settled');
+      if (heldScroll) track.scrollLeft = heldScroll;
+    } else {
+      heldScroll = section.classList.contains('is-carousel') ? track.scrollLeft : 0;
+      section.classList.remove('is-settled');
     }
-  }, { passive: true });
-  apply();
+  };
+
+  const measure = () => {
+    settle(false);
+    heldScroll = 0;
+    track.style.transform = '';
+    const vw = document.documentElement.clientWidth;
+    let layout = vw >= 1024 ? 'grid' : 'carousel';
+    setLayout(layout);
+    let fit = 1;
+    if (layout === 'grid') {
+      fit = Math.min(1, area.clientHeight / track.offsetHeight);
+      if (fit < 0.78) {
+        layout = 'carousel';
+        fit = 1;
+        setLayout(layout);
+      }
+    }
+    if (fit < 1) track.style.transform = `scale(${fit.toFixed(3)})`;
+
+    const wide = vw >= 1024;
+    const reach = wide ? Math.min(vw * 0.34, 520) / fit : Math.min(vw * 0.3, 260);
+    const spread = wide ? 18 : 28;
+    const pinH = pin.offsetHeight;
+    const length = Math.round(pinH * (wide ? 1.6 : 1.4));
+    runway.style.height = `${length}px`;
+    cards.forEach((card, i) => { card.style.zIndex = String(cards.length - i); });
+
+    m = {
+      navH: parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0,
+      length,
+      poses: deckPoses(cards, track, { x: track.clientWidth / 2, y: track.offsetHeight / 2 }, {
+        spread,
+        radius: reach / Math.sin(spread * Math.PI / 180),
+        scale: wide ? 0.9 : 0.62,
+        stackScale: wide ? 1 : 0.92
+      })
+    };
+  };
+
+  const render = (t) => {
+    const out = progressBetween(t, 0.5, 0.92);
+    if (out >= 1) {
+      settle(true);
+      return;
+    }
+    settle(false);
+    const fan = easeInOut(progressBetween(t, 0.08, 0.45));
+    const landed = { ...SETTLED_POSE, x: -heldScroll };
+    cards.forEach((card, i) => {
+      const p = m.poses[i];
+      const pose = out > 0
+        ? mixPose(p.fan, landed, easeInOut(staggered(out, i, cards.length, 0.4)))
+        : mixPose(p.stack, p.fan, fan);
+      card.style.transform = poseTransform(pose);
+    });
+  };
+
+  const step = (direction) => {
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    track.scrollBy({ left: direction * (cards[0].offsetWidth + gap), behavior: 'smooth' });
+  };
+  section.querySelector('[data-review-prev]')?.addEventListener('click', () => step(-1));
+  section.querySelector('[data-review-next]')?.addEventListener('click', () => step(1));
+
+  runWhileVisible(section, (dt) => {
+    if (!m) return;
+    const t = clamp01((m.navH - section.getBoundingClientRect().top) / m.length);
+    smooth = smooth === null ? t : follow(smooth, t, dt, 10);
+    render(smooth);
+  });
+
+  return { measure };
+}
+
+function initScrollStages() {
+  const root = document.documentElement;
+  const stages = [createHeroStage(), createReviewStage()].filter(Boolean);
+  if (!stages.length) return;
+  root.setAttribute('data-stage', 'ready');
+
+  const nav = document.getElementById('navbar');
+  // Stages run in page order: the reviews sit below the hero's runway.
+  const measureAll = () => {
+    if (nav) root.style.setProperty('--nav-h', `${nav.offsetHeight}px`);
+    stages.forEach(stage => stage.measure());
+  };
+  let queued = false;
+  const queueMeasure = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      measureAll();
+    });
+  };
+
+  measureAll();
+  window.addEventListener('resize', queueMeasure);
+  window.addEventListener('load', queueMeasure, { once: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(queueMeasure);
+  // The hero copy changes height when fonts swap in or the Chinese copy is applied.
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(queueMeasure);
+    stages.forEach(stage => stage.resizeTarget && observer.observe(stage.resizeTarget));
+  }
 }
 
 /* ----- Mouse-move parallax inside the hero (CSS variables only) ----- */
@@ -791,9 +1171,9 @@ function initMouseParallax() {
   });
 }
 
-/* ----- Hero storefront image carousel ----- */
+/* ----- About section storefront image carousel ----- */
 function initHeroImageCarousel() {
-  const carouselImages = document.querySelectorAll('.hero-image[data-hero-images], .about-image-main[data-hero-images]');
+  const carouselImages = document.querySelectorAll('.about-image-main[data-hero-images]');
   if (!carouselImages.length) return;
 
   carouselImages.forEach(imageEl => {
@@ -814,7 +1194,7 @@ function initHeroImageCarousel() {
     imageEl.style.backgroundImage = cssUrl(images[currentIndex]);
 
     // Warm the other slides only after the page has loaded, and never for a
-    // hidden carousel (the hero image is display:none on mobile).
+    // hidden carousel.
     const preloadRest = () => {
       if (!imageEl.getClientRects().length) return;
       images.slice(1).forEach(src => {

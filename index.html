@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Opt into the scroll-staged hero and reviews before first paint. script.js
+       marks the stage ready; if it never does, fall back to the static layout. */
+    (function () {
+      var root = document.documentElement;
+      if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerHeight < 520) return;
+      root.classList.add('stage-motion');
+      window.addEventListener('load', function () {
+        if (root.getAttribute('data-stage') !== 'ready') root.classList.remove('stage-motion');
+      });
+    })();
+  </script>
   <link rel="icon" type="image/png" sizes="48x48" href="Assets/icons/favicon-48.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="Assets/icons/favicon-192.png" />
   <link rel="apple-touch-icon" href="Assets/icons/apple-touch-icon.png" />
@@ -27,7 +39,6 @@
   <link rel="alternate" type="text/plain" href="https://onhairbeauty.online/llms.txt" title="LLM-readable site summary" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://onhairbeauty.online/sitemap.xml" />
   <meta name="keywords" content="On Hair Salon and Beauty price list, Singapore hair salon, Bukit Merah hair salon, Simei hair salon, Toa Payoh hair salon, Yishun hair salon, Ang Mo Kio hair salon, Bedok hair salon, Serangoon hair salon, eyebrow embroidery, eyeliner embroidery, eyelash extension, gelish manicure, keratin treatment, CDC Vouchers salon" />
-  <link rel="preload" as="image" href="Assets/storeFront/storeFront.webp" type="image/webp" media="(min-width: 961px)" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
@@ -1283,18 +1294,11 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero: a scroll stage. The backdrop, the barber pole scene and the promise
+       cards stay pinned under the navbar while the copy scrolls past; script.js
+       (initScrollStages) glides the pole into centre stage, then deals the cards. -->
   <section class="hero" id="hero">
-    <div class="gradient-mesh" aria-hidden="true">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-      <div class="blob blob-4"></div>
-      <div class="blob blob-5"></div>
-    </div>
-    <div class="grain" aria-hidden="true"></div>
-
-    <div class="container hero-content" data-parallax-content>
+    <div class="container hero-content">
       <div class="hero-layout">
         <div class="hero-text">
           <p class="eyebrow reveal" data-zh-text="您身边的美发美容空间">Your Local Beauty Sanctuary</p>
@@ -1306,7 +1310,7 @@
             Your neighbourhood studio for haircuts, colour, styling and scalp care.
             We combine technical mastery with our signature 'listening-first' approach—so you get exactly what you want, and nothing you don't.
           </p>
-          
+
           <div class="hero-pills reveal">
             <span class="pill"><span translate="no">Hair Colour</span></span>
             <span class="pill"><span translate="no">Hair Treatment</span></span>
@@ -1324,7 +1328,7 @@
               <span class="btn-inner">View Services &amp; Prices <i class="fa-solid fa-arrow-right"></i></span>
             </a>
           </div>
-          
+
           <div class="hero-stats reveal">
             <div>
               <strong data-counter="6" data-suffix="+">0</strong>
@@ -1344,41 +1348,158 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="hero-media reveal">
-          <div class="hero-image-wrap">
-            <div
-              class="hero-image"
-              style="background-image:url('Assets/storeFront/storeFront.webp')"
-              data-hero-images="Assets/storeFront/storeFront.webp,Assets/storeFront/block2.webp,Assets/storeFront/clementi.webp"
-              role="img"
-              aria-label="ON Hair Salon and Beauty storefronts"
-            ></div>
-            <div class="hero-image-accent"></div>
+    <div class="hero-visual">
+      <div class="container hero-visual-grid">
+        <div class="hero-scene-wrap" data-hero-slot>
+          <div class="hero-scene" data-hero-scene role="img" aria-label="A turning barber pole circled by photos of On Hair Salon &amp; Beauty storefronts, with a pair of salon scissors">
+            <span class="pole-shadow"></span>
+            <span class="orbit-ring orbit-ring-back"></span>
+            <div class="barber-pole">
+              <span class="pole-finial"></span>
+              <span class="pole-dome"></span>
+              <span class="pole-collar pole-collar-top"></span>
+              <span class="pole-tube"><span class="pole-stripes"></span><span class="pole-gloss"></span></span>
+              <span class="pole-collar pole-collar-bottom"></span>
+              <span class="pole-base"></span>
+              <span class="pole-foot"></span>
+            </div>
+            <span class="orbit-ring orbit-ring-front"></span>
+
+            <figure class="orbit-card" data-orbit-card>
+              <img src="Assets/storeFront/orbit-storefront.webp" width="150" height="200" alt="" decoding="async" fetchpriority="high" />
+            </figure>
+            <figure class="orbit-card" data-orbit-card>
+              <img src="Assets/storeFront/orbit-block2.webp" width="208" height="156" alt="" decoding="async" />
+            </figure>
+            <figure class="orbit-card" data-orbit-card>
+              <img src="Assets/storeFront/orbit-clementi.webp" width="208" height="156" alt="" decoding="async" />
+            </figure>
+            <span class="orbit-glint" data-orbit-glint></span>
+            <span class="orbit-glint" data-orbit-glint></span>
+            <span class="orbit-glint" data-orbit-glint></span>
+            <span class="orbit-glint" data-orbit-glint></span>
+            <span class="orbit-glint" data-orbit-glint></span>
+            <span class="orbit-glint" data-orbit-glint></span>
+
+            <div class="hero-scissors">
+              <div class="scissors-body">
+                <svg class="scissors-art scissors-edge" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+                  <g transform="matrix(-1 0 0 1 200 0)">
+                    <g class="scissor-half">
+                      <path class="scissor-blade" d="M101 104 L101 16 Q100 6 95 4 Q84 46 88 104 Z" />
+                      <path class="scissor-shank" d="M93 100 L106 100 L119 140 L108 144 Z" />
+                      <circle class="scissor-ring" cx="121" cy="161" r="18" />
+                    </g>
+                  </g>
+                  <g class="scissor-half">
+                    <path class="scissor-blade" d="M101 104 L101 16 Q100 6 95 4 Q84 46 88 104 Z" />
+                    <path class="scissor-shank" d="M93 100 L106 100 L119 140 L108 144 Z" />
+                    <circle class="scissor-ring" cx="121" cy="161" r="18" />
+                  </g>
+                </svg>
+                <svg class="scissors-art scissors-face" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+                  <defs>
+                    <linearGradient id="scissorSteel" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#7e838e" />
+                      <stop offset="0.32" stop-color="#f7f8fb" />
+                      <stop offset="0.55" stop-color="#bfc4cd" />
+                      <stop offset="0.8" stop-color="#ffffff" />
+                      <stop offset="1" stop-color="#8d939e" />
+                    </linearGradient>
+                    <linearGradient id="scissorRose" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#f0c4b4" />
+                      <stop offset="0.45" stop-color="#b76e79" />
+                      <stop offset="1" stop-color="#6e3540" />
+                    </linearGradient>
+                    <radialGradient id="scissorPin" cx="0.35" cy="0.35" r="0.7">
+                      <stop offset="0" stop-color="#fff4d2" />
+                      <stop offset="0.5" stop-color="#d9bf85" />
+                      <stop offset="1" stop-color="#7a5a22" />
+                    </radialGradient>
+                  </defs>
+                  <g transform="matrix(-1 0 0 1 200 0)">
+                    <g class="scissor-half">
+                      <path class="scissor-blade" d="M101 104 L101 16 Q100 6 95 4 Q84 46 88 104 Z" />
+                      <path class="scissor-shank" d="M93 100 L106 100 L119 140 L108 144 Z" />
+                      <circle class="scissor-ring" cx="121" cy="161" r="18" />
+                    </g>
+                  </g>
+                  <g class="scissor-half">
+                    <path class="scissor-blade" d="M101 104 L101 16 Q100 6 95 4 Q84 46 88 104 Z" />
+                    <path class="scissor-shank" d="M93 100 L106 100 L119 140 L108 144 Z" />
+                    <circle class="scissor-ring" cx="121" cy="161" r="18" />
+                  </g>
+                  <circle cx="100" cy="100" r="7" fill="url(#scissorPin)" />
+                  <path d="M96.5 100 H103.5" stroke="#6f5220" stroke-width="1.4" stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
           </div>
+          <a href="#services" class="scroll-cue" aria-label="Scroll to services">
+            <span class="scroll-line"></span>
+            <span class="scroll-text">Scroll</span>
+          </a>
         </div>
       </div>
     </div>
 
-    <a href="#services" class="scroll-cue" aria-label="Scroll to services">
-      <span class="scroll-line"></span>
-      <span class="scroll-text">Scroll</span>
-    </a>
+    <!-- Promise cards: a stacked deck that fans out and spreads as the stage scrolls -->
+    <section class="trust-strip" aria-label="Our promises">
+      <div class="container trust-deck">
+        <article class="trust-card">
+          <div class="trust-card-top">
+            <span class="trust-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
+            <span class="trust-num" aria-hidden="true">01</span>
+          </div>
+          <p class="trust-title">Mastery in Motion</p>
+          <p class="trust-desc">Award-winning artistry</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-card-top">
+            <span class="trust-icon"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span>
+            <span class="trust-num" aria-hidden="true">02</span>
+          </div>
+          <p class="trust-title">Sustainably Chic</p>
+          <p class="trust-desc">100% vegan &amp; cruelty-free</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-card-top">
+            <span class="trust-icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></span>
+            <span class="trust-num" aria-hidden="true">03</span>
+          </div>
+          <p class="trust-title">The Anti-Pressure Promise</p>
+          <p class="trust-desc">Honest advice, zero hard selling</p>
+        </article>
+        <article class="trust-card">
+          <div class="trust-card-top">
+            <span class="trust-icon"><i class="fa-solid fa-spa" aria-hidden="true"></i></span>
+            <span class="trust-num" aria-hidden="true">04</span>
+          </div>
+          <p class="trust-title">A Calm Retreat</p>
+          <p class="trust-desc">The luxury of care</p>
+        </article>
+      </div>
+    </section>
 
+    <div class="hero-backdrop" aria-hidden="true">
+      <div class="gradient-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+      </div>
+      <div class="grain"></div>
+    </div>
+
+    <div class="hero-runway" aria-hidden="true"></div>
   </section>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-  <!-- Trust strip -->
-  <section class="trust-strip">
-    <div class="container trust-grid">
-      <div><i class="fa-solid fa-award"></i><p>Mastery in Motion: Award-winning artistry</p></div>
-      <div><i class="fa-solid fa-leaf"></i><p>Sustainably Chic: 100% Vegan &amp; Cruelty-Free</p></div>
-      <div><i class="fa-solid fa-hand-holding-heart"></i><p>The Anti-Pressure Promise: Honest advice, zero hard selling</p></div>
-      <div><i class="fa-solid fa-spa"></i><p>A Calm Retreat: The luxury of care</p></div>
-    </div>
-  </section>
 
   <!-- Limited Time Promo -->
   <section class="promo-section" aria-labelledby="limitedPromoTitle">
@@ -1558,61 +1679,71 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="section testimonials">
-    <div class="container">
-      <div class="section-head reveal center">
-        <p class="eyebrow">Kind Words</p>
-        <h2>Loved by Our <em>Clients</em></h2>
-      </div>
-      <div class="testimonial-track reveal">
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;Hands down the best balayage I&rsquo;ve ever had. Naomi truly listens &mdash; I left feeling like the best version of myself.&rdquo;</p>
-          <footer>&mdash; Jessica P.</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;On did my entire bridal party. The day was seamless, every look was perfect and the photos are unreal. Forever grateful.&rdquo;</p>
-          <footer>&mdash; Amelia &amp; Mark</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;My skin has never looked better. Hannah&rsquo;s facials are pure magic and the studio feels like a tiny vacation each visit.&rdquo;</p>
-          <footer>&mdash; Priya K.</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;The team fixed a color job I was nervous about and made my hair look soft, healthy and expensive. I felt completely taken care of.&rdquo;</p>
-          <footer>&mdash; Cheryl T.</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;Clean space, gentle service and no hard selling. My manicure lasted beautifully and the shape was exactly what I asked for.&rdquo;</p>
-          <footer>&mdash; Nur A.</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;I booked a wash and blow before an event and walked out feeling polished in under an hour. The finish held all night.&rdquo;</p>
-          <footer>&mdash; Rachel L.</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;They explained every step before my treatment and gave practical aftercare tips. My hair still feels smooth weeks later.&rdquo;</p>
-          <footer>&mdash; Mei Xuan</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;The 163 bukit merah central outlet is convenient and the staff are warm without being pushy. I have already booked my next visit.&rdquo;</p>
-          <footer>&mdash; Sabrina G.</footer>
-        </article>
-        <article class="testimonial">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;My bridal trial was calm, detailed and really collaborative. They understood the natural look I wanted and made it camera-ready.&rdquo;</p>
-          <footer>&mdash; Elaine C.</footer>
-        </article>
+  <!-- Testimonials: the reviews arrive as a stacked deck and fan out on scroll -->
+  <section class="section testimonials" data-review-stage>
+    <div class="review-pin">
+      <div class="container review-inner">
+        <div class="section-head reveal center">
+          <p class="eyebrow">Kind Words</p>
+          <h2>Loved by Our <em>Clients</em></h2>
+        </div>
+        <div class="review-area">
+          <div class="testimonial-track">
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;Hands down the best balayage I&rsquo;ve ever had. Naomi truly listens &mdash; I left feeling like the best version of myself.&rdquo;</p>
+              <footer>&mdash; Jessica P.</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;On did my entire bridal party. The day was seamless, every look was perfect and the photos are unreal. Forever grateful.&rdquo;</p>
+              <footer>&mdash; Amelia &amp; Mark</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;My skin has never looked better. Hannah&rsquo;s facials are pure magic and the studio feels like a tiny vacation each visit.&rdquo;</p>
+              <footer>&mdash; Priya K.</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;The team fixed a color job I was nervous about and made my hair look soft, healthy and expensive. I felt completely taken care of.&rdquo;</p>
+              <footer>&mdash; Cheryl T.</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;Clean space, gentle service and no hard selling. My manicure lasted beautifully and the shape was exactly what I asked for.&rdquo;</p>
+              <footer>&mdash; Nur A.</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;I booked a wash and blow before an event and walked out feeling polished in under an hour. The finish held all night.&rdquo;</p>
+              <footer>&mdash; Rachel L.</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;They explained every step before my treatment and gave practical aftercare tips. My hair still feels smooth weeks later.&rdquo;</p>
+              <footer>&mdash; Mei Xuan</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;The 163 bukit merah central outlet is convenient and the staff are warm without being pushy. I have already booked my next visit.&rdquo;</p>
+              <footer>&mdash; Sabrina G.</footer>
+            </article>
+            <article class="testimonial">
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p>&ldquo;My bridal trial was calm, detailed and really collaborative. They understood the natural look I wanted and made it camera-ready.&rdquo;</p>
+              <footer>&mdash; Elaine C.</footer>
+            </article>
+          </div>
+        </div>
+        <div class="review-controls">
+          <button type="button" class="review-nav" data-review-prev aria-label="Previous review"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+          <span class="review-hint">Swipe for more</span>
+          <button type="button" class="review-nav" data-review-next aria-label="Next review"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
       </div>
     </div>
+    <div class="review-runway" aria-hidden="true"></div>
   </section>
 
   <section class="section blog-topics-section related-guides-section">
