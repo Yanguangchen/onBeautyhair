@@ -766,6 +766,21 @@ function offsetWithin(el, ancestor) {
   return { x, y };
 }
 
+/* Wraps each word of a plain-text element in a span, keeping the spaces between
+   them as text so line wrapping and what screen readers hear stay the same. */
+function splitWords(el) {
+  const text = el.textContent.trim().replace(/\s+/g, ' ');
+  el.textContent = '';
+  return text.split(' ').map((word, i) => {
+    if (i) el.append(' ');
+    const span = document.createElement('span');
+    span.className = 'reveal-word';
+    span.textContent = word;
+    el.append(span);
+    return { el: span, key: -1 };
+  });
+}
+
 /* A deck's final layout is its CSS layout (no transform). From each card's place
    in it, work out the offsets that pile every card on `anchor` (stack) and that
    spread them along an arc around it (fan). */
@@ -885,6 +900,11 @@ function createHeroStage() {
   const copy = [...hero.querySelectorAll('.hero-text > *')];
   if (!visual || !slot || !strip || !cards.length || !runway) return null;
 
+  // The subtitle starts ghosted; its words ease in over the first stretch of scroll.
+  const subtitle = hero.querySelector('.hero-subtitle');
+  const words = subtitle ? splitWords(subtitle) : [];
+  const WORD_WINDOW = 5;
+
   const SCENE = { w: 600, h: 660 };
   let m = null;
   let smooth = null;
@@ -917,12 +937,18 @@ function createHeroStage() {
       o: 1
     };
 
-    // Each line of copy fades out as its middle reaches the top of the stage.
+    // Each line of copy stays solid until its bottom edge nears the top of the
+    // stage, then fades as it slides under the navbar.
     const copyBoxes = copy.map((el) => {
-      const middle = offsetWithin(el, hero).y + el.offsetHeight / 2;
-      return { el, middle, zone: Math.max(1, Math.min(pinH * 0.28, middle)) };
+      const bottom = offsetWithin(el, hero).y + el.offsetHeight;
+      return { el, bottom, zone: Math.max(1, Math.min(pinH * 0.28, bottom)) };
     });
-    const copyEnd = Math.max(pinH * 0.5, ...copy.map(el => offsetWithin(el, hero).y + el.offsetHeight));
+    const copyEnd = Math.max(pinH * 0.5, ...copyBoxes.map(box => box.bottom));
+    // ...and the subtitle has fully arrived before its own fade-out begins.
+    const subtitleBox = copyBoxes.find(box => box.el === subtitle);
+    const revealEnd = subtitleBox
+      ? Math.max(pinH * 0.12, Math.min(pinH * 0.34, subtitleBox.bottom - subtitleBox.zone))
+      : 0;
 
     const glideStart = Math.max(0, copyEnd - pinH * 0.8);
     const glideEnd = Math.max(glideStart + pinH * 0.45, copyEnd - pinH * 0.08);
@@ -942,15 +968,26 @@ function createHeroStage() {
     });
     cards.forEach((card, i) => { card.style.zIndex = String(cards.length - i); });
 
-    m = { navH, natural, home, stage, aside, copy: copyBoxes, poses, glideStart, glideEnd, dealStart, dealEnd, fanEnd, spreadEnd };
+    m = { navH, natural, home, stage, aside, copy: copyBoxes, revealEnd, poses, glideStart, glideEnd, dealStart, dealEnd, fanEnd, spreadEnd };
   };
 
   const render = (scrolled, eased) => {
-    m.copy.forEach(({ el, middle, zone }) => {
-      const o = clamp01((middle - scrolled) / zone);
+    m.copy.forEach(({ el, bottom, zone }) => {
+      const o = clamp01((bottom - scrolled) / zone);
       el.style.opacity = o < 1 ? o.toFixed(3) : '';
     });
     if (cue) cue.style.opacity = String(1 - progressBetween(scrolled, 0, 140));
+
+    // Words light up in reading order, each easing over a window of a few words.
+    const reveal = m.revealEnd ? clamp01(eased / m.revealEnd) : 1;
+    words.forEach((word, i) => {
+      const e = easeOut(clamp01((reveal * (words.length + WORD_WINDOW) - i) / WORD_WINDOW));
+      const key = Math.round(e * 500);
+      if (word.key === key) return;
+      word.key = key;
+      word.el.style.opacity = e < 1 ? (0.16 + 0.84 * e).toFixed(3) : '';
+      word.el.style.transform = e < 1 ? `translate3d(0, ${((1 - e) * 8).toFixed(1)}px, 0)` : '';
+    });
 
     const glide = easeInOut(progressBetween(eased, m.glideStart, m.glideEnd));
     const deal = progressBetween(eased, m.dealStart, m.dealEnd);
@@ -980,8 +1017,8 @@ function createHeroStage() {
     smooth = smooth === null ? scrolled : follow(smooth, scrolled, dt, 9);
     clock += dt;
     render(scrolled, smooth);
-    // A slow idle turn, plus a full revolution for every ~1500px scrolled.
-    renderOrbit(clock * 0.22 + smooth * (Math.PI * 2 / 1500), clock, smooth * 0.45);
+    // Only scrolling turns the orbit: a full revolution for every ~1200px.
+    renderOrbit(0.35 + smooth * (Math.PI * 2 / 1200), clock, smooth * 0.45);
   });
 
   return { measure, resizeTarget: hero.querySelector('.hero-text') };

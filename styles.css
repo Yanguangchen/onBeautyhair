@@ -802,6 +802,9 @@ body.menu-open .navbar {
   line-height: 1.6;
 }
 
+/* Set by script.js on the scroll stage, so each word can ease in on its own. */
+.hero-subtitle .reveal-word { display: inline-block; }
+
 .hero-pills {
   display: flex;
   flex-wrap: wrap;
