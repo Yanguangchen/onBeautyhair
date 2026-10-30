@@ -951,8 +951,9 @@ body.menu-open .navbar {
   box-shadow: 0 24px 50px rgba(46, 31, 26, 0.2);
 }
 /* One stripe period is 90px across the 150deg gradient, i.e. 90 / cos(30deg) =
-   103.923px vertically, so shifting by that much loops seamlessly. script.js
-   adds the scroll-driven spin through the separate `translate` property. */
+   103.923px vertically, so shifting by that much loops seamlessly. The static
+   layout spins on a loop; on the scroll stage only scrolling spins the stripes,
+   which script.js drives through the separate `translate` property. */
 .pole-stripes {
   position: absolute;
   left: 0; top: 0;
@@ -964,6 +965,7 @@ body.menu-open .navbar {
 @keyframes poleSpin {
   to { transform: translateY(-103.923px); }
 }
+.stage-motion .pole-stripes { animation: none; }
 .pole-gloss {
   position: absolute;
   inset: 0;

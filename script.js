@@ -1017,8 +1017,9 @@ function createHeroStage() {
     smooth = smooth === null ? scrolled : follow(smooth, scrolled, dt, 9);
     clock += dt;
     render(scrolled, smooth);
-    // Only scrolling turns the orbit: a full revolution for every ~1200px.
-    renderOrbit(0.35 + smooth * (Math.PI * 2 / 1200), clock, smooth * 0.45);
+    // Only scrolling turns the orbit (a full revolution for every ~1200px) and
+    // spins the stripes.
+    renderOrbit(0.35 + smooth * (Math.PI * 2 / 1200), clock, smooth * 0.6);
   });
 
   return { measure, resizeTarget: hero.querySelector('.hero-text') };
