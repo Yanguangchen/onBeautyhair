@@ -4,6 +4,7 @@
   "private": true,
   "description": "Static website for ON Hair Salon & Beauty.",
   "scripts": {
-    "dev": "node scripts/dev-server.js"
+    "dev": "node scripts/dev-server.js",
+    "build:pole": "npm install --no-save --no-package-lock --no-audit --no-fund three@0.186.0 esbuild@0.28.2 && esbuild src/pole3d.js --bundle --format=esm --minify --target=es2020 --legal-comments=eof --outfile=pole3d.min.js"
   }
 }

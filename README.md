@@ -37,7 +37,7 @@ This replaces the older generic luxury/founder narrative and avoids unverified c
 - Floating WhatsApp button on the lower-left of the page
 - Auto-opening WhatsApp helper bubble
 - Animated pastel hero background with mesh and floating blobs
-- Scroll-staged hero (barber pole with orbiting storefront photos and scissors) and fanning promise and review card decks
+- Scroll-staged hero (three.js barber pole with orbiting storefront photos and scissors) and fanning promise and review card decks
 - Mouse parallax, magnetic buttons and ripple effects
 - Scroll-triggered reveal animations
 - Scroll progress bar on the homepage
@@ -52,6 +52,7 @@ This replaces the older generic luxury/founder narrative and avoids unverified c
 - HTML5
 - CSS3
 - Vanilla JavaScript
+- three.js for the hero barber pole, bundled into `pole3d.min.js`
 - Google Fonts: Google Sans and Outfit
 - Font Awesome 6 via CDN
 - Google Maps iframe embeds on the contact page
@@ -70,6 +71,9 @@ ON Beauty/
 |-- contact.html
 |-- styles.css
 |-- script.js
+|-- pole3d.min.js      (built from src/pole3d.js)
+|-- src/
+|   `-- pole3d.js     (three.js barber pole source)
 |-- faveicon.png
 |-- README.md
 `-- Assets/
@@ -77,6 +81,17 @@ ON Beauty/
 ```
 
 ## Quick Start
+
+### Rebuilding the 3D barber pole
+
+The hero's barber pole is drawn with three.js. Its source is `src/pole3d.js`; the site loads the committed bundle `pole3d.min.js`, so deploys need no build step. After editing the source, rebuild the bundle and commit both files:
+
+```bash
+npm run build:pole
+```
+
+The script installs the pinned three.js and esbuild into `node_modules` without changing `package.json`, then writes `pole3d.min.js`.
+
 
 Run a local server (internal "Home" links use `./`, which needs a server to resolve to `index.html`):
 
@@ -150,6 +165,7 @@ The main interactions are in `script.js`:
 - `initMinDate()` - prevents past dates in date inputs
 - `initScrollProgress()` - updates the homepage scroll bar
 - `initScrollStages()` - pins the homepage hero and reviews and scrubs their scroll animations
+- `loadPole3d()` - after the page loads, swaps the CSS barber pole for the three.js one in `pole3d.min.js`
 - `initMouseParallax()` - applies mouse-based hero movement
 - `initMagneticButtons()` - adds magnetic hover movement
 - `initButtonRipple()` - adds button ripple effects

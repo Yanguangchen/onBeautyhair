@@ -841,6 +841,47 @@ function runWhileVisible(target, frame) {
    numbers match .orbit-ring and .pole-stripes in styles.css. */
 const POLE_ORBIT = { cx: 300, cy: 300, rx: 196, ry: 54, tilt: -8 * Math.PI / 180 };
 const POLE_STRIPE_PERIOD = 103.923;
+// Scrolled stripe travel (px) per radian the three.js pole turns: its radius.
+const POLE_SPIN_PER_TURN = 41;
+
+/* Swaps the CSS barber pole for the three.js one (pole3d.min.js, built from
+   src/pole3d.js) once the page has loaded. Resolves to null, keeping the CSS
+   pole, when the scene is hidden, Save-Data is on, or WebGL is unavailable. */
+function loadPole3d(scene) {
+  const host = scene.querySelector('.barber-pole');
+  if (!host || (navigator.connection && navigator.connection.saveData)) return Promise.resolve(null);
+
+  return new Promise((resolve) => {
+    const start = () => {
+      if (!scene.getClientRects().length) {
+        resolve(null);
+        return;
+      }
+      const canvas = document.createElement('canvas');
+      canvas.className = 'pole-canvas';
+      import('./pole3d.min.js')
+        .then(({ createBarberPole }) => {
+          host.append(canvas);
+          return createBarberPole(canvas, {
+            // Rendered for the largest the stage scales the scene (1.15x).
+            pixelRatio: Math.min(window.devicePixelRatio || 1, 2) * 1.15,
+            onLost: () => scene.classList.remove('has-3d-pole')
+          });
+        })
+        .catch(() => null)
+        .then((pole) => {
+          if (!pole) canvas.remove();
+          resolve(pole);
+        });
+    };
+    const whenIdle = () => {
+      if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 2000 });
+      else setTimeout(start, 200);
+    };
+    if (document.readyState === 'complete') whenIdle();
+    else window.addEventListener('load', whenIdle, { once: true });
+  });
+}
 
 function createPoleOrbit(scene) {
   const cards = [...scene.querySelectorAll('[data-orbit-card]')];
@@ -853,6 +894,15 @@ function createPoleOrbit(scene) {
   const cosTilt = Math.cos(POLE_ORBIT.tilt);
   const sinTilt = Math.sin(POLE_ORBIT.tilt);
   scene.classList.add('is-orbiting');
+
+  let pole3d = null;
+  let turn = 0;
+  loadPole3d(scene).then((pole) => {
+    if (!pole) return;
+    pole3d = pole;
+    pole3d.render(turn);
+    scene.classList.add('has-3d-pole');
+  });
 
   return (angle, time, spin) => {
     items.forEach((item, i) => {
@@ -873,7 +923,10 @@ function createPoleOrbit(scene) {
       item.el.style.zIndex = String(depth >= 0 ? 12 + Math.round(depth * 8) : 9 - Math.round(-depth * 8));
       if (item.fade) item.el.style.opacity = (0.5 + 0.25 * (depth + 1)).toFixed(3);
     });
-    if (stripes) stripes.style.translate = `0 ${(-(spin % POLE_STRIPE_PERIOD)).toFixed(1)}px`;
+    // Turning the pole this way makes its stripes climb, like the CSS ones.
+    turn = -spin / POLE_SPIN_PER_TURN;
+    if (pole3d) pole3d.render(turn);
+    else if (stripes) stripes.style.translate = `0 ${(-(spin % POLE_STRIPE_PERIOD)).toFixed(1)}px`;
   };
 }
 

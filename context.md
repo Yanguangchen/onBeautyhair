@@ -2,8 +2,8 @@
 
 ## Snapshot
 - Project type: Static multi-page marketing site for a Singapore beauty salon.
-- Stack: HTML5, CSS3, vanilla JavaScript.
-- Build system: None (no framework, no bundler).
+- Stack: HTML5, CSS3, vanilla JavaScript; three.js for the hero barber pole.
+- Build system: None for the site. `pole3d.min.js` is the one built file: `npm run build:pole` bundles it from `src/pole3d.js` with esbuild, and the output is committed.
 - Primary entry page: `index.html`.
 
 ## Visual System
