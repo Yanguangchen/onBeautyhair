@@ -39,7 +39,8 @@
 - Gallery category filtering and lightbox controls.
 - Date input minimum set to current date.
 - Scroll progress bar.
-- Hero and mouse parallax effects.
+- Scroll stages (`initScrollStages()`): pinned hero with barber pole scene and promise card deck, and a fanning testimonial deck.
+- Mouse parallax on the hero background blobs.
 - Magnetic button hover, ripple click effects, card tilt, animated counters.
 - WhatsApp floating CTA enhancement with delayed helper bubble.
 

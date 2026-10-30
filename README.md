@@ -37,7 +37,8 @@ This replaces the older generic luxury/founder narrative and avoids unverified c
 - Floating WhatsApp button on the lower-left of the page
 - Auto-opening WhatsApp helper bubble
 - Animated pastel hero background with mesh and floating blobs
-- Hero parallax, mouse parallax, magnetic buttons and ripple effects
+- Scroll-staged hero (barber pole with orbiting storefront photos and scissors) and fanning promise and review card decks
+- Mouse parallax, magnetic buttons and ripple effects
 - Scroll-triggered reveal animations
 - Scroll progress bar on the homepage
 - Animated counters in the homepage hero
@@ -148,7 +149,7 @@ The main interactions are in `script.js`:
 - `initLightbox()` - opens gallery tiles in a lightbox
 - `initMinDate()` - prevents past dates in date inputs
 - `initScrollProgress()` - updates the homepage scroll bar
-- `initHeroParallax()` - applies scroll parallax in the hero
+- `initScrollStages()` - pins the homepage hero and reviews and scrubs their scroll animations
 - `initMouseParallax()` - applies mouse-based hero movement
 - `initMagneticButtons()` - adds magnetic hover movement
 - `initButtonRipple()` - adds button ripple effects

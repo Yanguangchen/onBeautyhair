@@ -102,7 +102,7 @@ GREP_FILE styles.css
 GREP_FILE script.js
 - Type: global JavaScript
 - Role: site interactions
-- Key modules: WhatsApp bubble, footer year, sticky navbar, mobile menu scroll lock, CDC eligibility modal, FAQ animation, reveal animation, booking modal, simulated booking form, gallery filters, lightbox, min date, scroll progress, hero parallax, mouse parallax, magnetic buttons, ripple, tilt cards, counters
+- Key modules: WhatsApp bubble, footer year, sticky navbar, mobile menu scroll lock, CDC eligibility modal, FAQ animation, reveal animation, booking modal, simulated booking form, gallery filters, lightbox, min date, scroll progress, scroll stages, mouse parallax, magnetic buttons, ripple, tilt cards, counters
 
 GREP_FILE README.md
 - Type: project documentation
@@ -370,7 +370,7 @@ GREP_JS init order
 - `initLightbox()`
 - `initMinDate()`
 - `initScrollProgress()`
-- `initHeroParallax()`
+- `initScrollStages()`
 - `initMouseParallax()`
 - `initMagneticButtons()`
 - `initButtonRipple()`
@@ -447,10 +447,11 @@ GREP_JS initScrollProgress
 - Selector: `#scrollProgress`
 - Behavior: width based on document scroll percent
 
-GREP_JS initHeroParallax
-- Selector: `#hero`
-- CSS vars: `--scroll-y`, `--scroll-progress`
-- Content selector: `[data-parallax-content]`
+GREP_JS initScrollStages
+- Opt-in class: `html.stage-motion` (set in index.html `<head>`); ready flag `html[data-stage="ready"]`
+- Hero selectors: `#hero`, `[data-hero-scene]`, `[data-hero-slot]`, `[data-orbit-card]`, `[data-orbit-glint]`, `.trust-deck`, `.hero-runway`
+- Reviews selectors: `[data-review-stage]`, `.review-pin`, `.testimonial-track`, `.review-runway`, `[data-review-prev]`, `[data-review-next]`
+- CSS var: `--nav-h`; review layout classes: `.is-grid`, `.is-carousel`, `.is-settled`
 
 GREP_JS initMouseParallax
 - Selector: `#hero`
