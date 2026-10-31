@@ -999,10 +999,9 @@ body.menu-open .navbar {
   box-shadow: 0 8px 16px rgba(46, 31, 26, 0.22);
 }
 /* script.js lays the three.js pole (pole3d.min.js) over these CSS parts once the
-   page has loaded, then fades them out. The canvas box matches POLE_VIEW in
-   src/pole3d.js. */
+   page has loaded, then fades them out. It sizes and places the canvas inline,
+   from POLE_VIEW in src/pole3d.js. */
 .pole-canvas {
-  left: 170px; top: 6px; width: 260px; height: 600px;
   opacity: 0;
   transition: opacity 0.6s ease;
 }

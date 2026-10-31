@@ -859,8 +859,19 @@ function loadPole3d(scene) {
       }
       const canvas = document.createElement('canvas');
       canvas.className = 'pole-canvas';
-      import('./pole3d.min.js')
-        .then(({ createBarberPole }) => {
+      import('./pole3d.min.js?v=44bff01b42')
+        .then(({ createBarberPole, POLE_VIEW }) => {
+          // Placed inline rather than by styles.css, so the canvas cannot fall back
+          // to its oversized backing size, or sit under the CSS collars, if the
+          // stylesheet ever arrives out of date.
+          Object.assign(canvas.style, {
+            position: 'absolute',
+            left: `${POLE_VIEW.left}px`,
+            top: `${POLE_VIEW.top}px`,
+            width: `${POLE_VIEW.width}px`,
+            height: `${POLE_VIEW.height}px`,
+            zIndex: '2'
+          });
           host.append(canvas);
           return createBarberPole(canvas, {
             // Rendered for the largest the stage scales the scene (1.15x).

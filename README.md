@@ -90,7 +90,7 @@ The hero's barber pole is drawn with three.js. Its source is `src/pole3d.js`; th
 npm run build:pole
 ```
 
-The script installs the pinned three.js and esbuild into `node_modules` without changing `package.json`, then writes `pole3d.min.js`.
+The script installs the pinned three.js and esbuild into `node_modules` without changing `package.json`, writes `pole3d.min.js`, then re-stamps the asset hashes (see the cache notes below).
 
 
 Run a local server (internal "Home" links use `./`, which needs a server to resolve to `index.html`):
@@ -211,7 +211,7 @@ When publishing a new article in `articles/`:
 - Update the `<title>`, description, canonical, Open Graph tags and `BlogPosting` JSON-LD (headline, dates, images) in its `<head>`
 - Add a card to `blog.html`, a `<url>` to `sitemap.xml` and a line under "Salon Guides" in `llms.txt`
 
-`vercel.json` permanently redirects `/index.html` to `/` and the retired `/blog-bukit-merah-hair-salon.html` to its merged guide, and sets cache headers. `Assets/` files are cached for a day. `styles.css` and `script.js` are revalidated on every load, like the HTML, so a deploy never pairs new markup with an old stylesheet or script. The `?v=` on their links only evicted copies cached under the old one-day rule, so it does not need bumping when they change. Internal "Home" links point to `./` (or `../` from `articles/`), so preview the site through a local server rather than opening files directly.
+`vercel.json` permanently redirects `/index.html` to `/` and the retired `/blog-bukit-merah-hair-salon.html` to its merged guide, and sets cache headers. `Assets/` files are cached for a day. `styles.css` and `script.js` are revalidated on every load, like the HTML. Their links also carry a content hash (`?v=`), as does `script.js`'s import of `pole3d.min.js`, so any change gives the file a new URL and no browser or CDN can pair new markup with an old stylesheet or script. After editing `styles.css`, `script.js` or `pole3d.min.js`, re-stamp the hashes with `npm run version-assets`; `npm run dev` and `npm run build:pole` do this automatically. Internal "Home" links point to `./` (or `../` from `articles/`), so preview the site through a local server rather than opening files directly.
 
 ## Production Checklist
 
