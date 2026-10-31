@@ -104,6 +104,12 @@ GREP_FILE script.js
 - Role: site interactions
 - Key modules: WhatsApp bubble, footer year, sticky navbar, mobile menu scroll lock, CDC eligibility modal, FAQ animation, reveal animation, booking modal, simulated booking form, gallery filters, lightbox, min date, scroll progress, scroll stages, mouse parallax, magnetic buttons, ripple, tilt cards, counters
 
+GREP_FILE src/pole3d.js
+- Type: ES module source (three.js)
+- Role: hero barber pole; bundled to `pole3d.min.js` by `npm run build:pole`
+- Exports: `createBarberPole(canvas, { pixelRatio, onLost })`, `POLE_VIEW`
+- Loaded by: `loadPole3d()` in `script.js`, which adds `.has-3d-pole` to the scene once it renders
+
 GREP_FILE README.md
 - Type: project documentation
 - Role: current operating README
