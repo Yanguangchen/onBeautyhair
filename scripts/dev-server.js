@@ -2,6 +2,7 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { URL } = require('url');
+const { versionAssets } = require('./version-assets');
 
 const root = path.resolve(__dirname, '..');
 const port = Number(process.env.PORT || 8080);
@@ -99,16 +100,36 @@ function notifyReload() {
   }
 }
 
+// Changing one of these re-stamps its ?v= hash in the pages (see version-assets.js).
+const versionedAssets = new Set(['styles.css', 'script.js', 'pole3d.min.js']);
+
+function restampAssets() {
+  try {
+    const { changed } = versionAssets();
+    if (changed.length) console.log(`Re-stamped asset versions in ${changed.length} file(s).`);
+  } catch (error) {
+    console.error('Could not re-stamp asset versions:', error.message);
+  }
+}
+
 function watchFiles() {
   let timeout;
+  let restamp = false;
   fs.watch(root, { recursive: true }, (eventType, filename) => {
     if (!filename || filename.includes('node_modules') || filename.includes('.git')) return;
 
     const ext = path.extname(filename).toLowerCase();
     if (!['.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.webp', '.svg'].includes(ext)) return;
 
+    if (versionedAssets.has(filename)) restamp = true;
     clearTimeout(timeout);
-    timeout = setTimeout(notifyReload, 120);
+    timeout = setTimeout(() => {
+      if (restamp) {
+        restamp = false;
+        restampAssets();
+      }
+      notifyReload();
+    }, 120);
   });
 }
 

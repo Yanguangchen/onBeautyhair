@@ -110,6 +110,11 @@ GREP_FILE src/pole3d.js
 - Exports: `createBarberPole(canvas, { pixelRatio, onLost })`, `POLE_VIEW`
 - Loaded by: `loadPole3d()` in `script.js`, which adds `.has-3d-pole` to the scene once it renders
 
+GREP_FILE scripts/version-assets.js
+- Type: Node script (`npm run version-assets`)
+- Role: stamps content hashes on every page's `styles.css?v=` / `script.js?v=` links and on `script.js`'s `pole3d.min.js?v=` import
+- Run by: `npm run dev` (on change) and `npm run build:pole`
+
 GREP_FILE README.md
 - Type: project documentation
 - Role: current operating README
