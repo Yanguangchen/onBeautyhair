@@ -567,6 +567,18 @@ body.menu-open .navbar {
   min-height: 0;
   max-height: none;
 }
+/* script.js (deferred) places the scene; until its first pose lands the stage
+   shows the scene's resting layout — the unscaled 600 x 660 canvas centred in
+   the pinned layer, which on a phone is a full-size pole across the copy. Hold
+   that layer hidden over the gap and fade it in once the stage has posed it.
+   Nothing stays hidden if the stage never runs: script.js drops stage-motion
+   when it cannot build the stage, and the inline script in <head> drops it at
+   load if the stage never reported ready. */
+.stage-motion .hero-visual { opacity: 0; }
+.stage-motion .hero.is-posed .hero-visual {
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
 .stage-motion .hero-runway {
   display: block;
   height: calc(var(--pin-h) * 4.5);

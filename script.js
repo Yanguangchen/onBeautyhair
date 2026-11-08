@@ -973,6 +973,7 @@ function createHeroStage() {
   let m = null;
   let smooth = null;
   let clock = 0;
+  let posed = false;
 
   const measure = () => {
     const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0;
@@ -1033,6 +1034,18 @@ function createHeroStage() {
     cards.forEach((card, i) => { card.style.zIndex = String(cards.length - i); });
 
     m = { navH, natural, home, stage, aside, copy: copyBoxes, revealEnd, poses, glideStart, glideEnd, dealStart, dealEnd, fanEnd, spreadEnd };
+
+    // Draw the opening pose in the same frame the first measurements land, then
+    // let styles.css fade the layer in: the scene is never painted in the
+    // resting layout it holds while script.js is still on its way.
+    if (!posed) {
+      posed = true;
+      const scrolled = Math.max(0, navH - hero.getBoundingClientRect().top);
+      smooth = scrolled;
+      render(scrolled, scrolled);
+      renderOrbit(0.35 + scrolled * (Math.PI * 2 / 1200), clock, scrolled * 0.6);
+      hero.classList.add('is-posed');
+    }
   };
 
   const render = (scrolled, eased) => {
@@ -1202,7 +1215,12 @@ function createReviewStage() {
 
 function initScrollStages() {
   const root = document.documentElement;
-  const stages = [createHeroStage(), createReviewStage()].filter(Boolean);
+  const heroStage = createHeroStage();
+  // The staged hero keeps its visual layer hidden until that stage poses it, so
+  // if the stage could not be built, drop staged mode here rather than wait for
+  // the <head> fallback at load — otherwise the layer stays hidden until then.
+  if (!heroStage) root.classList.remove('stage-motion');
+  const stages = [heroStage, createReviewStage()].filter(Boolean);
   if (!stages.length) return;
   root.setAttribute('data-stage', 'ready');
 
