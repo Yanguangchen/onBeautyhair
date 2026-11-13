@@ -116,7 +116,7 @@ ON Hair Salon & Beauty lists eight outlets:
 | Outlet 1 - Toa Payoh | 109 Lorong 1 Toa Payoh, #01-306 and #02-306, Singapore 310109 | +65 6980 5765 | +65 8192 0109 |
 | Outlet 2 - Simei Eastpoint Mall | Eastpoint Mall, #04-09.3, Simei Street 6, Singapore 528833 | +65 9348 0188 | +65 9348 0188 |
 | Outlet 3 - Simei Street 3 | Blk 248 Simei Street 3, #01-130, Singapore 520248 | +65 8412 4961 | +65 8412 4961 |
-| Outlet 4 - 164 bukit merah central | Blk 2 164 bukit merah central, #01-5156, Singapore 150002 | +65 6980 5784 | +65 8275 5130 |
+| Outlet 4 - Bukit Merah Block 1 | 1 Jalan Bukit Merah, #01-4510, Singapore 150001 | +65 8256 6911 | +65 8275 5130 |
 | Outlet 5 - 163 bukit merah central | Blk 163 163 bukit merah central, #02-3601, Singapore 150163 | +65 6980 3033 | +65 9897 4760 |
 | Outlet 6 - Yishun Ring Road | Blk 846 Yishun Ring Road, #01-3643, Singapore 760846 | +65 8466 6738 | +65 8466 6738 |
 | Outlet 7 - Ang Mo Kio Avenue 10 | Blk 449 Ang Mo Kio Avenue 10, #01-1721, Singapore 560449 | Xiao Yang +65 6019 0752; Zoey +65 8336 9693 | WhatsApp: Zoey only |
