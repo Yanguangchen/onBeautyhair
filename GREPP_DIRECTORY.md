@@ -222,11 +222,11 @@ GREP_BOOKING cdc-vouchers
 ## Outlet Directory
 
 GREP_OUTLET outlet-1
-- Name: 164 bukit merah central
-- Footer label: Outlet 1 - 164 bukit merah central
-- Address: Blk 2, 164 bukit merah central, #01-5156, Singapore 150002
-- Shop phone: `+65 6980 5784`
-- Shop tel href: `tel:+6569805784`
+- Name: Bukit Merah Block 1
+- Footer label: Outlet 3 - Bukit Merah Block 1
+- Address: 1 Jalan Bukit Merah, #01-4510, Singapore 150001
+- Shop phone: `+65 8256 6911`
+- Shop tel href: `tel:+6582566911`
 - WhatsApp: `+65 8275 5130`
 - WhatsApp href: `https://wa.me/6582755130`
 
