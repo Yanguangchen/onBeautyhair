@@ -2,8 +2,8 @@
    a deploy can never pair fresh HTML with a styles.css or script.js that a
    browser or CDN cached from an earlier deploy: any change to a file changes
    its URL. `npm run dev` and `npm run build:pole` run this for you; otherwise
-   run `npm run version-assets` after editing styles.css, script.js or
-   pole3d.min.js. */
+   run `npm run version-assets` after editing styles.css, script.js,
+   pole3d.min.js, specialty.css or specialty.js. */
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
@@ -41,15 +41,19 @@ function versionAssets() {
 
   const styles = hashOf('styles.css');
   const script = hashOf('script.js');
+  const specialtyStyles = hashOf('specialty.css');
+  const specialtyScript = hashOf('specialty.js');
   htmlFiles().forEach((file) => {
     const updated = rewrite(file, [
       [/((?:href|src)="(?:\.\.\/)?styles\.css)(?:\?v=[^"]*)?"/g, `$1?v=${styles}"`],
-      [/((?:href|src)="(?:\.\.\/)?script\.js)(?:\?v=[^"]*)?"/g, `$1?v=${script}"`]
+      [/((?:href|src)="(?:\.\.\/)?script\.js)(?:\?v=[^"]*)?"/g, `$1?v=${script}"`],
+      [/((?:href|src)="(?:\.\.\/)?specialty\.css)(?:\?v=[^"]*)?"/g, `$1?v=${specialtyStyles}"`],
+      [/((?:href|src)="(?:\.\.\/)?specialty\.js)(?:\?v=[^"]*)?"/g, `$1?v=${specialtyScript}"`]
     ]);
     if (updated) changed.push(file);
   });
 
-  return { versions: { 'styles.css': styles, 'script.js': script, 'pole3d.min.js': pole }, changed };
+  return { versions: { 'styles.css': styles, 'script.js': script, 'pole3d.min.js': pole, 'specialty.css': specialtyStyles, 'specialty.js': specialtyScript }, changed };
 }
 
 module.exports = { versionAssets };
