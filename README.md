@@ -14,6 +14,7 @@ The site is built with plain HTML, CSS and vanilla JavaScript. There is no build
 | `gallery.html` | Filterable placeholder gallery with masonry-style tiles and lightbox behavior. |
 | `faq.html` | FAQ page with animated native accordion rows, outlet WhatsApp prompts, CTA, footer and booking modal. |
 | `contact.html` | Outlet cards, outlet-specific phone and WhatsApp actions, contact details, studio-hours placeholder, embedded Google Maps and booking CTA. |
+| `specialty-studio.html` | On Specialty Studio, the specialty-haircut branch at 164 Bukit Merah Central. A stand-alone black-and-gold editorial page with its own `specialty.css` and `specialty.js` (it does not load `styles.css` or `script.js`): preloader, split-title hero, scroll-lit manifesto, scroll-driven marquee, horizontally scrolling "cuts" gallery, gold aperture reveal, ritual steps, principles and a visit section with a dark map. All motion is off under `prefers-reduced-motion`. |
 
 ## Current Positioning
 
@@ -211,7 +212,7 @@ When publishing a new article in `articles/`:
 - Update the `<title>`, description, canonical, Open Graph tags and `BlogPosting` JSON-LD (headline, dates, images) in its `<head>`
 - Add a card to `blog.html`, a `<url>` to `sitemap.xml` and a line under "Salon Guides" in `llms.txt`
 
-`vercel.json` permanently redirects `/index.html` to `/` and the retired `/blog-bukit-merah-hair-salon.html` to its merged guide, and sets cache headers. `Assets/` files are cached for a day. `styles.css` and `script.js` are revalidated on every load, like the HTML. Their links also carry a content hash (`?v=`), as does `script.js`'s import of `pole3d.min.js`, so any change gives the file a new URL and no browser or CDN can pair new markup with an old stylesheet or script. After editing `styles.css`, `script.js` or `pole3d.min.js`, re-stamp the hashes with `npm run version-assets`; `npm run dev` and `npm run build:pole` do this automatically. Internal "Home" links point to `./` (or `../` from `articles/`), so preview the site through a local server rather than opening files directly.
+`vercel.json` permanently redirects `/index.html` to `/` and the retired `/blog-bukit-merah-hair-salon.html` to its merged guide, and sets cache headers. `Assets/` files are cached for a day. `styles.css` and `script.js` are revalidated on every load, like the HTML. Their links also carry a content hash (`?v=`), as does `script.js`'s import of `pole3d.min.js`, so any change gives the file a new URL and no browser or CDN can pair new markup with an old stylesheet or script. After editing `styles.css`, `script.js`, `pole3d.min.js`, `specialty.css` or `specialty.js`, re-stamp the hashes with `npm run version-assets`; `npm run dev` and `npm run build:pole` do this automatically. Internal "Home" links point to `./` (or `../` from `articles/`), so preview the site through a local server rather than opening files directly.
 
 ## Production Checklist
 
